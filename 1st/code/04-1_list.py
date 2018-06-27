@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-# typeや追加、削除、特定の要素の確認については、インタプリタで確認
-
 # モジュールをインポート
 import random  
 
@@ -15,7 +13,11 @@ omikuji = ['大吉 すべてよし',
            '大凶 すべてわるし'
            ]
 
-#乱数を生成
+# for 変数 in list でリストの中身をすべて取り出せます
+for x in omikuji:
+  print(x)
+
+# 乱数を生成
 num = random.randrange(0,6)
 
 # omikuji[num]をunseiに代入

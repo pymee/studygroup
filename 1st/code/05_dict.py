@@ -12,12 +12,9 @@ omikuji = {'運勢1': '大吉 すべてよし',
            '運勢4': '凶 わるし'
 }
 
-#辞書(omikuji)のValue(値)をoutput_omikujiに代入
-output_omikuji = omikuji.values()
-
-# output_omikujiをrandom.choiceした結果をunseiに代入
+#辞書(omikuji)のkeyをランダム取得し、unsei_keyに代入
 # random.choiceするには、list化が必須のため、list()をしてます。
-unsei = random.choice(list(output_omikuji))
+unsei_key = random.choice(list(omikuji.keys()))
 
 print('あなたの名前を入力してください')
 
@@ -25,4 +22,4 @@ print('あなたの名前を入力してください')
 name = input('>>')
 
 # 結果を出力
-print(name + 'さんの運勢は、' + unsei + 'です!')
+print(name + 'さんの運勢は、' + omikuji[unsei_key] +'です!')	
