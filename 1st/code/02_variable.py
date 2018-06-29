@@ -4,8 +4,8 @@
 # 代入
 omikuji_1 = '大吉 すべてよし'
 omikuji_2 = '中吉 まあまあよし'
-omikuji_3 = '小吉 少しよし'
-omikuji_4 = '吉 よし'
+omikuji_3 = '小吉 よし'
+omikuji_4 = '吉 すこしよし'
 omikuji_5 = '凶 わるし'
 
 # fortuneにomiku_1を代入

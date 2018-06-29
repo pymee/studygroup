@@ -7,8 +7,8 @@ import random
 # 代入
 omikuji_1 = '大吉 すべてよし'
 omikuji_2 = '中吉 まあまあよし'
-omikuji_3 = '小吉 少しよし'
-omikuji_4 = '吉 よし'
+omikuji_3 = '小吉 よし'
+omikuji_4 = '吉 すこしよし'
 omikuji_5 = '凶 わるし'
 
 # random.randintは()の中の数字からランダムで数字を選択してくれます
@@ -25,10 +25,10 @@ elif num == 2:
 elif num == 3:
 	unsei = omikuji_4
 elif num == 4:
-	unsei = omikuji_5	
+	unsei = omikuji_5
 else:
 	unsei = ""
-     
+
 print('あなたの名前を入力してください')
 
 # 名前を入力
