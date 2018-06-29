@@ -2,23 +2,17 @@
 # coding: utf-8
 
 # モジュールをインポート
-import random  
+import random
 
 # リスト(omikuji)を作成
 omikuji = ['大吉 すべてよし',
            '中吉 まあまあよし',
-           '小吉 すこしよし',
-           '吉 よし',
+           '小吉 よし',
+           '吉 すこしよし',
            '凶 わるし',
-           '大凶 すべてわるし'
            ]
-
-# for 変数 in list でリストの中身をすべて取り出せます
-for x in omikuji:
-  print(x)
-
 # 乱数を生成
-num = random.randrange(0,6)
+num = random.randrange(0,5)
 
 # omikuji[num]をunseiに代入
 unsei = omikuji[num]
