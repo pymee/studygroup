@@ -13,7 +13,7 @@ omikuji_5 = '凶 わるし'
 
 # random.randintは()の中の数字からランダムで数字を選択してくれます
 # 選択した数字をnumに代入
-num = random.randrange(0,5)
+num = random.randrange(0,6)
 
 # numに格納された数字によって出力される文字列を変更
 if num == 0:
