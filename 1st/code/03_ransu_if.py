@@ -5,11 +5,11 @@
 import random
 
 # 代入
-daikichi = '大吉 すべてよし'
-chukichi = '中吉 まあまあよし'
-shokichi = '小吉 よし'
-kichi = '吉 すこしよし'
-kyo = '凶 わるし'
+omikuji_1 = '大吉 すべてよし'
+omikuji_2 = '中吉 まあまあよし'
+omikuji_3 = '小吉 よし'
+omikuji_4 = '吉 すこしよし'
+omikuji_5 = '凶 わるし'
 
 # random.randrangeは()にしていた範囲からランダムに要素を返します
 # 選択した数字をnumに代入
@@ -17,15 +17,15 @@ num = random.randrange(0,5)
 
 # numに格納された数字によって出力される文字列を変更
 if num == 0:
-	unsei = daikichi
+	unsei = omikuji_1
 elif num == 1:
-	unsei = chukichi
+	unsei = omikuji_2
 elif num == 2:
-	unsei = shokichi
+	unsei = omikuji_3
 elif num == 3:
-	unsei = kichi
+	unsei = omikuji_4
 elif num == 4:
-	unsei = kyo
+	unsei = omikuji_5
 else:
 	unsei = ""
 
