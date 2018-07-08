@@ -11,7 +11,7 @@ omikuji = [{'all':'大吉! すべてよし。 ','work':'仕事運:プロジェ�
 		{'all':'吉! 少しよし。 ','work':'仕事運:思ったよりも上手くいくかも'},
 		{'all':'凶! わるし。 ','work':'仕事運:些細なミスが命取りに！'}]
 
-# fortune内の辞書からランダムで取得
+# omikuji内の辞書からランダムで取得し、unseiに代入
 unsei = random.choice(omikuji)
 
 print('あなたの名前を入力してください')

@@ -11,10 +11,11 @@ omikuji = ['大吉 すべてよし',
            '吉 すこしよし',
            '凶 わるし',
            ]
+
 # 乱数を生成
 num = random.randrange(0,5)
 
-# omikuji[num]をunseiに代入
+# unseiにomikuji[num]を代入
 unsei = omikuji[num]
 
 print('あなたの名前を入力してください')
