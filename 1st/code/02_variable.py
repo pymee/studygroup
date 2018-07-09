@@ -2,11 +2,11 @@
 # coding: utf-8
 
 # 変数に値(運勢)を代入
-daikichi = '大吉 すべてよし'
-chukichi = '中吉 まあまあよし'
-shokichi = '小吉 よし'
-kichi = '吉 すこしよし'
-kyo = '凶 わるし'
+omikuji_1 = '大吉 すべてよし'
+omikuji_2 = '中吉 まあまあよし'
+omikuji_3 = '小吉 よし'
+omikuji_4 = '吉 すこしよし'
+omikuji_５ = '凶 わるし'
 
 # unseiにdaikichiを代入
 unsei = daikichi
