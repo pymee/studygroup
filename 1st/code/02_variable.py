@@ -6,10 +6,10 @@ omikuji_1 = '大吉 すべてよし'
 omikuji_2 = '中吉 まあまあよし'
 omikuji_3 = '小吉 よし'
 omikuji_4 = '吉 すこしよし'
-omikuji_５ = '凶 わるし'
+omikuji_5 = '凶 わるし'
 
-# unseiにdaikichiを代入
-unsei = daikichi
+# unseiにomikuji_１を代入
+unsei = omikuji_１
 
 print('あなたの名前を入力してください')
 
