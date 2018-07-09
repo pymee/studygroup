@@ -11,7 +11,7 @@ omikuji_3 = '小吉 よし'
 omikuji_4 = '吉 すこしよし'
 omikuji_5 = '凶 わるし'
 
-# random.randintは()の中の数字からランダムで数字を選択してくれます
+# random.randrangeは()の中の数字からランダムで数字を選択してくれます
 # 選択した数字をnumに代入
 num = random.randrange(0,6)
 

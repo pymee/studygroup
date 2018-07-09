@@ -8,7 +8,7 @@ omikuji_3 = '小吉 よし'
 omikuji_4 = '吉 すこしよし'
 omikuji_5 = '凶 わるし'
 
-# fortuneにomiku_1を代入
+# unseiにomikuji_1を代入
 unsei = omikuji_1
 
 print('あなたの名前を入力してください')
