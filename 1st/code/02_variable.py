@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-# 変数(omikuji_1 ~ omikuji_5)に値(運勢)を代入
+# 変数に値(運勢)を代入
 daikichi = '大吉 すべてよし'
 chukichi = '中吉 まあまあよし'
 shokichi = '小吉 よし'
