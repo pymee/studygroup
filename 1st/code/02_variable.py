@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# coding: utf-8
-
 # 代入
 omikuji_1 = '大吉 すべてよし'
 omikuji_2 = '中吉 まあまあよし'
