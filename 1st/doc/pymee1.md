@@ -525,7 +525,7 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 
 ---
 
-# 0-4の数字から任意の数字を選ぶ
+# 0-4の数字からランダムで数字を選ぶ
 > import random
 > random.randrange(start, stop[, step])
 
