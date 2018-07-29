@@ -207,9 +207,6 @@ Pythonでは自動で判別のため、データ型の宣言は不要
 値の型を確認することができる
 + プログラムの内容
 ```
-#!/usr/bin/env python3
-#coding: utf-8
-
 print("あなたの運勢は、大吉すべてよし")
 print(type("あなたの運勢は、大吉すべてよし"))
 ```
@@ -263,9 +260,6 @@ $ python 01_print.py
 
 今までのプログラム
 ```
-#!/usr/bin/env python3
-#coding: utf-8
-
 print("あなたの運勢は、大吉すべてよし")
 ```
 printの中身を5つ分書き換えるのは手間...
@@ -412,12 +406,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 # おみくじプログラムを改良しよう！
 1. ファイル「01_print.py」をコピーして「02_variable.py」に変更
-2. 「#coding: utf-8」の下に５種類のおみくじをそれぞれ変数に格納
+2. ファイルの先頭に５種類のおみくじをそれぞれ変数に格納
 **コメント文(#から始まる部分)は記載不要です**
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # 代入
 omikuji_1 = '大吉 すべてよし'
 omikuji_2 = '中吉 まあまあよし'
@@ -465,9 +456,6 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 
 # 完成コード
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # 代入
 omikuji_1 = '大吉 すべてよし'
 omikuji_2 = '中吉 まあまあよし'
@@ -653,11 +641,8 @@ $ python3.6
 
 # 0-4の数字から任意の数字を選ぶ
 1. ファイル「02_variable.py」をコピーし、ファイル名を「03_ransu_if.py」にする
-2. 「# coding: utf-8」の次に、「import random」を追加
+2. ファイルの先頭に、「import random」を追加
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # モジュールをインポート
 import random
 ```
@@ -707,9 +692,6 @@ else:
 
 # 完成コード(1/3)
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # モジュールをインポート
 import random
 
@@ -993,9 +975,6 @@ unsei = omikuji[num]
 
 # 完成コード(1/2)
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # モジュールをインポート
 import random
 
@@ -1121,9 +1100,6 @@ unsei = random.choice(omikuji)
 
 # 完成コード(1/2)
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # モジュールをインポート
 import random
 
@@ -1288,9 +1264,6 @@ dict_keys(['daikichi', 'cyukichi', 'syoukichi', 'kichi',
 
 # 完成コード(1/2)
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # モジュールをインポート
 import random
 
@@ -1440,9 +1413,6 @@ print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])
 <font style = "font-size: 80%">
 
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # モジュールをインポート
 import random
 
@@ -1482,9 +1452,6 @@ print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])
 <font style = "font-size: 80%">
 
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # モジュールをインポート
 import random
 
@@ -1608,9 +1575,6 @@ elifやelseは省略可能
 <font style = "font-size: 80%">
 
 ```
-#!/usr/bin/env python3
-# coding: utf-8
-
 # モジュールをインポート
 import random
 
