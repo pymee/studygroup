@@ -1200,6 +1200,7 @@ omikuji = {'daikichi': '大吉',
 >>> omikuji
 {'daikichi': '大吉', 'chukichi': '大吉',
  'shokichi': '小吉', 'kyo': '凶'}
+```
 
 ---
 
