@@ -186,7 +186,7 @@ SyntaxError: invalid character in identifier
 + 文字列(こんにちは、名前、pymee)
 + 数値(1, 100, 80)
 + 浮動小数点数(1.09, 20.59)
-+ bool(True, False)
++ Boolean(True, False)
 
 Pythonでは自動で判別のため、データ型の宣言は不要
  + メリット: 変数の型をコンパイラが判定しなくていいため早い
