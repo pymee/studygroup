@@ -1412,9 +1412,8 @@ unsei_key = random.choice(list(omikuji.keys()))
 ```
 + 修正後
 ```
-#辞書(omikuji)のkeyをランダム取得し、unsei_keyに代入
-# random.choiceするには、list化が必須のため、list()をしてます。
-unsei_key = random.choice(list(omikuji.keys()))
+# omikuji内の辞書からランダムで取得
+unsei = random.choice(omikuji)
 ```
 
 ---
@@ -1432,6 +1431,7 @@ print(name + 'さんの運勢は、' + omikuji[unsei_key] +'です!')
 # 結果を出力
 print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])
 ```
++ \n は改行を示している
 </font>
 
 ---
@@ -1477,6 +1477,42 @@ print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])
 
 ---
 
+# 動作を確認しよう！
++ unseiの値をprintで取り出してみよう！
+<font style = "font-size: 80%">
+
+```
+#!/usr/bin/env python3
+# coding: utf-8
+
+# モジュールをインポート
+import random
+
+# 辞書が内包されたリストを作成
+omikuji = [
+ {'all':'大吉! すべてよし。 ','work':'仕事運:プロジェクトは大成功！'},
+ {'all':'中吉! まぁまぁよし。 ','work':'仕事運:定時で帰れます！'},
+ {'all':'小吉! よし。 ','work':'仕事運:ミスなく過ごせます！'},
+ {'all':'吉! 少しよし。 ','work':'仕事運:思ったよりも上手くいくかも'},
+ {'all':'凶! わるし。 ','work':'仕事運:些細なミスが命取りに！'}]
+
+# omikuji内の辞書からランダムで取得
+unsei = random.choice(omikuji)
+
+# unseiの値を確認
+print(unsei)
+```
+</font>
+
+---
+
+# 動作結果
++ 実行結果
+```
+```
+
+---
+
 # まとめ
 + リストの要素を辞書にしたり、辞書の要素をリストにすることが可能
 
@@ -1505,7 +1541,7 @@ print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])
 # おみくじ結果によってメッセージを出力する
 + ifを使用して処理内容を変える
 	+ 全体運に「吉」が含まれていた場合は(条件)「いい一日になるといいですね！」と出力する(処理)
-+ 「含まれていた場合」には「in」を使用する
++ 文字列にある文字が含まれているかを確認するには「in」を使用する
 	+ '吉' in '大吉'
 		+ 一致する(true)
 	+ '吉' in '凶'
@@ -1522,8 +1558,21 @@ print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])
 if '吉' in unsei['all']:
 	print('いい一日になるといいですね！')
 else:
-	print('こういう日もあります。元気出してくだい！！')
+	print('こういう日もあります。元気出してください！')
 ```
+
+---
+
+# 復習！
++ ifって？
+条件1に合う場合(真,True)は処理１を実行、条件1に合わない場合はelse後の処理2を実行する
+```
+if 条件1:
+	処理1
+else:
+  処理2
+```
+elifやelseは省略可能
 
 ---
 
