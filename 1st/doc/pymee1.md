@@ -1071,7 +1071,7 @@ unsei = omikuji[num]
 1. リストからランダムで取り出し
 random.choice(list)
 ```
-<u>**２行が１行になった！！**</u>
+<u>コメント文を除いた部分が **２行が１行になった！！**</u>
 
 ---
 
@@ -1088,7 +1088,7 @@ random.choice(list)
 + random.choice(list)を使用してプログラムを改良する
 	+ 変更前
 	任意の整数を選択し、リストのオフセットを元におみくじ結果を選択
-    + 変更後
+  + 変更後
 	random.choice()を使用し、任意の要素を選択
 
 ---
@@ -1507,8 +1507,36 @@ print(unsei)
 ---
 
 # 動作結果
-+ 実行結果
++ 「unseiの値を確認」を追加し実行すると。。。
+
+<font style = "font-size: 80%">
+
 ```
+$ python3 06_nest_test.py
+{'all': '大吉! すべてよし。 ', 'work': '仕事運:プロジェクトは大成功！'}
+あなたの名前を入力してください
+>>pymee
+pymeeさんの運勢は、大吉! すべてよし。
+仕事運:プロジェクトは大成功！
+```
+</font>
+
++ { }なので出力された値が辞書であること
++ 結果を出力させる最後のprint()のunsei['all']、unsei['work']と、unseiの確認で追加したprint()によって出力された結果の対応を確認
+<font style = "font-size: 80%">
+
+> \# 結果を出力
+> print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])
+</font>
+
+---
+
+# 確認部分の削除
++ 確認が終わったので、追加した「unseiの値を確認」部分を削除する
+
+```
+# unseiの値を確認
+print(unsei)
 ```
 
 ---
