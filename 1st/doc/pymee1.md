@@ -1055,8 +1055,7 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 ---
 
 # リストから任意の要素を取り出す
-> import random
->
+> import random  
 > random.choice(list)
 
 ()の中に指定したリストから、任意の要素を出力する
