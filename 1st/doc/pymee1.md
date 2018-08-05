@@ -544,10 +544,8 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 
 # 0-4の数字からランダムで数字を選ぶ
 
-> import random
->
-> random.randrange(start, stop[, step])
->
+> import random  
+> random.randrange(start, stop[, step])  
 
 startやstop、stepには整数を記載  
 start以上end未満の整数から任意の整数を選択する  
@@ -870,6 +868,7 @@ else:
 + 値の削除
     + オフセットを指定しての削除
     > del リスト名[オフセット]
+
     「吉」を1つ削除する
     ```
     >>> omikuji
@@ -962,7 +961,7 @@ else:
 ---
 
 # 5つの変数を1つのリストにまとめる
-4. 変数部分をリストに書き換える
+3. 変数部分をリストに書き換える
 + 削除部分
 ```
 # 代入
@@ -1048,15 +1047,16 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 # もっと短くしよう！
 + この部分をもっと短くしてみよう！
 
-> # 乱数を生成
+> \# 乱数を生成
 > num = random.randrange(0,5)
-> # omikuji[num]をunseiに代入
+> \# omikuji[num]をunseiに代入
 > unsei = omikuji[num]
 
 ---
 
 # リストから任意の要素を取り出す
 > import random
+>
 > random.choice(list)
 
 ()の中に指定したリストから、任意の要素を出力する
@@ -1087,13 +1087,13 @@ unsei = omikuji[num]
 1. リストからランダムで取り出し
 random.choice(list)
 ```
-<u>コメント文を除いた部分が **２行が１行になった！！**</u>
+<u> コメント文を除いた部分が **２行が１行になった！！** </u>
 
 ---
 
 # なぜ短い方がいいのか？
-+ ２行が１行になっただけでは？
-  **プログラムは書く時間より読む時間の方が長い**
++ ２行が１行になっただけでは？  
+**プログラムは書く時間より読む時間の方が長い**
 
 + 基本的には、短くてシンプルな方が後から読みやすい
 + 他人が後から読んでもわかりやすいようにコメントを入れたり、変数名をわかりやすくするように心がけましょう
@@ -1171,8 +1171,8 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 + リストとは
     + 複数を要素をまとめた大きな箱
     + 各要素には0からの番号が振られ、こちらを用いて値を取り出すことが可能
-    + リストの機能
-    https://docs.python.jp/3/tutorial/datastructures.html#more-on-lists
+    + その他のリストの機能
+        - https://docs.python.jp/3/tutorial/datastructures.html#more-on-lists
 
 ---
 
@@ -1440,8 +1440,8 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 
 # まとめ
 + 辞書とは
-    　+ {鍵 : 値}の形で定義し、鍵を使用して値を取り出す
-    　+ リストと異なり鍵を使用して値を取り出すため順番は関係ない
+    + {鍵 : 値}の形で定義し、鍵を使用して値を取り出す
+    + リストと異なり鍵を使用して値を取り出すため順番は関係ない
 
 ---
 
@@ -1476,10 +1476,11 @@ omikuji = [
 
 # 値が辞書の場合
 + 値の構造について
-> omikuji = [
->  {'all':全体運の内容1,'work':仕事運の内容1}, **←omikuji[0]**
->  {'all':全体運の内容2,'work':仕事運の内容2}, **←omikuji[1]**
->  ...]
+
+> omikuji = \[  
+>  {'all':全体運の内容1,'work':仕事運の内容1}, **←omikuji[0]**  
+>  {'all':全体運の内容2,'work':仕事運の内容2}, **←omikuji[1]**  
+>  ...]  
 
 {'all':hogehoge,'work':hogehoge}という辞書がomikuji(リスト)の1つの値になっている
 
@@ -1522,6 +1523,7 @@ omikuji = {'daikichi': '大吉 すべてよし',
 ```
 + 修正後
 <font style = "font-size: 80%">
+
 ```
 # 辞書が内包されたリストを作成
 omikuji = [
@@ -1555,6 +1557,7 @@ unsei = random.choice(omikuji)
 # 変数「omikuji」の値に「仕事運」の項目を追加する
 5. 出力結果の修正
 <font style = "font-size: 80%">
+
 + 修正前
 ```
 # 結果を出力
@@ -1653,8 +1656,9 @@ pymeeさんの運勢は、大吉! すべてよし。
 + 結果を出力させる最後のprint()のunsei['all']、unsei['work']と、unseiの確認で追加したprint()によって出力された結果の対応を確認
 <font style = "font-size: 80%">
 
-> \# 結果を出力
-> print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])
+> \# 結果を出力  
+> print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])  
+
 </font>
 
 ---
