@@ -408,6 +408,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 > 変数 = input()
 
 受け取った値を変数に格納することが可能
+![](picture/入力_pic1.png)
 
 ---
 
