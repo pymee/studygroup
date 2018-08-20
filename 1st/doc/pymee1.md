@@ -1073,10 +1073,12 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 # もっと短くしよう！
 + この部分をもっと短くしてみよう！
 
-> \# 乱数を生成
-> num = random.randrange(0,5)
-> \# omikuji[num]をunseiに代入
-> unsei = omikuji[num]
+```
+# 乱数を生成
+num = random.randrange(0,5)
+# omikuji[num]をunseiに代入
+unsei = omikuji[num]
+```
 
 ---
 
