@@ -329,7 +329,7 @@ omikuji_1 = '大吉 すべてよし'
 # print(omikuji_1)の流れ
 1. 箱のラベルが「omikuji_1」のものを見つける
 1. print()が箱の中身を出力する
-<br>
+
 ![](picture/変数とは？_pic2.png)
 
 ---
