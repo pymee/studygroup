@@ -1863,8 +1863,8 @@ else:
 ---
 
 # アンケート
-+ 今後のよりよい活動のため、アンケートにご協力ください！
-![400% center](picture/questionnaires.png)
++ 今後のよりよい活動のため、アンケートにご協力ください！<br>
+![400% center](picture/questionnaires.png)<br>
 https://questant.jp/q/EHD95UUV
 
 ---
