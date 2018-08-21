@@ -1864,12 +1864,10 @@ else:
 
 # アンケート
 + 今後のよりよい活動のため、アンケートにご協力ください！
+![400% center](picture/questionnaires.png)
 https://questant.jp/q/EHD95UUV
-
-![200%](picture/questionnaires.png)
 
 ---
 
 # ご質問など。。。
-+ tocaroグループ
-疑問、不明点を気軽に聞いてください！
++ tocaroグループにて、疑問、不明点を気軽に聞いてください！
