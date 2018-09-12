@@ -762,7 +762,7 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 num = random.randrange(0,6)
 
 # 動作確認用コード
-print("num:" + num)
+print(num)
 
 ```
 
@@ -794,7 +794,7 @@ print("num:" + num)
 num = random.randrange(0,6)
 
 # 動作確認用コード
-print("num:" + num)
+print(num)
 
 ```
 
