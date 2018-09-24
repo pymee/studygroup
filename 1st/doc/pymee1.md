@@ -1415,7 +1415,7 @@ omikuji = {'daikichi': '大吉 すべてよし',
 ---
 
 # リストを辞書に書き換える
-4. 変数「unsei」の中身を書き換える
+4. 変数「unsei」を「unsei_key」に書き換える
 + 変更前
 ```
 #ランダムでおみくじを表示
@@ -1441,6 +1441,18 @@ dict_keys(['daikichi', 'cyukichi', 'syoukichi', 'kichi',
 >>>
 >>> list(omikuji.keys())
 ['daikichi', 'cyukichi', 'syoukichi', 'kichi', 'kyo']
+```
+
+---
+# リストを辞書に書き換える
+5. 出力結果を書き換える
++ 変更前
+```
+print(name + 'さんの運勢は、' + unsei + 'です!')
+```
++ 変更後
+```
+print(name + 'さんの運勢は、' + omikuji[unsei_key] + 'です!')
 ```
 
 ---
