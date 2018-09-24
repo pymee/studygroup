@@ -1831,7 +1831,7 @@ print(unsei)
 ---
 
 # 動作結果
-+ 「unseiの値を確認」を追加し実行すると。。。  
++ 「unseiの値を確認」を追加し実行すると。。。
     ※windowsの場合は「py 06_nest_test.py」と入力して実行
 
 <font style = "font-size: 80%">
@@ -1850,7 +1850,7 @@ pymeeさんの運勢は、大吉! すべてよし。
 + 結果を出力させる最後のprint()のunsei['all']、unsei['work']と、unseiの確認で追加したprint()によって出力された結果の対応を確認
 <font style = "font-size: 80%">
 
-> \# 結果を出力
+> \# 結果を出力  
 > print(name + 'さんの運勢は、' + unsei['all']+ '\n' + unsei['work'])
 
 </font>
