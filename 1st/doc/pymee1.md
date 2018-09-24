@@ -127,11 +127,11 @@ $ cd <項番1で確認したフォルダのパス>
 6. プログラムの実行
 + windowsの場合
 ```
-$ py test.py
+$ py 01_print.py
 ```
 + windows以外の場合
 ```
-$ python3 test.py
+$ python3 01_print.py
 ```
 7. 「あなたの運勢は、大吉 すべてよし」と出力されることを確認
 
