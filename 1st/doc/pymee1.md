@@ -1831,7 +1831,7 @@ print(unsei)
 ---
 
 # 動作結果
-+ 「unseiの値を確認」を追加し実行すると。。。
++ 「unseiの値を確認」を追加し実行すると。。。  
     ※windowsの場合は「py 06_nest_test.py」と入力して実行
 
 <font style = "font-size: 80%">
