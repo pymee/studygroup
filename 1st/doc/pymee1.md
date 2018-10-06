@@ -1326,7 +1326,7 @@ print(name + 'さんの運勢は、' + unsei + 'です!')
 
 ```
 omikuji = {'daikichi': '大吉',
-           'chukihi': '中吉',
+           'chukichi': '中吉',
            'shokichi': '小吉',
            'kichi': '吉',
            'kyo': '凶'}
@@ -1492,7 +1492,7 @@ omikuji = ['大吉 すべてよし',
 + 修正後
 ```
 omikuji = {'daikichi': '大吉 すべてよし',
-           'chukihi': '中吉 まあまあよし',
+           'chukichi': '中吉 まあまあよし',
            'shokichi': '小吉 よし',
            'kichi': '吉 少しよし',
            'kyo': '凶 わるし'
@@ -1568,7 +1568,7 @@ pymeeさんの運勢は、大吉 すべてよしです!
 import random
 
 omikuji = {'daikichi': '大吉 すべてよし',
-           'chukihi': '中吉 まあまあよし',
+           'chukichi': '中吉 まあまあよし',
            'shokichi': '小吉 よし',
            'kichi': '吉 少しよし',
            'kyo': '凶 わるし'
@@ -1687,7 +1687,7 @@ omikuji = [
 + 修正前
 ```
 omikuji = {'daikichi': '大吉 すべてよし',
-           'chukihi': '中吉 まあまあよし',
+           'chukichi': '中吉 まあまあよし',
            'shokichi': '小吉 よし',
            'kichi': '吉 少しよし',
            'kyo': '凶 わるし'}
