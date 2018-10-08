@@ -4,7 +4,7 @@
 import random
 
 omikuji = {'daikichi': '大吉 すべてよし',
-           'chukihi': '中吉 まあまあよし',
+           'chukichi': '中吉 まあまあよし',
            'shokichi': '小吉 よし',
            'kichi': '吉 少しよし',
            'kyo': '凶 わるし'
