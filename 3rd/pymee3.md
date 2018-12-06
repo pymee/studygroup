@@ -340,6 +340,9 @@ etc...
 ```
 【サンプルプログラム】
 ```python
+#エラー発生時の詳細取得準備
+import sys
+
 #エラーが発生した際に別処理へ遷移させたい箇所をtry～exceptで囲む。
 try:
 
@@ -399,6 +402,7 @@ Traceback (most recent call last):
 ## ポイント
 + 上から順番に処理される  
 　⇒exceptを一番上に書くとそこで処理されてしまうので、個別エラー処理を先に書く
++ sys.exc_info()でエラーの詳細を取得できる
 
 ---
 
@@ -519,6 +523,7 @@ kyo.txt
 ---
 【サンプルプログラム】
 ```python
+import sys
 #ランダムで値を取り出す為の準備
 import random #
 

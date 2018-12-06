@@ -1,3 +1,4 @@
+import sys
 #ランダムで値を取り出す為の準備
 import random #
 
