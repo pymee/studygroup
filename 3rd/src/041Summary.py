@@ -1,5 +1,3 @@
-#! python3
-
 #ランダムで値を取り出す為の準備
 import random #
 
@@ -12,29 +10,35 @@ try:
     kyo     = open("kyo.txt", "r",encoding="utf-8")
 
 #読み込んだおみくじ用ファイルを辞書型でまとめる
-    input = {"大吉":daikiti,
-              "吉":kiti,
-              "凶":kyo}
+    inputOmikuji = {"大吉":daikiti,
+                    "吉":kiti,
+                    "凶":kyo}
 
 #ランダムで選択する為のキーとなる単語をリストで用意
-    omikujiList = ["大吉","吉","凶"]
+    omikujiList = inputOmikuji.keys()
 
 #omikujiListの中からランダムで一つ選ぶ
-    selectOmikuji = random.choice(omikujiList)
+    randomOmikuji = random.choice(list(omikujiList))
 
-#omikujiListからランダムに選んだ運勢(文字列)をキーにしてinputにセットしたテキストファイルの中身から選んだ文字列に対応するファイルの中身を読み込む。
-    output = input[selectOmikuji]
+#omikujiListからランダムに選んだ運勢(文字列)をキーにしてinputOmikujiにセットしたテキストファイルの中身から選んだ文字列に対応するファイルの中身を読み込む。
+    selectOmikuji = inputOmikuji[randomOmikuji]
 
 #読み込んだファイルの中身を1行ずつ取り出す。
-    for o in output:
-        print (o);
-
-#クローズ処理
-    output.close()
+    for selectLine in selectOmikuji:
+        print (selectLine, end='');
 
 #ファイルが見つからない時は以下のコードが実行される。
 except FileNotFoundError:
     print("ファイル読み込みエラー！")
+    print(sys.exc_info())
 #その他のエラー発生時は以下のコードが実行される。
 except:
-    print("エラー！")
+    print("その他のエラー！")
+    print(sys.exc_info())
+else:
+    print('\nおみくじの結果はどうでしたか？')
+#以下のコードはどんな場合でも実行される。
+finally:
+    daikiti.close()
+    kiti.close()
+    kyo.close()

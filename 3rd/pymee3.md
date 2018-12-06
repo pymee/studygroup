@@ -27,14 +27,14 @@
 1. 例外
 
 ---
+# 今回の講義で利用する知識
 
 今回の講義は前回までの講義を踏まえた上で実施します。  
 
-【今回の講義で利用する知識】
-+ 変数
-+ 関数
-+ リスト
-+ 辞書型
++ 変数(自分で名前をつける物)
++ 関数(print()など)
++ リスト([A,B,C])
++ 辞書型({a:A,b:B})
 
 ---
 # 前回のおさらい
@@ -44,16 +44,14 @@
 ---
 
 # リスト
-```
-#! python3
-
+```python
 # リスト(omikuji)を作成
 # omikujiという名前の変数にリスト型で一つずつ値を格納している。
-omikuji = ['大吉 すべてよし',
-           '中吉 まあまあよし',
-           '小吉 よし',
-           '吉 すこしよし',
-           '凶 わるし',
+omikuji = ['大吉',
+           '中吉',
+           '小吉',
+           '吉',
+           '凶'
            ]
 print(omikuji[0])
 ```
@@ -66,11 +64,9 @@ print(omikuji[0])
 ![](./img/list.png)
 ---
 # 辞書型
-```
-#! python3
-
+```python
 # 辞書(omikuji)を作成
-# omikujiという名前の変数に辞書型で一組ずつ「キー：値」の形で格納している。
+# omikujiという名前の変数に辞書型で一組ずつ「鍵：値」の形で格納している。
 omikuji = {"大吉":"すべてよし",
            "中吉":"まあまあよし",
            "小吉":"よし",
@@ -90,22 +86,22 @@ print(omikuji["大吉"])
 # 思い出せましたか？この知識を前提に、本日の講義を行います。
 ---
 # for文とは？
+
 for文はリストから値を取得して、先頭から１つずつ値を取り出しながら繰り返し(ループ)処理を実装する事ができます。  
 
-+ フローの画像(for文)
+---
+![](./img/for_flow.png)
 
 ---
 【例文(for文)】
-```
-#! python3
+```python
+#「sampleList」という名前のリストを作成
+sampleList = [1,2,3,4,5]
 
-#「sample」という名前のリストを作成
-sample = [1,2,3,4,5]
-
-#for文で「sample」の中身を一つずつ取り出してループ
+#for文で「sampleList」の中身を一つずつ取り出してループ
 #先頭から取り出して末尾までループする。
-for s in sample:
-    print(s)
+for number in sampleList:
+    print(number)
 ```
 + 出力結果
 ```
@@ -116,18 +112,19 @@ for s in sample:
 5
 ```
 ---
-記載した通り、for文はリストから値を取得する事が前提の作りになっています。
-ですが、以下のRange関数を併用する事とリストの準備なしで指定した回数だけループできます。
+記載した通り、for文は指定したリストにある値を全て出力する事が前提の作りになっています。  
+※リスト以外にもタプル、辞書、文字列などから一個づつ値を取り出せます。
+
+ですが、以下のRange関数を併用するとリストの準備なしで指定した回数だけループできます。
 
 【例文(for文+Range関数)】
+```python
+#range(数字)で0～(記載した数字-1)までの数字が入ったrange型オブジェクト(リストのような物)が作れる。
+#下記の例文だと0～9の値が入ったrange型オブジェクトが作られる。
+for number in range(10):
+    print(number+1)
 ```
-#! python3
-
-#range(数字)で0～(記載した数字-1)までの数字が入ったリストが作れる。
-#下記の例文だと0～9の値が入ったリストが作られる。
-for s in range(10):
-    print(s+1)
-```
+---
 + 出力結果
 ```
 1
@@ -148,8 +145,7 @@ for s in range(10):
 ---
 ## サンプルプログラムを作ってみましょう(for文)  
 
-【事前準備】
-
+【事前準備】  
 デスクトップ(どこでもいいです)に作業フォルダを作成し、そこへ以下の名前でテキストファイルを作成して下さい。作成したファイルにサンプルプログラムを記載して保存して下さい。  
 ※全部コピペで張ってしまってOKです。
 
@@ -160,19 +156,17 @@ for s in range(10):
 ```
 【サンプルプログラム】
 
-```
-#! python3
-
-#「omikuji」というリストを作成
-omikuji = ['仕事運 まあまあよし',
+```python
+#「omikujiList」というリストを作成
+omikujiList = ['仕事運 まあまあよし',
            '恋愛運 よし',
            '健康運 すこしよし'
            ]
 
-#for文で「omikuji」の中身を一つずつ取り出してループ
+#for文で「omikujiList」の中身を一つずつ取り出してループ
 #先頭から取り出して末尾までループする。
-for o in omikuji:
-    print(o)
+for omikuji in omikujiList:
+    print (omikuji);
 ```
 ---
 コードが書けたら以下のコマンドで実行してみましょう。
@@ -195,31 +189,32 @@ python3 02_fileIO.py
 ---
 # ファイルから文字列を読み込んでみよう
 
-現場でpythonを利用するのであれば、ファイル入出力は避けて通れない道です。
+現場でpythonを利用するのであれば、ファイル入出力は避けて通れない道です。  
 まずはファイルから文字を読み込んでみましょう。  
-※今後「IO」と言う単語が出てきますが、「INPUT/OUTPUT」の略称で「入力(読み込み)/出力(表示)」を指しています。  
-+ フローの画像(ファイルIO)
+※今後「I/O」と言う単語が出てきますが、「INPUT/OUTPUT」の略称で「入力(読み込み)/出力(表示)」を指しています。  
 
 ---
-【例文(ファイルIO)】
+![](./img/fileio_flow.png)
 
-```
-#! python3
+---
+【例文(ファイルI/O)】
 
+```python
 #読み込むファイルを指定。
 #この書式で記載すると以下の通りに値が格納される。
-#　・ファイル読み込み元：outputSample.txt
-#　・ファイルから読み込んだ中身の格納先：output(一行ずつリスト形式で格納される)
-output = open("outputSample.txt", "r",encoding="utf-8")
+#　・ファイル読み込み元：inputSample.txt
+#　・ファイルから読み込んだ中身の格納先：inputAll(一行ずつリスト形式で格納される)
+inputAll = open("inputSample.txt", "r",encoding="utf-8")
 
 #ファイルから読み込んだ中身を一行ずつfor文で出力する。
-for o in output:
-    print (o);
+for inputLine in inputAll:
+    print (inputLine, end='');
 
 #ファイルを読み込んだ後はクローズ処理を記載する。
 #これを書かないとメモリにゴミが残る。(動作が重くなっていく)
-output.close()
+inputAll.close()
 ```
+---
 + 出力結果
 ```
 【大吉】
@@ -229,18 +224,17 @@ output.close()
 転居：無理せず待て
 ```
 
-上記の文法で、ソースコード(.pyファイル)を配置したフォルダと同じフォルダに配置された「outputSample.txt」を読み込む事ができます。
+上記の文法で、ソースコード(.pyファイル)を配置したフォルダと同じフォルダに配置された「inputSample.txt」を読み込む事ができます。
 
 ---
 ## サンプルプログラムを作ってみましょう(ファイル読み込み)
-【事前準備】
-
+【事前準備】  
 事前準備として、以下の内容を記載したテキストファイルを作業フォルダに保存しておいて下さい。
 
 + ファイル名
 
 ```
-outputSample.txt
+inputSample.txt
 ```
 + 記載内容
 
@@ -252,6 +246,7 @@ outputSample.txt
 転居：無理せず待て
 ```
 ---
+事前準備したファイルとは別に、以下のファイルを作成して下さい。
 
 + ファイル名
 
@@ -260,17 +255,15 @@ outputSample.txt
 ```
 【サンプルプログラム】
 
-```
-#! python3
-
+```python
 #読み込むファイルを指定。
-#ファイル読み込み元：outputSample.txt
-output = open("outputSample.txt", "r",encoding="utf-8")
+#ファイル読み込み元：inputSample.txt
+inputAll = open("inputSample.txt", "r",encoding="utf-8")
 
-for o in output:
-    print (o);
+for inputLine in inputAll:
+    print (inputLine, end='');
 
-output.close()
+inputAll.close()
 ```
 + 実行(windowsの場合)
 
@@ -296,26 +289,27 @@ python3 02_fileIO.py
 ---
 # 例外
 日々業務を行っていると想定外の事が起こりえます。そんな時はフォローをして貰えると助かりますよね？
-プログラムも人間が考えて作る物ですから、想定外の事ももちろん発生します。そんな時にフォローをしてあげる仕組みを学びましょう。
+プログラムも人間が考えて作る物ですから、想定外の事ももちろん発生します。そんな時にフォローをしてあげる仕組みを学びましょう。  
+※ただし、そもそもプログラムが間違っている場合(構文エラー)は対象外です。
 
-
-+ フローの画像(例外)
 ---
+![](./img/except_flow.png)
 
-```
-#! python3
-
+---
+【例文(例外)】
+```python
 #エラーが発生した際に別処理へ遷移させたい箇所をtry～exceptで囲む。
 #基本的に全部でいい。
 try:
 
 #例文として存在しないファイルを指定
 #ファイル名を間違ったりして存在しないファイルを指定するとエラーになります。
-    output = open("exception.txt", "r",encoding="utf-8")
+    inputAll = open("exception.txt", "r",encoding="utf-8")
 
-    for o in output:
-        print (o);
-        output.close()
+    for inputLine in inputAll:
+        print (inputLine, end='');
+
+    inputAll.close()
 
 #上記のexception.txtが存在しない為、エラーが発生して以下のexceptと記載された箇所の処理が実行される。
 #エラーが発生しなかった場合はexcept句に記載されたコードは実行されない。
@@ -327,9 +321,14 @@ except:
 エラー！
 ```
 ---
-先述のtry～exceptを記載する事で、万が一処理に失敗した場合のフォロー処理を行う事ができます。
-この処理を記載しないと、エラーが発生した箇所でプログラムの実行が終わってしまいます。  
-しかし、この処理を記載する事で中途半端に動いてしまった際の後始末処理を書いたり、エラーが発生した事をログファイルへ記載したりする処理を行う事ができます。
+## ポイント
++ try～exceptを記載する事で、処理に失敗した場合のフォローができる。  
+　⇒エラーが発生した箇所でプログラムの実行がする事を防げる。  
+
+## 用途
++ 中途半端に動いてしまった際の後始末
++ 発生したエラーの詳細をログファイルへ記載
+etc...
 
 ---
 ## サンプルプログラムを作ってみましょう(例外)
@@ -340,25 +339,33 @@ except:
 03_except.py
 ```
 【サンプルプログラム】
-```
-#! python3
-
+```python
 #エラーが発生した際に別処理へ遷移させたい箇所をtry～exceptで囲む。
 try:
 
 #例文として存在しないファイルを指定
-    output = open("exception.txt", "r",encoding="utf-8")
+    inputAll = open("exception.txt", "r",encoding="utf-8")
 
-    for o in output:
-        print (o);
-        output.close()
+    for inputLine in output:
+        print (inputLine, end='');
+
+    inputAll.close()
 
 #ファイルが見つからない時は以下のコードが実行される。
+#sys.exc_info()でエラーの詳細を確認できる。
 except FileNotFoundError:
     print("ファイル読み込みエラー！")
+    print(sys.exc_info())
 #その他のエラー発生時は以下のコードが実行される。
 except:
-    print("エラー！")
+    print("その他のエラー！")
+    print(sys.exc_info())
+#エラーが発生しなかった場合は以下のコードが実行される。
+else:
+    print('※例外は発生しませんでした')
+#以下のコードはどんな場合でも実行される。
+finally:
+    print('処理終了')
 ```
 + 実行(windowsの場合)
 
@@ -372,21 +379,33 @@ python3 03_except.py
 ```
 + 出力結果
 ```
-エラー！
+ファイル読み込みエラー！
+処理終了
+Traceback (most recent call last):
+～
+
 ```
 ---
-サンプルプログラムではexcept句がさらに2か所に分かれています。  
-分ける理由としては「どんなエラーが発生したか切り分ける為」です。  
-exceptだけだと全部のエラーを捕まえてしまうので、ファイルIOや型指定エラー、リストの参照エラー等分けて指定する事ができます。  
-今回のプログラムでは先にFileNotFoundErrorを記載して「ファイルが見つからなかったエラー」を実行し、次にexceptのみを記載して、想定したエラーで取りきれなかった物を想定外のエラーとして全て捕まえます。  
-※複数の種類を記載した場合、上から順番に条件に当てはまるエラーを探しに行きます。故に、exceptのみの記載を一番最初に書くと全て捕まえてしまいます。
+## 4つのexcept句
++ except FileNotFoundError:  
+　⇒ファイル読み込みエラー発生時に実行される
++ except:  
+　⇒全てのエラー発生時に実行される
++ else:  
+　⇒全て正常に処理された場合に実行される
++ finally:  
+　⇒どんな場合でも実行される
+
+## ポイント
++ 上から順番に処理される  
+　⇒exceptを一番上に書くとそこで処理されてしまうので、個別エラー処理を先に書く
 
 ---
 
 # まとめ
 1. 前回のおさらい(リスト/辞書型)
-```
-#! python3
+
+```python
 omikuji = ['大吉 すべてよし',
            '中吉 まあまあよし',
            '小吉 よし',
@@ -395,8 +414,7 @@ omikuji = ['大吉 すべてよし',
            ]
 print(omikuji[0])
 ```
-```
-#! python3
+```python
 omikuji = {"大吉":"すべてよし",
            "中吉":"まあまあよし",
            "小吉":"よし",
@@ -406,42 +424,196 @@ omikuji = {"大吉":"すべてよし",
 print(omikuji["大吉"])
 ```
 1. for文
-```
-#! python3
+```python
 sample = [1,2,3,4,5]
 for s in sample:
     print(s)
 ```
 1. ファイル入出力
-```
-#! python3
+```python
 output = open("outputSample.txt", "r",encoding="utf-8")
 for o in output:
-    print (o);
+    print (o, end='');
 output.close()
 ```
 1. 例外
-```
-#! python3
+```python
 try:
     output = open("exception.txt", "r",encoding="utf-8")
 
     for o in output:
-        print (o);
+        print (o, end='');
         output.close()
 except FileNotFoundError:
     print("ファイル読み込みエラー！")
 except:
     print("エラー！")
+else:
+    print('※例外は発生しませんでした')
+finally:
+    print('処理終了')
+```
+---
+## サンプルプログラムを作ってみましょう(まとめ)
+
+前頁を踏まえ、次のコードを作成して下さい。
+
+【事前準備】  
+事前準備として、以下の内容を記載した３つのテキストファイルを作業フォルダに保存しておいて下さい。
+
+①
++ ファイル名
+
+```
+daikiti.txt
+```
++ 記載内容
+
+```
+【大吉】
+待人：辛抱強く待つべし
+失物：足元にあり
+恋愛：深入りするな
+転居：無理せず待て
 ```
 
+②
++ ファイル名
+
+```
+kiti.txt
+```
++ 記載内容
+
+```
+【吉】
+待人：待てば来る
+失物：見つからず
+恋愛：良い出会いあり
+転居：南東が良し
+```
+
+③
++ ファイル名
+
+```
+kyo.txt
+```
++ 記載内容
+
+```
+﻿【凶】
+待人：来ない
+失物：増える
+恋愛：刺される
+転居：燃える
+```
+---
+事前準備したファイルとは別に、以下のファイルを作成して下さい。
+
++ ファイル名
+
+```
+04_summary.py
+```
+---
+【サンプルプログラム】
+```python
+#ランダムで値を取り出す為の準備
+import random #
+
+#エラーが発生した際に別処理へ遷移させたい箇所をtry～exceptで囲む。
+try:
+
+#おみくじ用ファイルを読み込む
+    daikiti = open("daikiti.txt", "r",encoding="utf-8")
+    kiti    = open("kiti.txt", "r",encoding="utf-8")
+    kyo     = open("kyo.txt", "r",encoding="utf-8")
+
+#読み込んだおみくじ用ファイルを辞書型でまとめる
+    inputOmikuji = {"大吉":daikiti,
+                    "吉":kiti,
+                    "凶":kyo}
+
+#ランダムで選択する為のキーとなる単語をリストで用意
+    omikujiList = inputOmikuji.keys()
+
+#omikujiListの中からランダムで一つ選ぶ
+    randomOmikuji = random.choice(list(omikujiList))
+
+#omikujiListからランダムに選んだ運勢(文字列)をキーにしてinputOmikujiにセットしたテキストファイルの中身から選んだ文字列に対応するファイルの中身を読み込む。
+    selectOmikuji = inputOmikuji[randomOmikuji]
+
+#読み込んだファイルの中身を1行ずつ取り出す。
+    for selectLine in selectOmikuji:
+        print (selectLine, end='');
+
+#ファイルが見つからない時は以下のコードが実行される。
+except FileNotFoundError:
+    print("ファイル読み込みエラー！")
+    print(sys.exc_info())
+#その他のエラー発生時は以下のコードが実行される。
+except:
+    print("その他のエラー！")
+    print(sys.exc_info())
+else:
+    print('\nおみくじの結果はどうでしたか？')
+#以下のコードはどんな場合でも実行される。
+finally:
+    daikiti.close()
+    kiti.close()
+    kyo.close()
+```
+---
++ 実行(windowsの場合)
+
+```
+py 04_summary.py
+```
++ 実行(その他の場合)
+
+```
+python3 04_summary.py
+```
+---
++ 出力結果
+※以下のいずれか
+```
+【大吉】
+待人：辛抱強く待つべし
+失物：足元にあり
+恋愛：深入りするな
+転居：無理せず待て
+おみくじの結果はどうでしたか？
+```
+```
+【吉】
+待人：待てば来る
+失物：見つからず
+恋愛：良い出会いあり
+転居：南東が良し
+おみくじの結果はどうでしたか？
+```
+```
+﻿【凶】
+待人：来ない
+失物：増える
+恋愛：刺される
+転居：燃える
+おみくじの結果はどうでしたか？
+```
+
+---
 みなさん長い間お疲れ様でした！
 
 ---
 
-# 最後に
-+ 次回予告
-何しましょう
+# 次回予告  
++ 繰り返し処理第２弾
++ ファイルの書き込み
+
+今回の範囲外のお話  
++ with open
 
 ---
 
