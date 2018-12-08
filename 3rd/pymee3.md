@@ -90,7 +90,7 @@ print(omikuji["大吉"])
 for文はリストから値を取得して、先頭から１つずつ値を取り出しながら繰り返し(ループ)処理を実装する事ができます。  
 
 ---
-![](./img/for_flow.png)
+![](./img/for_flow.PNG)
 
 ---
 【例文(for文)】
@@ -194,7 +194,7 @@ python3 02_fileIO.py
 ※今後「I/O」と言う単語が出てきますが、「INPUT/OUTPUT」の略称で「入力(読み込み)/出力(表示)」を指しています。  
 
 ---
-![](./img/fileio_flow.png)
+![](./img/fileio_flow.PNG)
 
 ---
 【例文(ファイルI/O)】
@@ -293,7 +293,7 @@ python3 02_fileIO.py
 ※ただし、そもそもプログラムが間違っている場合(構文エラー)は対象外です。
 
 ---
-![](./img/except_flow.png)
+![](./img/except_flow.PNG)
 
 ---
 【例文(例外)】
