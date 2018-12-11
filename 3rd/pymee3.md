@@ -485,7 +485,7 @@ try:
     for inputLine in inputAll:
         print (inputLine, end='');
     print('\n')
-        
+
 except FileNotFoundError:
     print("ファイル読み込みエラー！")
 except:
@@ -677,7 +677,7 @@ python3 04_summary.py
 # アンケート
 + 今後のよりよい活動のため、アンケートにご協力ください！
 
-![400% center](./img/questionnaires.png)
+![400% center](./img/qr_3rd.png)
 
 https://questant.jp/q/WP4SJ79K
 
