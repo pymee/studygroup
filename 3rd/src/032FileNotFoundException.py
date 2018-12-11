@@ -7,10 +7,10 @@ try:
 #例文として存在しないファイルを指定
     inputAll = open("exception.txt", "r",encoding="utf-8")
 
-    for inputLine in output:
+    for inputLine in inputAll:
         print (inputLine, end='');
 
-    inputAll.close()
+    print('\n')
 
 #ファイルが見つからない時は以下のコードが実行される。
 #sys.exc_info()でエラーの詳細を確認できる。
@@ -27,3 +27,6 @@ else:
 #以下のコードはどんな場合でも実行される。
 finally:
     print('処理終了')
+#ファイルがオープンできている場合のみクローズ処理を実施する。
+    if 'inputAll' in locals():
+        inputAll.close()

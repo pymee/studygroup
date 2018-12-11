@@ -8,6 +8,9 @@ inputAll = open("inputSample.txt", "r",encoding="utf-8")
 for inputLine in inputAll:
     print (inputLine, end='');
 
+#見やすいように最後に改行を入れる
+print('\n')
+
 #ファイルを読み込んだ後はクローズ処理を記載する。
 #これを書かないとメモリにゴミが残る。(動作が重くなっていく)
 inputAll.close()

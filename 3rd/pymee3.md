@@ -119,9 +119,11 @@ for number in sampleList:
 
 【例文(for文+Range関数)】
 ```python
-#range(数字)で0～(記載した数字-1)までの数字が入ったrange型オブジェクト(リストのような物)が作れる。
-#下記の例文だと0～9の値が入ったrange型オブジェクトが作られる。
+#range(数字)で0～(記載した数)の数字が入ったrange型オブジェクト(リストのような物)が作れる。
+#下記の例文だと0～9(10個)の値が入ったrange型オブジェクトが作られる。
 for number in range(10):
+
+#出力時に+1して1～10で出力させる。
     print(number+1)
 ```
 ---
@@ -212,6 +214,9 @@ inputAll = open("inputSample.txt", "r",encoding="utf-8")
 for inputLine in inputAll:
     print (inputLine, end='');
 
+#見やすいように最後に改行を入れる
+print('\n')
+
 #ファイルを読み込んだ後はクローズ処理を記載する。
 #これを書かないとメモリにゴミが残る。(動作が重くなっていく)
 inputAll.close()
@@ -265,6 +270,8 @@ inputAll = open("inputSample.txt", "r",encoding="utf-8")
 for inputLine in inputAll:
     print (inputLine, end='');
 
+print('\n')
+
 inputAll.close()
 ```
 ---
@@ -314,6 +321,8 @@ try:
     for inputLine in inputAll:
         print (inputLine, end='');
 
+    print('\n')
+
     inputAll.close()
 
 #上記のexception.txtが存在しない為、エラーが発生して以下のexceptと記載された箇所の処理が実行される。
@@ -357,10 +366,11 @@ try:
 #例文として存在しないファイルを指定
     inputAll = open("exception.txt", "r",encoding="utf-8")
 
-    for inputLine in output:
+    for inputLine in inputAll:
         print (inputLine, end='');
 
-    inputAll.close()
+    print('\n')
+
 ```
 ---
 【サンプルプログラム】(2/2)
@@ -380,6 +390,9 @@ else:
 #以下のコードはどんな場合でも実行される。
 finally:
     print('処理終了')
+#ファイルがオープンできている場合のみクローズ処理を実施する。
+    if 'inputAll' in locals():
+        inputAll.close()
 ```
 
 ---
@@ -405,7 +418,7 @@ Traceback (most recent call last):
 ---
 ## 4つのexcept句
 + except FileNotFoundError:
-　⇒ファイル読み込みエラー発生時に実行される
+　⇒対象ファイルが存在しない時に実行される
 + except:
 　⇒全てのエラー発生時に実行される
 + else:
@@ -417,6 +430,7 @@ Traceback (most recent call last):
 + 上から順番に処理される
 　⇒exceptを一番上に書くとそこで処理されてしまうので、個別エラー処理を先に書く
 + sys.exc_info()でエラーの詳細を取得できる
+※事前に「import sys」の記述が必要
 
 ---
 
@@ -447,16 +461,17 @@ print(omikuji["大吉"])
 # まとめ(2/3)
 2. for文
 ```python
-sample = [1,2,3,4,5]
-for s in sample:
-    print(s)
+sampleList = [1,2,3,4,5]
+for sample in sampleList:
+    print(sample)
 ```
 3. ファイル入出力
 ```python
-output = open("outputSample.txt", "r",encoding="utf-8")
-for o in output:
-    print (o, end='');
-output.close()
+inputAll = open("inputSample.txt", "r",encoding="utf-8")
+for inputLine in inputAll:
+    print (inputLine, end='');
+print('\n')
+inputAll.close()
 ```
 
 ---
@@ -465,11 +480,12 @@ output.close()
 4. 例外
 ```python
 try:
-    output = open("exception.txt", "r",encoding="utf-8")
+    inputAll = open("exception.txt", "r",encoding="utf-8")
 
-    for o in output:
-        print (o, end='');
-        output.close()
+    for inputLine in inputAll:
+        print (inputLine, end='');
+    print('\n')
+        
 except FileNotFoundError:
     print("ファイル読み込みエラー！")
 except:
@@ -478,6 +494,8 @@ else:
     print('※例外は発生しませんでした')
 finally:
     print('処理終了')
+    if 'inputAll' in locals():
+        inputAll.close()
 ```
 ---
 ## サンプルプログラムを作ってみましょう(まとめ)
@@ -531,7 +549,7 @@ kyo.txt
 + 記載内容
 
 ```
-﻿【凶】
+【凶】
 待人：来ない
 失物：増える
 恋愛：刺される
@@ -582,6 +600,8 @@ try:
     for selectLine in selectOmikuji:
         print (selectLine, end='');
 
+    print('\n')
+
 #ファイルが見つからない時は以下のコードが実行される。
 except FileNotFoundError:
     print("ファイル読み込みエラー！")
@@ -594,9 +614,12 @@ else:
     print('\nおみくじの結果はどうでしたか？')
 #以下のコードはどんな場合でも実行される。
 finally:
-    daikiti.close()
-    kiti.close()
-    kyo.close()
+    if 'daikiti' in locals():
+        daikiti.close()
+    if 'kiti' in locals():
+        kiti.close()
+    if 'kyo' in locals():
+        kyo.close()
 ```
 ---
 + 実行(windowsの場合)
@@ -629,7 +652,7 @@ python3 04_summary.py
 おみくじの結果はどうでしたか？
 ```
 ```
-﻿【凶】
+【凶】
 待人：来ない
 失物：増える
 恋愛：刺される
@@ -638,7 +661,7 @@ python3 04_summary.py
 ```
 
 ---
-みなさん長い間お疲れ様でした！
+# みなさん長い間お疲れ様でした！
 
 ---
 
@@ -656,7 +679,7 @@ python3 04_summary.py
 
 ![400% center](./img/questionnaires.png)
 
-https://questant.jp/q/C68EE153
+https://questant.jp/q/WP4SJ79K
 
 ---
 # おまけ

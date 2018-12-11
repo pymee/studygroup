@@ -9,6 +9,8 @@ try:
     for inputLine in inputAll:
         print (inputLine, end='');
 
+    print('\n')
+
     inputAll.close()
 
 #上記のexception.txtが存在しない為、エラーが発生して以下のexceptと記載された箇所の処理が実行される。

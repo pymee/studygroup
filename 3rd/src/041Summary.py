@@ -1,6 +1,6 @@
 import sys
 #ランダムで値を取り出す為の準備
-import random #
+import random
 
 #エラーが発生した際に別処理へ遷移させたい箇所をtry～exceptで囲む。
 try:
@@ -28,6 +28,8 @@ try:
     for selectLine in selectOmikuji:
         print (selectLine, end='');
 
+    print('\n')
+
 #ファイルが見つからない時は以下のコードが実行される。
 except FileNotFoundError:
     print("ファイル読み込みエラー！")
@@ -40,6 +42,9 @@ else:
     print('\nおみくじの結果はどうでしたか？')
 #以下のコードはどんな場合でも実行される。
 finally:
-    daikiti.close()
-    kiti.close()
-    kyo.close()
+    if 'daikiti' in locals():
+        daikiti.close()
+    if 'kiti' in locals():
+        kiti.close()
+    if 'kyo' in locals():
+        kyo.close()

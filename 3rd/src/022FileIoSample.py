@@ -5,4 +5,6 @@ inputAll = open("inputSample.txt", "r",encoding="utf-8")
 for inputLine in inputAll:
     print (inputLine, end='');
 
+print('\n')
+
 inputAll.close()
