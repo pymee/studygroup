@@ -66,7 +66,8 @@ print(omikuji[0])
 # 辞書型
 ```python
 # 辞書(omikuji)を作成
-# omikujiという名前の変数に辞書型で一組ずつ「鍵：値」の形で格納している。
+# omikujiという名前の変数に辞書型で
+# 一組ずつ「鍵：値」の形で格納している。
 omikuji = {"大吉":"すべてよし",
            "中吉":"まあまあよし",
            "小吉":"よし",
@@ -119,8 +120,11 @@ for number in sampleList:
 
 【例文(for文+Range関数)】
 ```python
-#range(数字)で0～(記載した数)の数字が入ったrange型オブジェクト(リストのような物)が作れる。
-#下記の例文だと0～9(10個)の値が入ったrange型オブジェクトが作られる。
+#range(数字)で0～(記載した数)の数字が入った
+#range型オブジェクト(リストのような物)が作れる。
+#
+#下記の例文だと0～9(10個)の値が入った
+#range型オブジェクトが作られる。
 for number in range(10):
 
 #出力時に+1して1～10で出力させる。
@@ -206,8 +210,10 @@ python3 01_for.py
 ```python
 #読み込むファイルを指定。
 #この書式で記載すると以下の通りに値が格納される。
-#　・ファイル読み込み元：inputSample.txt
-#　・ファイルから読み込んだ中身の格納先：inputAll(一行ずつリスト形式で格納される)
+#　・ファイル読み込み元：
+#      inputSample.txt
+#　・ファイルから読み込んだ中身の格納先：
+#      inputAll(一行ずつリスト形式で格納される)
 inputAll = open("inputSample.txt", "r",encoding="utf-8")
 
 #ファイルから読み込んだ中身を一行ずつfor文で出力する。
@@ -308,14 +314,20 @@ python3 02_fileIO.py
 ![60%](./img/except_flow.PNG)
 
 ---
+
+
 【例文(例外)】
+
+<font style = "font-size: 97%">
+   
 ```python
 #エラーが発生した際に別処理へ遷移させたい箇所をtry～exceptで囲む。
 #基本的に全部でいい。
 try:
 
 #例文として存在しないファイルを指定
-#ファイル名を間違ったりして存在しないファイルを指定するとエラーになります。
+#ファイル名を間違ったりして存在しないファイルを
+#指定するとエラーになります。
     inputAll = open("exception.txt", "r",encoding="utf-8")
 
     for inputLine in inputAll:
@@ -325,16 +337,25 @@ try:
 
     inputAll.close()
 
-#上記のexception.txtが存在しない為、エラーが発生して以下のexceptと記載された箇所の処理が実行される。
-#エラーが発生しなかった場合はexcept句に記載されたコードは実行されない。
+#上記のexception.txtが存在しない為、
+#エラーが発生して以下のexceptと記載された箇所の処理が実行される。
+#
+#エラーが発生しなかった場合はexcept句に記載されたコードは
+#実行されない。
 except:
     print("エラー！")
 ```
+</font>
+
+---
+
 + 出力結果
 ```
 エラー！
 ```
+
 ---
+
 ## ポイント
 + try～exceptを記載する事で、処理に失敗した場合のフォローができる。
 　⇒エラーが発生した箇所でプログラムの実行がする事を防げる。
@@ -565,7 +586,7 @@ kyo.txt
 ```
 ---
 
-【サンプルプログラム】(1/2)
+【サンプルプログラム】(1/3)
 ```python
 import sys
 #ランダムで値を取り出す為の準備
@@ -591,7 +612,7 @@ try:
     randomOmikuji = random.choice(list(omikujiList))
 ```
 ---
-【サンプルプログラム】(2/2)
+【サンプルプログラム】(2/3)
 ```python
 #omikujiListからランダムに選んだ運勢(文字列)をキーにしてinputOmikujiにセットしたテキストファイルの中身から選んだ文字列に対応するファイルの中身を読み込む。
     selectOmikuji = inputOmikuji[randomOmikuji]
@@ -601,7 +622,11 @@ try:
         print (selectLine, end='');
 
     print('\n')
+```
+---
 
+【サンプルプログラム】(3/3)
+```python
 #ファイルが見つからない時は以下のコードが実行される。
 except FileNotFoundError:
     print("ファイル読み込みエラー！")
