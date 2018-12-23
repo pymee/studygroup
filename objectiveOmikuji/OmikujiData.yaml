@@ -1,0 +1,104 @@
+daikichi:
+  name: "大吉"
+  rate: 5
+  kinun:
+    name: "金運"
+    contents:
+      - 詳細1
+      - 詳細2
+
+  tenkyoun:
+    name: "旅行運"
+    contents:
+      - 詳細3
+      - 詳細4
+
+  shigotoun:
+    name: "仕事運"
+    contents:
+      - 詳細5
+      - 詳細6
+
+chukichi:
+  name: "中吉"
+  rate: 15
+  kinun:
+    name: "金運"
+    contents:
+      - 詳細7
+      - 詳細8
+
+  tenkyoun:
+    name: "旅行運"
+    contents:
+      - 詳細9
+      - 詳細10
+
+  shigotoun:
+    name: "仕事運"
+    contents:
+      - 詳細11
+      - 詳細12
+
+shokichi:
+  name: "小吉"
+  rate: 20
+  kinun:
+    name: "金運"
+    contents:
+      - 詳細13
+      - 詳細14
+
+  tenkyoun:
+    name: "旅行運"
+    contents:
+      - 詳細15
+      - 詳細16
+
+  shigotoun:
+    name: "仕事運"
+    contents:
+      - 詳細17
+      - 詳細18
+
+kichi:
+  name: "吉"
+  rate: 30
+  kinun:
+    name: "金運"
+    contents:
+      - 普通
+      - これまた普通
+
+  tenkyoun:
+    name: "旅行運"
+    contents:
+      - 楽しめる
+      - まぁまぁ楽しめる
+
+  shigotoun:
+    name: "仕事運"
+    contents:
+      - 普通
+      - よくも悪くもない
+
+kyo:
+  name: "凶"
+  rate: 30
+  kinun:
+    name: "金運"
+    contents:
+      - 財布を落とす
+      - 詐欺にあう
+
+  tenkyoun:
+    name: "旅行運"
+    contents:
+      - 道に迷う
+      - 電車を乗り間違える
+
+  shigotoun:
+    name: "仕事運"
+    contents:
+      - クビになる
+      - メールの宛先を間違える

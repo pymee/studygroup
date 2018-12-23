@@ -1,5 +1,4 @@
-from OmikujiProperitesFromYaml import OmikujiPropertiesFromYaml
-
+from OmikujiPropertiesFromYaml import OmikujiPropertiesFromYaml
 
 class OmikujiProperties(OmikujiPropertiesFromYaml):
 

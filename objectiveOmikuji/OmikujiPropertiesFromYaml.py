@@ -13,10 +13,10 @@ class OmikujiPropertiesFromYaml:
         with open(OMIKUJI_DATA, 'r') as f:
             self.omikuji = yaml.load(f)
 
-    def get_omikuji(self):
+    def get_omikuji_raw_data(self):
         return self.omikuji
 
 
 if __name__ == '__main__':
     omkj = OmikujiPropertiesFromYaml()
-    print(omkj.get_omikuji())
+    print(omkj.get_omikuji_raw_data())
