@@ -6,14 +6,15 @@ import random
 
 class OmikujiWriter:
 
-    def __init__(self, omikuji_propertites):
-        self.omikuji_propertites = omikuji_propertites
+    def __init__(self, omikuji_properties):
+        self.omikuji_properties = omikuji_properties
         self.omikuji_list = []
+        self._make_omikuji_object(self.omikuji_properties.get_omikuji_raw_data())
 
-    def make_omikuji_object(self, omikuji_raw_data):
-        for unsei, detail in omikuji_raw_data.items():
+    def _make_omikuji_object(self, omikuji_raw_data):
+        for fortune, detail in omikuji_raw_data.items():
             omikuji_obj = Omikuji()
-            setattr(omikuji_obj, "key", unsei)
+            setattr(omikuji_obj, "key", fortune)
             for key, value in detail.items():
                 t = type(value)
                 if t is str or t is int:
@@ -28,12 +29,12 @@ class OmikujiWriter:
             self.omikuji_list.append(omikuji_obj)
 
     def get_omikuji_list(self):
-        self.make_omikuji_object(self.omikuji_propertites.get_omikuji_raw_data())
+        # self.make_omikuji_object(omikuji_raw_data)
         return self.omikuji_list
 
 
 if __name__ == "__main__":
-    omkjp = OmikujiProperties()
+    omkjp = OmikujiProperties("./OmikujiData.yaml")
     omkjw = OmikujiWriter(omkjp)
 
     for omkj in omkjw.get_omikuji_list():

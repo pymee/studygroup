@@ -1,0 +1,53 @@
+daikichi:
+  name: "大吉"
+  rate: 5
+  kinun:
+    name: "金運"
+    contents:
+      - 詳細1
+
+  tenkyoun:
+    name: "旅行運"
+    contents:
+      - 詳細3
+
+  shigotoun:
+    name: "仕事運"
+    contents:
+      - 詳細5
+
+chukichi:
+  name: "中吉"
+  rate: 15
+  kinun:
+    name: "金運"
+    contents:
+      - 詳細7
+
+  tenkyoun:
+    name: "旅行運"
+    contents:
+      - 詳細9
+
+  shigotoun:
+    name: "仕事運"
+    contents:
+      - 詳細11
+
+shokichi:
+  name: "小吉"
+  rate: 20
+  kinun:
+    name: "金運"
+    contents:
+      - 詳細13
+
+  tenkyoun:
+    name: "旅行運"
+    contents:
+      - 詳細15
+
+  shigotoun:
+    name: "仕事運"
+    contents:
+      - 詳細17
