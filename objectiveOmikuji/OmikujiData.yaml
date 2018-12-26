@@ -4,20 +4,20 @@ daikichi:
   kinun:
     name: "金運"
     contents:
-      - 詳細1
-      - 詳細2
+      - 持ち主不明の2億円を拾う
+      - 宝くじがあたる
 
   tenkyoun:
     name: "旅行運"
     contents:
-      - 詳細3
-      - 詳細4
+      - ステキな出会いがある
+      - ダブルブッキングでファーストクラスをゲット！
 
   shigotoun:
     name: "仕事運"
     contents:
-      - 詳細5
-      - 詳細6
+      - 他人の手柄で評価アップ
+      - プレゼン中に神が舞い降りてきて大成功
 
 chukichi:
   name: "中吉"

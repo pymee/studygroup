@@ -7,9 +7,8 @@ import random
 class OmikujiWriter:
 
     def __init__(self, omikuji_properties):
-        self.omikuji_properties = omikuji_properties
         self.omikuji_object_list = []
-        self._make_omikuji_object(self.omikuji_properties.get_omikuji_raw_data())
+        self._make_omikuji_object(omikuji_properties.get_omikuji_raw_data())
 
     def _make_omikuji_object(self, omikuji_raw_data):
         for fortune, detail in omikuji_raw_data.items():
