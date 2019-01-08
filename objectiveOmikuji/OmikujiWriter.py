@@ -1,6 +1,4 @@
-from OmikujiProperties import OmikujiProperties
 from Omikuji import Omikuji
-
 import random
 
 
@@ -28,14 +26,14 @@ class OmikujiWriter:
             self.omikuji_object_list.append(omikuji_obj)
 
     def get_omikuji_object_list(self):
-        # self.make_omikuji_object(omikuji_raw_data)
         return self.omikuji_object_list
 
 
 if __name__ == "__main__":
+    from OmikujiProperties import OmikujiProperties
+
     omkjp = OmikujiProperties()
     omkjw = OmikujiWriter(omkjp)
 
     for omkj in omkjw.get_omikuji_object_list():
         print(vars(omkj))
-

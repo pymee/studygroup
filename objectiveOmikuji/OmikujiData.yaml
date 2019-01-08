@@ -1,11 +1,12 @@
 daikichi:
-  name: "大吉"
+  unsei: "大吉"
   rate: 5
   kinun:
     name: "金運"
     contents:
       - 持ち主不明の2億円を拾う
       - 宝くじがあたる
+      - 株で大儲け
 
   tenkyoun:
     name: "旅行運"
@@ -20,7 +21,7 @@ daikichi:
       - プレゼン中に神が舞い降りてきて大成功
 
 chukichi:
-  name: "中吉"
+  unsei: "中吉"
   rate: 15
   kinun:
     name: "金運"
@@ -41,7 +42,7 @@ chukichi:
       - 詳細12
 
 shokichi:
-  name: "小吉"
+  unsei: "小吉"
   rate: 20
   kinun:
     name: "金運"
@@ -62,7 +63,7 @@ shokichi:
       - 詳細18
 
 kichi:
-  name: "吉"
+  unsei: "吉"
   rate: 30
   kinun:
     name: "金運"
@@ -83,19 +84,22 @@ kichi:
       - よくも悪くもない
 
 kyo:
-  name: "凶"
+  unsei: "凶"
   rate: 30
   kinun:
     name: "金運"
     contents:
       - 財布を落とす
       - 詐欺にあう
+      - 金を貸したやつが海外に高飛びした
 
   tenkyoun:
     name: "旅行運"
     contents:
       - 道に迷う
       - 電車を乗り間違える
+      - パスポートを盗まれる
+      - 日本人との偽装結婚を斡旋する悪徳業者にひっかかる
 
   shigotoun:
     name: "仕事運"

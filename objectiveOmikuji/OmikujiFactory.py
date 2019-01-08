@@ -1,17 +1,11 @@
-from OmikujiProperties import OmikujiProperties
-from OmikujiWriter import OmikujiWriter
-from OmikujiBox import OmikujiBox
-
 import copy
 
 
 class OmikujiFactory:
 
-    def __init__(self, number_of_omikuji):
-        omikuji_properties = OmikujiProperties()
-        omikuji_writer = OmikujiWriter(omikuji_properties)
-        self.omikuji_box = OmikujiBox()
-        self._make_omikuji_box(number_of_omikuji, omikuji_writer.get_omikuji_object_list())
+    def __init__(self, number_of_omikuji, omikuji_writer_obj, omikuji_box_obj):
+        self.omikuji_box = omikuji_box_obj
+        self._make_omikuji_box(number_of_omikuji, omikuji_writer_obj.get_omikuji_object_list())
 
     def _make_omikuji_box(self, number, omikuji_object_list):
         for omikuji_obj in omikuji_object_list:
@@ -21,12 +15,3 @@ class OmikujiFactory:
 
     def get_omikuji_box(self):
         return self.omikuji_box
-
-
-if __name__ == '__main__':
-    NUMBERS_OF_OMIKUJI = 100
-    omkjf = OmikujiFactory(NUMBERS_OF_OMIKUJI)
-    omkjb = omkjf.get_omikuji_box()
-    for i in range(20):
-        omkj = omkjb.get_omikuji()
-        print(omkj.get_vars())

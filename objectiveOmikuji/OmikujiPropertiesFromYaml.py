@@ -1,20 +1,16 @@
 import yaml
 
-OMIKUJI_FILE = './OmikujiData.yaml'
-
 
 class OmikujiPropertiesFromYaml:
+    DEFAULT_OMIKUJI_FILE = './OmikujiData.yaml'
 
     def __init__(self):
-        self.omikuji_raw_data = {}
-        self.load_omikuji()
+        pass
 
-    def load_omikuji(self):
-        with open(OMIKUJI_FILE, 'r') as f:
-            self.omikuji_raw_data = yaml.load(f)
-
-    def get_omikuji_raw_data(self):
-        return self.omikuji_raw_data
+    def get_omikuji_raw_data(self, filename=DEFAULT_OMIKUJI_FILE):
+        with open(filename, 'r') as f:
+           omikuji_raw_data = yaml.load(f)
+        return omikuji_raw_data
 
 
 if __name__ == '__main__':
