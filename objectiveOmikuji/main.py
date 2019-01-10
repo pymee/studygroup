@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 NUMBERS_OF_OMIKUJI = 100
 
 def main():
