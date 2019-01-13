@@ -1,57 +1,57 @@
 <!-- page_number: true -->
 
-# ��3�� Pymee
+# 第4回 Pymee
 
 ---
 
-# ���O�����m�F
+# 事前準備確認
 
-+ Python�̃C���X�g�[��
-+ �e�L�X�g�G�f�B�^�̃C���X�g�[��(vi, vim�ł���)
-+ �׋������̃_�E�����[�h
++ Pythonのインストール
++ テキストエディタのインストール(vi, vimでも可)
++ 勉強資料のダウンロード
 
 
-# �Q���ɂ������Ă̒��ӎ���
-+ ���pPC�͎������Ŏg�p���Ȃ��ŉ�����
-+ zoom�z�M���s���܂��̂ł�����������
-  + ���񂩂�^����s���܂�
-+ �s���_�͋C�y�ɕ����ĉ������I
+# 参加にあたっての注意事項
++ 私用PCは執務室で使用しないで下さい
++ zoom配信を行いますのでご了承下さい
+  + 今回から録画も行います
++ 不明点は気軽に聞いて下さい！
 
 ---
 
-# �����̓��e
+# 今日の内容
 
-1. �O��̂����炢(for��/�t�@�C���ǂݍ���)
-1. while��
-1. �t�@�C����������
+1. 前回のおさらい(for文/ファイル読み込み)
+1. while文
+1. ファイル書き込み
 1. module
 
 ---
-# ����̍u�`�ŗ��p����m��
+# 今回の講義で利用する知識
 
-����̍u�`�͑O��܂ł̍u�`�𓥂܂�����Ŏ��{���܂��B
+今回の講義は前回までの講義を踏まえた上で実施します。
 
-+ for��
-+ �t�@�C���ǂݍ���
-
----
-# �O��̂����炢
-
-�O��w�񂾃R�[�h�������炢���܂��傤�B
++ for文
++ ファイル読み込み
 
 ---
+# 前回のおさらい
 
-# for��
+前回学んだコードをおさらいしましょう。
+
+---
+
+# for文
 ```python
-#�usampleList�v�Ƃ������O�̃��X�g���쐬
+#「sampleList」という名前のリストを作成
 sampleList = [1,2,3,4,5]
 
-#for���ŁusampleList�v�̒��g��������o���ă��[�v
-#�擪������o���Ė����܂Ń��[�v����B
+#for文で「sampleList」の中身を一つずつ取り出してループ
+#先頭から取り出して末尾までループする。
 for number in sampleList:
     print(number)
 ```
-+ �o�͌���
++ 出力結果
 ```
 1
 2
@@ -60,51 +60,51 @@ for number in sampleList:
 5
 ```
 ---
-+ omikuji�Ƃ������O�̑傫�Ȕ���0���珇�Ԃɔԍ��̕t����ꂽ�����Ȕ����i�[����Ă���C���[�W
++ omikujiという名前の大きな箱に0から順番に番号の付けられた小さな箱が格納されているイメージ
 ![](./img/list.png)
 ---
-# �����^
+# 辞書型
 ```python
-# ����(omikuji)���쐬
-# omikuji�Ƃ������O�̕ϐ��Ɏ����^��
-# ��g���u���F�l�v�̌`�Ŋi�[���Ă���B
-omikuji = {"��g":"���ׂĂ悵",
-           "���g":"�܂��܂��悵",
-           "���g":"�悵",
-           "�g":"�������悵",
-           "��":"��邵",
+# 辞書(omikuji)を作成
+# omikujiという名前の変数に辞書型で
+# 一組ずつ「鍵：値」の形で格納している。
+omikuji = {"大吉":"すべてよし",
+           "中吉":"まあまあよし",
+           "小吉":"よし",
+           "吉":"すこしよし",
+           "凶":"わるし",
            }
-print(omikuji["��g"])
+print(omikuji["大吉"])
 ```
-+ �o�͌���
++ 出力結果
 ```
-���ׂĂ悵
+すべてよし
 ```
 ---
-+ ���ꂼ��̒l���i�[���ꂽ�����J���錮���w�肷��C���[�W
++ それぞれの値が格納された箱を開ける鍵を指定するイメージ
 ![](./img/dic.png)
 ---
-# �v���o���܂������H���̒m����O��ɁA�{���̍u�`���s���܂��B
+# 思い出せましたか？この知識を前提に、本日の講義を行います。
 ---
-# for���Ƃ́H
+# for文とは？
 
-for���̓��X�g����l���擾���āA�擪����P���l�����o���Ȃ���J��Ԃ�(���[�v)�������������鎖���ł��܂��B
+for文はリストから値を取得して、先頭から１つずつ値を取り出しながら繰り返し(ループ)処理を実装する事ができます。
 
 ---
 ![](./img/for_flow.PNG)
 
 ---
-�y�ᕶ(for��)�z
+【例文(for文)】
 ```python
-#�usampleList�v�Ƃ������O�̃��X�g���쐬
+#「sampleList」という名前のリストを作成
 sampleList = [1,2,3,4,5]
 
-#for���ŁusampleList�v�̒��g��������o���ă��[�v
-#�擪������o���Ė����܂Ń��[�v����B
+#for文で「sampleList」の中身を一つずつ取り出してループ
+#先頭から取り出して末尾までループする。
 for number in sampleList:
     print(number)
 ```
-+ �o�͌���
++ 出力結果
 ```
 1
 2
@@ -113,25 +113,25 @@ for number in sampleList:
 5
 ```
 ---
-�L�ڂ����ʂ�Afor���͎w�肵�����X�g�ɂ���l��S�ďo�͂��鎖���O��̍��ɂȂ��Ă��܂��B
-�����X�g�ȊO�ɂ��^�v���A�����A������Ȃǂ����Âl�����o���܂��B
+記載した通り、for文は指定したリストにある値を全て出力する事が前提の作りになっています。
+※リスト以外にもタプル、辞書、文字列などから一個づつ値を取り出せます。
 
-�ł����A�ȉ���Range�֐��𕹗p����ƃ��X�g�̏����Ȃ��Ŏw�肵���񐔂������[�v�ł��܂��B
+ですが、以下のRange関数を併用するとリストの準備なしで指定した回数だけループできます。
 
-�y�ᕶ(for��+Range�֐�)�z
+【例文(for文+Range関数)】
 ```python
-#range(����)��0�`(�L�ڂ�����)�̐�����������
-#range�^�I�u�W�F�N�g(���X�g�̂悤�ȕ�)������B
+#range(数字)で0～(記載した数)の数字が入った
+#range型オブジェクト(リストのような物)が作れる。
 #
-#���L�̗ᕶ����0�`9(10��)�̒l��������
-#range�^�I�u�W�F�N�g�������B
+#下記の例文だと0～9(10個)の値が入った
+#range型オブジェクトが作られる。
 for number in range(10):
 
-#�o�͎���+1����1�`10�ŏo�͂�����B
+#出力時に+1して1～10で出力させる。
     print(number+1)
 ```
 ---
-+ �o�͌���
++ 出力結果
 ```
 1
 2
@@ -145,132 +145,132 @@ for number in range(10):
 10
 ```
 
-��10�񃋁[�v���܂����A�o�͂�0����n�܂�̂ŏo�͂����l��0�`9�ɂȂ�܂��B���ׁ̈A�o�͎��̋L�ڂ�s+1�ɂ���1�`10��\�����Ă��܂��B
-���l�����Ƃ��Ắu0���琔����10���ׂ����X�g���쐬�����v
+※10回ループしますが、出力は0から始まるので出力される値が0～9になります。その為、出力時の記載をs+1にして1～10を表示しています。
+※考え方としては「0から数字を10個並べたリストが作成される」
 
 ---
-## �T���v���v���O����������Ă݂܂��傤(for��)
+## サンプルプログラムを作ってみましょう(for文)
 
-�y���O�����z
-�f�X�N�g�b�v(�ǂ��ł������ł�)�ɍ�ƃt�H���_���쐬���A�����ֈȉ��̖��O�Ńe�L�X�g�t�@�C�����쐬���ĉ������B�쐬�����t�@�C���ɃT���v���v���O�������L�ڂ��ĕۑ����ĉ������B
-���S���R�s�y�Œ����Ă��܂���OK�ł��B
+【事前準備】
+デスクトップ(どこでもいいです)に作業フォルダを作成し、そこへ以下の名前でテキストファイルを作成して下さい。作成したファイルにサンプルプログラムを記載して保存して下さい。
+※全部コピペで張ってしまってOKです。
 
-+ �t�@�C����
++ ファイル名
 
 ```
 01_for.py
 ```
 ---
 
-�y�T���v���v���O�����z
+【サンプルプログラム】
 
 ```python
-#�uomikujiList�v�Ƃ������X�g���쐬
-omikujiList = ['�d���^ �܂��܂��悵',
-           '�����^ �悵',
-           '���N�^ �������悵'
+#「omikujiList」というリストを作成
+omikujiList = ['仕事運 まあまあよし',
+           '恋愛運 よし',
+           '健康運 すこしよし'
            ]
 
-#for���ŁuomikujiList�v�̒��g��������o���ă��[�v
-#�擪������o���Ė����܂Ń��[�v����B
+#for文で「omikujiList」の中身を一つずつ取り出してループ
+#先頭から取り出して末尾までループする。
 for omikuji in omikujiList:
     print (omikuji);
 ```
 ---
-�R�[�h����������ȉ��̃R�}���h�Ŏ��s���Ă݂܂��傤�B
-+ ���s(windows�̏ꍇ)
+コードが書けたら以下のコマンドで実行してみましょう。
++ 実行(windowsの場合)
 
 ```
 py 01_for.py
 ```
-+ ���s(���̑��̏ꍇ)
++ 実行(その他の場合)
 
 ```
 python3 01_for.py
 ```
-+ �o�͌���
++ 出力結果
 ```
-�d���^ �܂��܂��悵
-�����^ �悵
-���N�^ �������悵
+仕事運 まあまあよし
+恋愛運 よし
+健康運 すこしよし
 ```
 ---
-# �t�@�C�����當�����ǂݍ���ł݂悤
+# ファイルから文字列を読み込んでみよう
 
-�����python�𗘗p����̂ł���΁A�t�@�C�����o�͔͂����Ēʂ�Ȃ����ł��B
-�܂��̓t�@�C�����當����ǂݍ���ł݂܂��傤�B
-������uI/O�v�ƌ����P�ꂪ�o�Ă��܂����A�uINPUT/OUTPUT�v�̗��̂Łu����(�ǂݍ���)/�o��(�\��)�v���w���Ă��܂��B
+現場でpythonを利用するのであれば、ファイル入出力は避けて通れない道です。
+まずはファイルから文字を読み込んでみましょう。
+※今後「I/O」と言う単語が出てきますが、「INPUT/OUTPUT」の略称で「入力(読み込み)/出力(表示)」を指しています。
 
 ---
 ![68%](./img/fileio_flow.PNG)
 
 ---
-�y�ᕶ(�t�@�C��I/O)�z
+【例文(ファイルI/O)】
 
 ```python
-#�ǂݍ��ރt�@�C�����w��B
-#���̏����ŋL�ڂ���ƈȉ��̒ʂ�ɒl���i�[�����B
-#�@�E�t�@�C���ǂݍ��݌��F
+#読み込むファイルを指定。
+#この書式で記載すると以下の通りに値が格納される。
+#　・ファイル読み込み元：
 #      inputSample.txt
-#�@�E�t�@�C������ǂݍ��񂾒��g�̊i�[��F
-#      inputAll(��s�����X�g�`���Ŋi�[�����)
+#　・ファイルから読み込んだ中身の格納先：
+#      inputAll(一行ずつリスト形式で格納される)
 inputAll = open("inputSample.txt", "r",encoding="utf-8")
 
-#�t�@�C������ǂݍ��񂾒��g����s����for���ŏo�͂���B
+#ファイルから読み込んだ中身を一行ずつfor文で出力する。
 for inputLine in inputAll:
     print (inputLine, end='');
 
-#���₷���悤�ɍŌ�ɉ��s������
+#見やすいように最後に改行を入れる
 print('\n')
 
-#�t�@�C����ǂݍ��񂾌�̓N���[�Y�������L�ڂ���B
-#����������Ȃ��ƃ������ɃS�~���c��B(���삪�d���Ȃ��Ă���)
+#ファイルを読み込んだ後はクローズ処理を記載する。
+#これを書かないとメモリにゴミが残る。(動作が重くなっていく)
 inputAll.close()
 ```
 ---
-+ �o�͌���
++ 出力結果
 ```
-�y��g�z
-�Ґl�F�h�������҂ׂ�
-�����F�����ɂ���
-�����F�[���肷���
-�]���F���������҂�
+【大吉】
+待人：辛抱強く待つべし
+失物：足元にあり
+恋愛：深入りするな
+転居：無理せず待て
 ```
 
-��L�̕��@�ŁA�\�[�X�R�[�h(.py�t�@�C��)��z�u�����t�H���_�Ɠ����t�H���_�ɔz�u���ꂽ�uinputSample.txt�v��ǂݍ��ގ����ł��܂��B
+上記の文法で、ソースコード(.pyファイル)を配置したフォルダと同じフォルダに配置された「inputSample.txt」を読み込む事ができます。
 
 ---
-## �T���v���v���O����������Ă݂܂��傤(�t�@�C���ǂݍ���)
-�y���O�����z
-���O�����Ƃ��āA�ȉ��̓��e���L�ڂ����e�L�X�g�t�@�C������ƃt�H���_�ɕۑ����Ă����ĉ������B
+## サンプルプログラムを作ってみましょう(ファイル読み込み)
+【事前準備】
+事前準備として、以下の内容を記載したテキストファイルを作業フォルダに保存しておいて下さい。
 
-+ �t�@�C����
++ ファイル名
 
 ```
 inputSample.txt
 ```
-+ �L�ړ��e
++ 記載内容
 
 ```
-�y��g�z
-�Ґl�F�h�������҂ׂ�
-�����F�����ɂ���
-�����F�[���肷���
-�]���F���������҂�
+【大吉】
+待人：辛抱強く待つべし
+失物：足元にあり
+恋愛：深入りするな
+転居：無理せず待て
 ```
 ---
-���O���������t�@�C���Ƃ͕ʂɁA�ȉ��̃t�@�C�����쐬���ĉ������B
+事前準備したファイルとは別に、以下のファイルを作成して下さい。
 
-+ �t�@�C����
++ ファイル名
 
 ```
 02_fileIO.py
 ```
-�y�T���v���v���O�����z
+【サンプルプログラム】
 
 ```python
-#�ǂݍ��ރt�@�C�����w��B
-#�t�@�C���ǂݍ��݌��FinputSample.txt
+#読み込むファイルを指定。
+#ファイル読み込み元：inputSample.txt
 inputAll = open("inputSample.txt", "r",encoding="utf-8")
 
 for inputLine in inputAll:
@@ -282,32 +282,32 @@ inputAll.close()
 ```
 ---
 
-+ ���s(windows�̏ꍇ)
++ 実行(windowsの場合)
 
 ```
 py 02_fileIO.py
 ```
-+ ���s(���̑��̏ꍇ)
++ 実行(その他の場合)
 
 ```
 python3 02_fileIO.py
 ```
-+ �o�͌���
++ 出力結果
 ```
-�y��g�z
-�Ґl�F�h�������҂ׂ�
-�����F�����ɂ���
-�����F�[���肷���
-�]���F���������҂�
+【大吉】
+待人：辛抱強く待つべし
+失物：足元にあり
+恋愛：深入りするな
+転居：無理せず待て
 ```
 
-�\�[�X�R�[�h�ɒ��ڋL�ڂ���Ă������e���e�L�X�g�t�@�C���ɂ܂Ƃ܂��������ŁA�啪���݂������ۂ��Ȃ��Ă����̂ł͂Ȃ��ł��傤���B
+ソースコードに直接記載されていた内容がテキストファイルにまとまっただけで、大分おみくじっぽくなってきたのではないでしょうか。
 
 ---
-# ��O
-���X�Ɩ����s���Ă���Ƒz��O�̎����N���肦�܂��B����Ȏ��̓t�H���[�����ĖႦ��Ə�����܂���ˁH
-�v���O�������l�Ԃ��l���č�镨�ł�����A�z��O�̎���������񔭐����܂��B����Ȏ��Ƀt�H���[�����Ă�����d�g�݂��w�т܂��傤�B
-���������A���������v���O�������Ԉ���Ă���ꍇ(�\���G���[)�͑ΏۊO�ł��B
+# 例外
+日々業務を行っていると想定外の事が起こりえます。そんな時はフォローをして貰えると助かりますよね？
+プログラムも人間が考えて作る物ですから、想定外の事ももちろん発生します。そんな時にフォローをしてあげる仕組みを学びましょう。
+※ただし、そもそもプログラムが間違っている場合(構文エラー)は対象外です。
 
 ---
 
@@ -316,18 +316,18 @@ python3 02_fileIO.py
 ---
 
 
-�y�ᕶ(��O)�z
+【例文(例外)】
 
 <font style = "font-size: 97%">
    
 ```python
-#�G���[�����������ۂɕʏ����֑J�ڂ��������ӏ���try�`except�ň͂ށB
-#��{�I�ɑS���ł����B
+#エラーが発生した際に別処理へ遷移させたい箇所をtry～exceptで囲む。
+#基本的に全部でいい。
 try:
 
-#�ᕶ�Ƃ��đ��݂��Ȃ��t�@�C�����w��
-#�t�@�C�������Ԉ�����肵�đ��݂��Ȃ��t�@�C����
-#�w�肷��ƃG���[�ɂȂ�܂��B
+#例文として存在しないファイルを指定
+#ファイル名を間違ったりして存在しないファイルを
+#指定するとエラーになります。
     inputAll = open("exception.txt", "r",encoding="utf-8")
 
     for inputLine in inputAll:
@@ -337,38 +337,38 @@ try:
 
     inputAll.close()
 
-#��L��exception.txt�����݂��Ȃ��ׁA
-#�G���[���������Ĉȉ���except�ƋL�ڂ��ꂽ�ӏ��̏��������s�����B
+#上記のexception.txtが存在しない為、
+#エラーが発生して以下のexceptと記載された箇所の処理が実行される。
 #
-#�G���[���������Ȃ������ꍇ��except��ɋL�ڂ��ꂽ�R�[�h��
-#���s����Ȃ��B
+#エラーが発生しなかった場合はexcept句に記載されたコードは
+#実行されない。
 except:
-    print("�G���[�I")
+    print("エラー！")
 ```
 </font>
 
 ---
 
-+ �o�͌���
++ 出力結果
 ```
-�G���[�I
+エラー！
 ```
 
 ---
 
-## �|�C���g
-+ try�`except���L�ڂ��鎖�ŁA�����Ɏ��s�����ꍇ�̃t�H���[���ł���B
-�@�˃G���[�����������ӏ��Ńv���O�����̎��s�����鎖��h����B
+## ポイント
++ try～exceptを記載する事で、処理に失敗した場合のフォローができる。
+　⇒エラーが発生した箇所でプログラムの実行がする事を防げる。
 
-## �p�r
-+ ���r���[�ɓ����Ă��܂����ۂ̌�n��
-+ ���������G���[�̏ڍׂ����O�t�@�C���֋L��
+## 用途
++ 中途半端に動いてしまった際の後始末
++ 発生したエラーの詳細をログファイルへ記載
 etc...
 
 ---
-## �T���v���v���O����������Ă݂܂��傤(��O)
+## サンプルプログラムを作ってみましょう(例外)
 
-+ �t�@�C����
++ ファイル名
 
 ```
 03_except.py
@@ -376,15 +376,15 @@ etc...
 
 ---
 
-�y�T���v���v���O�����z(1/2)
+【サンプルプログラム】(1/2)
 ```python
-#�G���[�������̏ڍ׎擾����
+#エラー発生時の詳細取得準備
 import sys
 
-#�G���[�����������ۂɕʏ����֑J�ڂ��������ӏ���try�`except�ň͂ށB
+#エラーが発生した際に別処理へ遷移させたい箇所をtry～exceptで囲む。
 try:
 
-#�ᕶ�Ƃ��đ��݂��Ȃ��t�@�C�����w��
+#例文として存在しないファイルを指定
     inputAll = open("exception.txt", "r",encoding="utf-8")
 
     for inputLine in inputAll:
@@ -394,99 +394,99 @@ try:
 
 ```
 ---
-�y�T���v���v���O�����z(2/2)
+【サンプルプログラム】(2/2)
 ```python
-#�t�@�C����������Ȃ����͈ȉ��̃R�[�h�����s�����B
-#sys.exc_info()�ŃG���[�̏ڍׂ��m�F�ł���B
+#ファイルが見つからない時は以下のコードが実行される。
+#sys.exc_info()でエラーの詳細を確認できる。
 except FileNotFoundError:
-    print("�t�@�C���ǂݍ��݃G���[�I")
+    print("ファイル読み込みエラー！")
     print(sys.exc_info())
-#���̑��̃G���[�������͈ȉ��̃R�[�h�����s�����B
+#その他のエラー発生時は以下のコードが実行される。
 except:
-    print("���̑��̃G���[�I")
+    print("その他のエラー！")
     print(sys.exc_info())
-#�G���[���������Ȃ������ꍇ�͈ȉ��̃R�[�h�����s�����B
+#エラーが発生しなかった場合は以下のコードが実行される。
 else:
-    print('����O�͔������܂���ł���')
-#�ȉ��̃R�[�h�͂ǂ�ȏꍇ�ł����s�����B
+    print('※例外は発生しませんでした')
+#以下のコードはどんな場合でも実行される。
 finally:
-    print('�����I��')
-#�t�@�C�����I�[�v���ł��Ă���ꍇ�̂݃N���[�Y���������{����B
+    print('処理終了')
+#ファイルがオープンできている場合のみクローズ処理を実施する。
     if 'inputAll' in locals():
         inputAll.close()
 ```
 
 ---
 
-+ ���s(windows�̏ꍇ)
++ 実行(windowsの場合)
 
 ```
 py 03_except.py
 ```
-+ ���s(���̑��̏ꍇ)
++ 実行(その他の場合)
 
 ```
 python3 03_except.py
 ```
-+ �o�͌���
++ 出力結果
 ```
-�t�@�C���ǂݍ��݃G���[�I
-�����I��
+ファイル読み込みエラー！
+処理終了
 Traceback (most recent call last):
-�`
+～
 
 ```
 ---
-## 4��except��
+## 4つのexcept句
 + except FileNotFoundError:
-�@�ˑΏۃt�@�C�������݂��Ȃ����Ɏ��s�����
+　⇒対象ファイルが存在しない時に実行される
 + except:
-�@�ˑS�ẴG���[�������Ɏ��s�����
+　⇒全てのエラー発生時に実行される
 + else:
-�@�ˑS�Đ���ɏ������ꂽ�ꍇ�Ɏ��s�����
+　⇒全て正常に処理された場合に実行される
 + finally:
-�@�˂ǂ�ȏꍇ�ł����s�����
+　⇒どんな場合でも実行される
 
-## �|�C���g
-+ �ォ�珇�Ԃɏ��������
-�@��except����ԏ�ɏ����Ƃ����ŏ�������Ă��܂��̂ŁA�ʃG���[�������ɏ���
-+ sys.exc_info()�ŃG���[�̏ڍׂ��擾�ł���
-�����O�Ɂuimport sys�v�̋L�q���K�v
+## ポイント
++ 上から順番に処理される
+　⇒exceptを一番上に書くとそこで処理されてしまうので、個別エラー処理を先に書く
++ sys.exc_info()でエラーの詳細を取得できる
+※事前に「import sys」の記述が必要
 
 ---
 
-# �܂Ƃ�(1/3)
-1. �O��̂����炢(���X�g/�����^)
+# まとめ(1/3)
+1. 前回のおさらい(リスト/辞書型)
 
 ```python
-omikuji = ['��g ���ׂĂ悵',
-           '���g �܂��܂��悵',
-           '���g �悵',
-           '�g �������悵',
-           '�� ��邵',
+omikuji = ['大吉 すべてよし',
+           '中吉 まあまあよし',
+           '小吉 よし',
+           '吉 すこしよし',
+           '凶 わるし',
            ]
 print(omikuji[0])
 ```
 ```python
-omikuji = {"��g":"���ׂĂ悵",
-           "���g":"�܂��܂��悵",
-           "���g":"�悵",
-           "�g":"�������悵",
-           "��":"��邵",
+omikuji = {"大吉":"すべてよし",
+           "中吉":"まあまあよし",
+           "小吉":"よし",
+           "吉":"すこしよし",
+           "凶":"わるし",
            }
-print(omikuji["��g"])
+print(omikuji["大吉"])
 ```
 
 ---
 
-# �܂Ƃ�(2/3)
-2. for��
+# まとめ(2/3)
+2. for文
 ```python
 sampleList = [1,2,3,4,5]
 for sample in sampleList:
     print(sample)
 ```
-3. �t�@�C�����o��
+3. ファイル入出力
 ```python
 inputAll = open("inputSample.txt", "r",encoding="utf-8")
 for inputLine in inputAll:
@@ -497,8 +497,8 @@ inputAll.close()
 
 ---
 
-# �܂Ƃ�(3/3)
-4. ��O
+# まとめ(3/3)
+4. 例外
 ```python
 try:
     inputAll = open("exception.txt", "r",encoding="utf-8")
@@ -508,116 +508,116 @@ try:
     print('\n')
 
 except FileNotFoundError:
-    print("�t�@�C���ǂݍ��݃G���[�I")
+    print("ファイル読み込みエラー！")
 except:
-    print("�G���[�I")
+    print("エラー！")
 else:
-    print('����O�͔������܂���ł���')
+    print('※例外は発生しませんでした')
 finally:
-    print('�����I��')
+    print('処理終了')
     if 'inputAll' in locals():
         inputAll.close()
 ```
 ---
-## �T���v���v���O����������Ă݂܂��傤(�܂Ƃ�)
+## サンプルプログラムを作ってみましょう(まとめ)
 
-�O�ł𓥂܂��A���̃R�[�h���쐬���ĉ������B
+前頁を踏まえ、次のコードを作成して下さい。
 
-�y���O�����z
-���O�����Ƃ��āA�ȉ��̓��e���L�ڂ����R�̃e�L�X�g�t�@�C������ƃt�H���_�ɕۑ����Ă����ĉ������B
+【事前準備】
+事前準備として、以下の内容を記載した３つのテキストファイルを作業フォルダに保存しておいて下さい。
 
-�@
-+ �t�@�C����
+①
++ ファイル名
 
 ```
 daikiti.txt
 ```
-+ �L�ړ��e
++ 記載内容
 
 ```
-�y��g�z
-�Ґl�F�h�������҂ׂ�
-�����F�����ɂ���
-�����F�[���肷���
-�]���F���������҂�
+【大吉】
+待人：辛抱強く待つべし
+失物：足元にあり
+恋愛：深入りするな
+転居：無理せず待て
 ```
 
 ---
 
-�A
-+ �t�@�C����
+②
++ ファイル名
 
 ```
 kiti.txt
 ```
-+ �L�ړ��e
++ 記載内容
 
 ```
-�y�g�z
-�Ґl�F�҂ĂΗ���
-�����F�����炸
-�����F�ǂ��o�����
-�]���F�쓌���ǂ�
+【吉】
+待人：待てば来る
+失物：見つからず
+恋愛：良い出会いあり
+転居：南東が良し
 ```
 ---
 
-�B
-+ �t�@�C����
+③
++ ファイル名
 
 ```
 kyo.txt
 ```
-+ �L�ړ��e
++ 記載内容
 
 ```
-�y���z
-�Ґl�F���Ȃ�
-�����F������
-�����F�h�����
-�]���F�R����
+【凶】
+待人：来ない
+失物：増える
+恋愛：刺される
+転居：燃える
 ```
 ---
-���O���������t�@�C���Ƃ͕ʂɁA�ȉ��̃t�@�C�����쐬���ĉ������B
+事前準備したファイルとは別に、以下のファイルを作成して下さい。
 
-+ �t�@�C����
++ ファイル名
 
 ```
 04_summary.py
 ```
 ---
 
-�y�T���v���v���O�����z(1/3)
+【サンプルプログラム】(1/3)
 ```python
 import sys
-#�����_���Œl�����o���ׂ̏���
+#ランダムで値を取り出す為の準備
 import random
 
-#�G���[�����������ۂɕʏ����֑J�ڂ��������ӏ���try�`except�ň͂ށB
+#エラーが発生した際に別処理へ遷移させたい箇所をtry～exceptで囲む。
 try:
 
-#���݂����p�t�@�C����ǂݍ���
+#おみくじ用ファイルを読み込む
     daikiti = open("daikiti.txt", "r",encoding="utf-8")
     kiti    = open("kiti.txt", "r",encoding="utf-8")
     kyo     = open("kyo.txt", "r",encoding="utf-8")
 
-#�ǂݍ��񂾂��݂����p�t�@�C���������^�ł܂Ƃ߂�
-    inputOmikuji = {"��g":daikiti,
-                    "�g":kiti,
-                    "��":kyo}
+#読み込んだおみくじ用ファイルを辞書型でまとめる
+    inputOmikuji = {"大吉":daikiti,
+                    "吉":kiti,
+                    "凶":kyo}
 
-#�����_���őI������ׂ̃L�[�ƂȂ�P������X�g�ŗp��
+#ランダムで選択する為のキーとなる単語をリストで用意
     omikujiList = inputOmikuji.keys()
 
-#omikujiList�̒����烉���_���ň�I��
+#omikujiListの中からランダムで一つ選ぶ
     randomOmikuji = random.choice(list(omikujiList))
 ```
 ---
-�y�T���v���v���O�����z(2/3)
+【サンプルプログラム】(2/3)
 ```python
-#omikujiList���烉���_���ɑI�񂾉^��(������)���L�[�ɂ���inputOmikuji�ɃZ�b�g�����e�L�X�g�t�@�C���̒��g����I�񂾕�����ɑΉ�����t�@�C���̒��g��ǂݍ��ށB
+#omikujiListからランダムに選んだ運勢(文字列)をキーにしてinputOmikujiにセットしたテキストファイルの中身から選んだ文字列に対応するファイルの中身を読み込む。
     selectOmikuji = inputOmikuji[randomOmikuji]
 
-#�ǂݍ��񂾃t�@�C���̒��g��1�s�����o���B
+#読み込んだファイルの中身を1行ずつ取り出す。
     for selectLine in selectOmikuji:
         print (selectLine, end='');
 
@@ -625,19 +625,19 @@ try:
 ```
 ---
 
-�y�T���v���v���O�����z(3/3)
+【サンプルプログラム】(3/3)
 ```python
-#�t�@�C����������Ȃ����͈ȉ��̃R�[�h�����s�����B
+#ファイルが見つからない時は以下のコードが実行される。
 except FileNotFoundError:
-    print("�t�@�C���ǂݍ��݃G���[�I")
+    print("ファイル読み込みエラー！")
     print(sys.exc_info())
-#���̑��̃G���[�������͈ȉ��̃R�[�h�����s�����B
+#その他のエラー発生時は以下のコードが実行される。
 except:
-    print("���̑��̃G���[�I")
+    print("その他のエラー！")
     print(sys.exc_info())
 else:
-    print('\n���݂����̌��ʂ͂ǂ��ł������H')
-#�ȉ��̃R�[�h�͂ǂ�ȏꍇ�ł����s�����B
+    print('\nおみくじの結果はどうでしたか？')
+#以下のコードはどんな場合でも実行される。
 finally:
     if 'daikiti' in locals():
         daikiti.close()
@@ -647,73 +647,73 @@ finally:
         kyo.close()
 ```
 ---
-+ ���s(windows�̏ꍇ)
++ 実行(windowsの場合)
 
 ```
 py 04_summary.py
 ```
-+ ���s(���̑��̏ꍇ)
++ 実行(その他の場合)
 
 ```
 python3 04_summary.py
 ```
 ---
-+ �o�͌���
-���ȉ��̂����ꂩ
++ 出力結果
+※以下のいずれか
 ```
-�y��g�z
-�Ґl�F�h�������҂ׂ�
-�����F�����ɂ���
-�����F�[���肷���
-�]���F���������҂�
-���݂����̌��ʂ͂ǂ��ł������H
-```
-```
-�y�g�z
-�Ґl�F�҂ĂΗ���
-�����F�����炸
-�����F�ǂ��o�����
-�]���F�쓌���ǂ�
-���݂����̌��ʂ͂ǂ��ł������H
+【大吉】
+待人：辛抱強く待つべし
+失物：足元にあり
+恋愛：深入りするな
+転居：無理せず待て
+おみくじの結果はどうでしたか？
 ```
 ```
-�y���z
-�Ґl�F���Ȃ�
-�����F������
-�����F�h�����
-�]���F�R����
-���݂����̌��ʂ͂ǂ��ł������H
+【吉】
+待人：待てば来る
+失物：見つからず
+恋愛：良い出会いあり
+転居：南東が良し
+おみくじの結果はどうでしたか？
+```
+```
+【凶】
+待人：来ない
+失物：増える
+恋愛：刺される
+転居：燃える
+おみくじの結果はどうでしたか？
 ```
 
 ---
-# �݂Ȃ��񒷂��Ԃ����l�ł����I
+# みなさん長い間お疲れ様でした！
 
 ---
 
-# ����\��
-+ �J��Ԃ�������Q�e
-+ �t�@�C���̏�������
+# 次回予告
++ 繰り返し処理第２弾
++ ファイルの書き込み
 
-����͈̔͊O�̂��b
+今回の範囲外のお話
 + with open
 
 ---
 
-# �A���P�[�g
-+ ����̂��悢�����̂��߁A�A���P�[�g�ɂ����͂��������I
+# アンケート
++ 今後のよりよい活動のため、アンケートにご協力ください！
 
 ![400% center](./img/qr_3rd.png)
 
 https://questant.jp/q/WP4SJ79K
 
 ---
-# ���܂�
-�I���C���[�́u�ދ��Ȃ��Ƃ�Python�ɂ�点�悤�v���A�s���{�������ݒn�N�C�Y�W�F�l���[�^�̃\�[�X�R�[�h�ł��B
-�����̒m���{���œǂ߂܂��̂ŁA�u�`�����ł͕�����Ȃ��������͂ǂ����B
+# おまけ
+オライリーの「退屈なことはPythonにやらせよう」より、都道府県庁所在地クイズジェネレータのソースコードです。
+今日の知識＋αで読めますので、講義だけでは物足りなかった方はどうぞ。
 https://github.com/oreilly-japan/automatestuff-ja/blob/master/ch08/randomQuizGenerator.py
 
 ---
-# ������ȂǁB�B�B
-+ ���[�����O���X�g�ɂāA�^��A�s���_���C�y�ɕ����Ă��������I
+# ご質問など。。。
++ メーリングリストにて、疑問、不明点を気軽に聞いてください！
 
 
