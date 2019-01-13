@@ -54,6 +54,11 @@ omikujiList = ['仕事運 まあまあよし',
 for omikuji in omikujiList:
     print (omikuji);
 ```
++ 出力結果
+```
+仕事運 まあまあよし
+恋愛運 よし
+健康運 すこしよし
 ---
 + リストから値を取得して、先頭から１つずつ値を取り出しながら繰り返し(ループ)処理を実装
 ![](./img/list.png)
