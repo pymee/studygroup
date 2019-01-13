@@ -43,21 +43,16 @@
 
 # for文
 ```python
-#「sampleList」という名前のリストを作成
-sampleList = [1,2,3,4,5]
+#「omikujiList」というリストを作成
+omikujiList = ['仕事運 まあまあよし',
+           '恋愛運 よし',
+           '健康運 すこしよし'
+           ]
 
-#for文で「sampleList」の中身を一つずつ取り出してループ
+#for文で「omikujiList」の中身を一つずつ取り出してループ
 #先頭から取り出して末尾までループする。
-for number in sampleList:
-    print(number)
-```
-+ 出力結果
-```
-1
-2
-3
-4
-5
+for omikuji in omikujiList:
+    print (omikuji);
 ```
 ---
 + リストから値を取得して、先頭から１つずつ値を取り出しながら繰り返し(ループ)処理を実装
