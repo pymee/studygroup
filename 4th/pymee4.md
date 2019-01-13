@@ -61,7 +61,7 @@ for omikuji in omikujiList:
 健康運 すこしよし
 ---
 + リストから値を取得して、先頭から１つずつ値を取り出しながら繰り返し(ループ)処理を実装
-![](/img/omikujilist.png)
+![](./img/omikujilist.png)
 ---
 # 辞書型
 ```python
