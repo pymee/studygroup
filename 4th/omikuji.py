@@ -36,7 +36,7 @@ kekkaList = kekka.split(',')
 hizuke = datetime.now().strftime("%Y-%m-%d")
 
 #出力ファイル名を指定
-wfilename = "kekka_{0}.txt".format(hizuke)
+wfilename = r"./results/kekka_{0}.txt".format(hizuke)
 
 #出力ファイルと同じ名前のファイルが存在する場合はエラーを出力して終了
 if os.path.isfile(wfilename):
