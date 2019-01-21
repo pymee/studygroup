@@ -1,4 +1,3 @@
-#!/usr/bin/python3.6
 import sys
 import random
 import os
