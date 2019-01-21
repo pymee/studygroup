@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3.6
 import sys
 import random
 import os
@@ -10,21 +10,29 @@ if len(sys.argv) != 2:
     sys.exit(1)
 
 #引数に読み込むファイルを指定してオープン
-f = open(sys.argv[1], "r",encoding="utf-8")
+try:
+    with open(sys.argv[1], "r",encoding="utf-8") as f:
 
 #while実行前に定義、この時点でファイルの1行目を読み込み
-line = f.readline()
+        line = f.readline()
 
 #whileで読み込んだ行を格納する空のリストを準備
-lines=[]
+        lines=[]
 
 #引数ファイルを１行ずつ読み込んでリストに格納
-while line:
-    lines.append(line)
-    line = f.readline()
+        while line:
+            lines.append(line)
+            line = f.readline()
+            if line == "":
+                break
 
-#ファイルクローズ
-f.close()
+#例外をキャッチした場合の処理内容
+except FileNotFoundError:
+        sys.stderr.write("エラー:指定されたファイルが見つかりません。\n")
+        sys.exit(1)
+except PermissionError:
+        sys.stderr.write("エラー:指定されたファイルに読み取り権限がありません。\n")
+        sys.exit(1)
 
 #おみくじの結果を格納したリストからランダムで１行をチョイス
 kekka = random.choice(lines)
@@ -36,15 +44,22 @@ kekkaList = kekka.split(',')
 hizuke = datetime.now().strftime("%Y-%m-%d")
 
 #出力ファイル名を指定
-wfilename = r"./results/kekka_{0}.txt".format(hizuke)
-
-#出力ファイルと同じ名前のファイルが存在する場合はエラーを出力して終了
-if os.path.isfile(wfilename):
-    sys.stderr.write('エラー:出力するファイルと同じ名前のファイルが既に存在しています。\n')
-    sys.exit(1)
+kekka_filename = r"./results/kekka_{0}.txt".format(hizuke)
 
 #出力ファイル名でファイルオープンし結果を書き込み
-f = open(wfilename,'w')
+try:
+    f = open(kekka_filename,'x')
+except FileExistsError:
+        sys.stderr.write("エラー:同じ名前のファイルが既に存在しています。\n")
+        sys.exit(1)
+except FileNotFoundError:
+        sys.stderr.write("エラー:ディレクトリが見つかりません。\n")
+        sys.exit(1)
+except PermissionError:
+        sys.stderr.write("エラー:指定されたファイルに書き込み権限がありません。\n")
+
+#出力ファイル名でファイルオープンし結果を書き込み
+f = open(kekka_filename,'w')
 f.write("===============================\n")
 for i in kekkaList:
     f.write(i)
@@ -54,6 +69,4 @@ f.write("\n")
 f.write("===============================\n")
 f.close()
 
-print("おみくじの結果を{0}に書込みました！".format(wfilename))
-
-
+print("おみくじの結果を{0}に書込みました！".format(kekka_filename))
