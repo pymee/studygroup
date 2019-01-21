@@ -1,3 +1,4 @@
+#!/usr/bin/python3.6
 import sys
 import random
 import os
@@ -8,31 +9,31 @@ if len(sys.argv) != 2:
     sys.stderr.write('エラー:引数にファイルを一つ指定してください。\n')
     sys.exit(1)
 
-#引数に読み込むファイルを指定してオープン
-try:
-    with open(sys.argv[1], "r",encoding="utf-8") as f:
+#ファイルを格納するためのリストを準備
+KekkaList = []
 
-#while実行前に定義、この時点でファイルの1行目を読み込み
-        lines = f.readlines()
+#引数に読み込むファイルを指定してオープン1行ずつリストに格納
+try:
+    f = open(sys.argv[1], "r",encoding="utf-8")
+    line = f.readline()
+    while line != "EOF\n":
+        KekkaList.append(line)
+        line = f.readline()
+    f.close
 
 #例外をキャッチした場合の処理内容
 except FileNotFoundError:
-        sys.stderr.write("エラー:指定されたファイルが見つかりません。\n")
-        sys.exit(1)
-except PermissionError:
-        sys.stderr.write("エラー:指定されたファイルに読み取り権限がありません。\n")
-        sys.exit(1)
+    sys.stderr.write("エラー:指定されたファイルが見つかりません。\n")
+    sys.exit(1)
+except:
+    sys.stderr.write("エラー:その他のエラー。\n")
+    sys.exit(1)
 
-#末尾業を取り除きおみくじ結果の2次元配列を作成
-KekkaList = []
-i = 0
-while lines[i] != "EOF\n":
-    kekka = lines[i]
-    KekkaList.append(kekka.split(','))
-    i = i+1
+#ランダムでリストから結果を取り出し
+kekka = random.choice(KekkaList)
 
-#ランダムで運勢を選択
-unsei = random.choice(KekkaList)
+#取り出した結果をカンマ区切りでリスト化
+unsei = kekka.split(",")
 
 #出力するファイル名に付与する日付を取得
 hizuke = datetime.now().strftime("%Y-%m-%d")
