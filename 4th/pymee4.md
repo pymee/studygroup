@@ -252,7 +252,7 @@ python3 01_while.py while.txt
 前回、ファイル読み込みを学びましたが、今回はファイルへ書き込む方法を学びましょう。
 
 ---
-![68%](./img/write_flow.PNG)
+![68%](./img/kakikomi.png)
 
 ---
 【例文(ファイル書き込み)】
