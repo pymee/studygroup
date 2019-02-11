@@ -1,10 +1,8 @@
-import sys
-
-#datetimeモジュールからdatetimeクラスをimport
+#datetimeパッケージからdatetimeモジュールをimport
 from datetime import datetime
 
-#引数に読み込むファイルを指定してオープン
-omikuji = open(sys.argv[1], "r",encoding="utf-8")
+#読み込むファイルを指定してオープン
+omikuji = open("write_file.txt", "r",encoding="utf-8")
 
 #現在時刻を年-月-日として文字列に変換する
 hizuke = datetime.now().strftime("%Y-%m-%d")
@@ -32,3 +30,4 @@ f.write("===============================\n")
 #ファイルクローズ
 f.close()
 
+print("import_kekka.txtに書き込みました!")
