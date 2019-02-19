@@ -265,9 +265,9 @@ line = f.readline()
 ```
 ---
 
-```python
-
 【サンプルプログラム(2/2)】
+
+```python
 
 #while文で処理を定義
 #「取り出した行が "EOF" 以外なら1行ずつWhileListに格納」
@@ -490,7 +490,7 @@ from モジュール import クラス
 from datetime import datetime
 ```
 
-datetimeモジュールのdatetimeクラスのみ呼び出すことができました。
+これで、datetimeモジュールのdatetimeクラスのみ呼び出すことができます。
 
 ---
 
