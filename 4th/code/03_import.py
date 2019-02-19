@@ -4,7 +4,7 @@ from datetime import datetime
 #読み込むファイルを指定してオープン
 omikuji = open("write_file.txt", "r",encoding="utf-8")
 
-#現在時刻を年-月-日として文字列に変換する
+#現在時刻を"yyyy-mm-dd"の書式で文字列に変換する
 hizuke = datetime.now().strftime("%Y-%m-%d")
 
 #書き込み先のファイルを新規作成してオープン
