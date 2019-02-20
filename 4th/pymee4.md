@@ -456,7 +456,7 @@ import モジュール
 
 ## datetimeモジュールのdatetimeクラスを利用しよう
 + 日付や時刻に対して色々な操作をすることが出来るモジュールを集めたdatetimeモジュールには、以下のようなクラスが含まれています。
-+ クラスとは、例えば「山田くんちの車」も「伊藤くんちの車」も、ともに「車」というクラスに含まれます。このように、あるモノをまとめて含むのが「クラス」です。
++ 現段階では、複数の関数などをまとめたものがクラスだと理解しておけば十分です。
 
 |クラス|説明|
 |:--|:--|
@@ -467,36 +467,20 @@ import モジュール
 
 ---
 
-+ まずは、datetimeモジュール全体をimportする方法です。
++ では、datetimeモジュールをimportする方法です。
 
 ```
 import datetime
 ```
 
-これで、datetimeモジュール内のクラスがすべて使えるようになります。
-
----
-
-+ モジュールによっては、たくさんのクラスが含まれており、全てimportすることでpythonの実行速度を落としてしまうこともあります。そんな場合に備えて、使用したいクラスだけimportできればいいですね。
-+ 以下の書式で任意のクラスだけを呼び出すことができます。
-
-```
-from モジュール import クラス
-```
-
-この書式に従って、
-
-```
-from datetime import datetime
-```
-
-これで、datetimeモジュールのdatetimeクラスのみ呼び出すことができます。
++ これで、datetimeモジュール内のクラスがすべて使えるようになります。
++ クラスだけ呼び出す方法もありますが、それはまた次回に！
 
 ---
 
 では実際に現在の日付や時刻を取得してみましょう。
 ```python
-from datetime import datetime
+import datetime
 
 date1 = datetime.now()
 print(date1)
@@ -511,7 +495,7 @@ print(date1)
 
 次に、日付と時刻のフォーマットを変更してみましょう。strftimeという関数を使って変更できます。
 ```python
-from datetime import datetime
+import datetime
 
 hizuke = datetime.now().strftime("%Y-%m-%d")
 print(hizuke)
@@ -531,8 +515,12 @@ print(hizuke)
 |ディレクティブ|説明|
 |:--|:--|
 |%Y| 4桁の西暦(1989、2019)
-|%m| 0埋めした月（04、12）
+|%m| 0埋めした月（01、12）
 |%d| 0埋めした日付(01、31)
+|%H| 0埋めした時刻(01、23)#24時間表記
+|%I| 0埋めした時刻(01、12)#12時間表記
+|%M| 0埋めした分（01、59）
+|%S| 0埋めした秒(01、59)
 
 + 0埋めとは、桁数（文字数）を揃える目的で、左に「0」を何個かくっつけることです。
 + 例) 5桁に合わせる「12」→「00012」、「345」→「00345」
@@ -558,8 +546,8 @@ print(hizuke)
 
 ```python
 ##################### 以下挿入 #####################
-#datetimeパッケージからdatetimeモジュールをimport
-from datetime import datetime
+#datetimeモジュールをimport
+import datetime
 ###################################################
 
 #読み込むファイルを指定してオープン
@@ -632,8 +620,8 @@ python3 03_import.py
 
 【問題(モジュール)】
 + 今日の日付を"YYYY/MM/DD HH:MM:SS"で表示するプログラムを作成してください。
-  + ヒント(使用するディレクティブ)
-    + "%Y/%m/%d %H:%M:%S"
+  + ヒント
+    + 先ほどのディレクティブ一覧を参照してみましょう。
 
 ---
 
@@ -796,7 +784,7 @@ print("今日は{0}です！".format(hizuke))
 ```python
 import sys
 import random
-from datetime import datetime
+import datetime
 
 #コマンドライン引数にファイルが一つ指定されていることをチェック
 if len(sys.argv) != 2:
