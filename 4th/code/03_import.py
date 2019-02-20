@@ -1,5 +1,5 @@
-#datetimeパッケージからdatetimeモジュールをimport
-from datetime import datetime
+#datetimeモジュールをimport
+import datetime
 
 #読み込むファイルを指定してオープン
 omikuji = open("write_file.txt", "r",encoding="utf-8")
