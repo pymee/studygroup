@@ -1,6 +1,6 @@
 import sys
 import random
-from datetime import datetime
+import datetime
 
 #コマンドライン引数にファイルが一つ指定されていることをチェック
 if len(sys.argv) != 2:
