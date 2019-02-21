@@ -472,40 +472,42 @@ import モジュール
 ```
 import datetime
 ```
-
-+ これで、datetimeモジュール内のクラスがすべて使えるようになります。
-+ クラスだけ呼び出す方法もありますが、それはまた次回に！
++ これでモジュール（＝.pyファイル）をimportでき、datetimeモジュール内のクラスがすべて使えるようになります。
 
 ---
 
-では実際に現在の日付や時刻を取得してみましょう。
++ 実際に現在の日付や時刻を取得してみましょう。
++ datetime.datetime.now()　という構文で、datetimeモジュール（＝.pyファイル）のdatetimeクラスのnow()メソッドを呼び出します。
++ メソッドとは、ある処理のまとまりに名前をつけたものです。
++ まどろっこしいですが、短くする方法もあるのでそれはまた次回に！
+
 ```python
 import datetime
 
-date1 = datetime.now()
+date1 = datetime.datetime.now()
 print(date1)
 ```
 + 出力結果
 ```
-2019-02-11 13:32:35.629794
+2019-02-21 11:27:29.172790
 ```
 + 現在の日付と時刻が取得できました。
 
 ---
 
-次に、日付と時刻のフォーマットを変更してみましょう。strftimeという関数を使って変更できます。
+次に、取得した日付と時刻を、任意のフォーマットの文字列に変換してみましょう。strftimeという関数を使って変換できます。
 ```python
 import datetime
 
-hizuke = datetime.now().strftime("%Y-%m-%d")
+hizuke = datetime.datetime.now().strftime("%Y-%m-%d")
 print(hizuke)
 ```
 
 +出力結果
 ```
-2019-02-19
+2019-02-21
 ```
-+ datetime.nowで取得した日付と時刻を "Y-M-D" というフォーマットに変更できました。
++ datetime.datetime.now()で取得した日付と時刻を "yyyy-mm-dd" というフォーマットの文字列に変換できました。
 
 ---
 
@@ -555,7 +557,7 @@ omikuji = open("write_file.txt", "r",encoding="utf-8")
 
 ##################### 以下挿入 #####################
 #現在時刻を"yyyy-mm-dd"の書式で文字列に変換する
-hizuke = datetime.now().strftime("%Y-%m-%d")
+hizuke = datetime.datetime.now().strftime("%Y-%m-%d")
 ###################################################
 
 ######## 書き込み先ファイル名変更 ###################
@@ -827,7 +829,7 @@ kekka = random.choice(KekkaList)
 unsei = kekka.split(",")
 
 #出力するファイル名に付与する日付を取得
-hizuke = datetime.now().strftime("%Y-%m-%d")
+hizuke = datetime.datetime.now().strftime("%Y-%m-%d")
 
 #出力ファイル名を指定 
 #rで""内のエスケープシーケンス(¥nなど)を無効化
@@ -1031,9 +1033,9 @@ print(hizuke)
 # アンケート
 + 今後のよりよい活動のため、アンケートにご協力ください！
 
-![400% center](./img/.png)
-
-https://questant.jp/q/
+以下本番で挿入
++ アンケートQRコード
++ リンク挿入
 
 + 不明点はメーリングリストで気軽に聞いて下さい！
 
