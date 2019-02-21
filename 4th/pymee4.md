@@ -503,7 +503,7 @@ hizuke = datetime.datetime.now().strftime("%Y-%m-%d")
 print(hizuke)
 ```
 
-+出力結果
++ 出力結果
 ```
 2019-02-21
 ```
