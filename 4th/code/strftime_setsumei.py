@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 
-hizuke = datetime.now().strftime("%Y-%m-%d")
+hizuke = datetime.datetime.now().strftime("%Y-%m-%d")
 print(hizuke)
