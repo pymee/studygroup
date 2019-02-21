@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div class="mermaid"; style="font-size:10pt; font-weight:bold; margin:80px;">
+    graph TB
+      ST("処理開始") ==>id3("ランダムに0から9までの整数を発生させる")
+      id3==>id4("発生した整数を、変数 num に代入")
+      id4==>id5("print(num)")
+      id5==>id6{"4が出た？"}
+      id6==Yes==>ED("処理終了")
+      id6==No==>id3  
+      classDef classA fill:#dfe,stroke:#006600,stroke-width:3px
+      classDef classB fill:#a8d0ec,stroke:#0000ff,stroke-width:3px
+      class id3,id4,id5,id6 classA;
+      class ST,ED classB;  
+  </div>
+  <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>
