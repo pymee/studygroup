@@ -34,7 +34,7 @@ kekka = random.choice(KekkaList)
 unsei = kekka.split(",")
 
 #出力するファイル名に付与する日付を取得
-hizuke = datetime.now().strftime("%Y-%m-%d")
+hizuke = datetime.datetime.now().strftime("%Y-%m-%d")
 
 #出力ファイル名を指定
 unsei_filename = r"./results/unsei_{0}.txt".format(hizuke)
