@@ -5,7 +5,7 @@ import datetime
 omikuji = open("write_file.txt", "r",encoding="utf-8")
 
 #現在時刻を"yyyy-mm-dd"の書式で文字列に変換する
-hizuke = datetime.now().strftime("%Y-%m-%d")
+hizuke = datetime.datetime.now().strftime("%Y-%m-%d")
 
 #書き込み先のファイルを新規作成してオープン
 f = open('import_kekka.txt','x')
