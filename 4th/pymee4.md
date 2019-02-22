@@ -49,8 +49,8 @@ sampleList = [1,2,3,4,5]
 
 #for文で「sampleList」の中身を一つずつ取り出してループ
 #先頭から取り出して末尾までループする。
-for number in sampleList:
-    print(number)
+for s in sampleList:
+    print(s)
 ```
 + 出力結果
 ```
@@ -70,17 +70,17 @@ for number in sampleList:
 # ファイル読み込み
 ```python
 #読み込むファイルを指定。
-inputAll = open("inputSample.txt", "r",encoding="utf-8")
+output = open("outputSample.txt", "r",encoding="utf-8")
 
 #ファイルから読み込んだ中身を一行ずつfor文で出力する。
-for inputLine in inputAll:
-    print (inputLine, end='');
+for o in output:
+    print (o, end='');
 
 #見やすいように最後に改行を入れる
 print('\n')
 
 #ファイルを読み込んだ後はクローズ処理を記載する。
-inputAll.close()
+output.close()
 ```
 ---
 + 出力結果
@@ -105,10 +105,10 @@ inputAll.close()
 try:
 
 #例文として存在しないファイルを指定
-    inputAll = open("exception.txt", "r",encoding="utf-8")
+    output = open("exception.txt", "r",encoding="utf-8")
 
-    for inputLine in inputAll:
-        print (inputLine, end='');
+    for o in output:
+        print (o, end='');
 
     print('\n')
 
