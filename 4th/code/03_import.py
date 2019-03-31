@@ -28,6 +28,7 @@ f.write("\n")
 f.write("===============================\n")
 
 #ファイルクローズ
+omikuji.close()
 f.close()
 
 print("import_kekka.txtに書き込みました!")
