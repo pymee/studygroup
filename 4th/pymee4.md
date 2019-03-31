@@ -74,7 +74,7 @@ output = open("outputSample.txt", "r",encoding="utf-8")
 
 #ファイルから読み込んだ中身を一行ずつfor文で出力する。
 for o in output:
-    print (o, end='');
+    print (o, end='')
 
 #見やすいように最後に改行を入れる
 print('\n')
@@ -112,7 +112,7 @@ try:
 
     print('\n')
 
-    inputAll.close()
+    output.close()
 
 #上記のexception.txtが存在しない為、
 #エラーが発生して以下のexceptと記載された箇所の処理が実行される。
@@ -395,6 +395,7 @@ f.write("\n")
 f.write("===============================\n")
 
 #ファイルクローズ
+omikuji.close()
 f.close()
 
 print("write_kekka.txtに書き込みました!")
@@ -601,6 +602,7 @@ f.write("===============================\n")
 ```python
 
 #ファイルクローズ
+omikuji.close()
 f.close()
 
 ##### write_kekka.txtをimport_kekka.txtに変更  #####
