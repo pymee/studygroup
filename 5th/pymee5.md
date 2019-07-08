@@ -29,6 +29,7 @@ CSVファイルをオープンしreaderに格納します。
 + csvread.py　
 ```python
 import csv
+#モジュールのインポート
 
 f = open('some.csv', 'r')
 #some.csvファイルを読み込み変数fに格納
@@ -112,6 +113,7 @@ pythonでssh接続するためのparamikoモジュールの使用例
 
 ```python
 import paramiko
+#モジュールのインポート
 
 client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
