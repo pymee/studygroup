@@ -47,10 +47,6 @@ reader = csv.reader(f)
 + csvread.py (前ページからのつづき)
 ```python
 for row in reader:
-    print(row)
-#読み込んだリストを表示
-
-for row in reader:
     print("================================================")
     print("行")
     print(row)
@@ -115,7 +111,7 @@ pythonでssh接続するためのparamikoモジュールの使用例
 
 ---
 
-+ paramikossh.py
++ sshtest.py
 
 ```python
 import paramiko
@@ -148,7 +144,7 @@ client.close()
 
 + 出力結果
 ```
-[root@ip-172-31-24-55 ~]# python3 paramikossh.py
+[root@ip-172-31-24-55 ~]# python3 sshtest.py
 ip-172-31-23.70.ap-northeast-1.compute.internal
 ```
 ログイン対象である172.31.23.70のホストネームを取得、表示できています。
