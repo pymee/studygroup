@@ -8,6 +8,11 @@
 ## コードの解説
 
 コードと何をやっているのかを簡単に書いていきます。
+実行する際には以下のコマンドを実行をしてからやると開発者と同じ環境で実行できます。
+```sh
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
 ```python
 #!/user/bin/env python3
