@@ -29,12 +29,12 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
 # 出力用のテンプレートを生成
 templates_text = string.Template("""\
-====================
+==============================
 IPアドレス: $ipaddr
 ログインユーザ: $username
 実行時刻: $nowtime
-====================
-# $command
+==============================
+$command
 $command_result
 
 """)
@@ -47,7 +47,7 @@ with open(csv_file_path, 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
 
     for row in csv_reader:
-        if not (row[0] == "" and row[1] == "" and row[2] == ""):
+        if not (row[0] == "" and row[1] == "" or row[0] == "" and row[1] == "" and row[2] == ""):
             hostname = row[0]
             username = row[1]
             password = row[2]
@@ -61,9 +61,15 @@ with open(csv_file_path, 'r') as csv_file:
             print("ERROR: SSH接続に失敗しました。", file=sys.stderr)
             sys.exit(1)
 
-        # ホスト名を取得
+        # ホスト名を取得 Linuxの $HOSTNAME 環境変数でホスト名を取得
         stdin, stdout, stderr = ssh.exec_command("echo $HOSTNAME")
-        server_hostname = stdout.readline()
+        server_hostname = stdout.readline().strip("\n")
+
+        # プロンプトの構築
+        prompt = "[{user}@{hostname}]".format(user=username, hostname=server_hostname) 
+        
+        # 三項演算子を使用して一行でif-elseを書く
+        prompt += "# " if username == "root" else "$ "
 
         # コマンド発行
         stdin, stdout, stderr = ssh.exec_command(command)
@@ -76,7 +82,7 @@ with open(csv_file_path, 'r') as csv_file:
 
         contents += templates_text.substitute(ipaddr=hostname, username=username,
                                               nowtime=datetime.now().strftime("%H:%M"),
-                                              command=command, command_result=command_result)
+                                              command=prompt+command, command_result=command_result)
 
         # 念の為コネクションをクローズしておく
         ssh.close()

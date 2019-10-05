@@ -6,14 +6,17 @@ marp: true
 <!-- page_number: true -->
 <!-- paginate: true -->
 
-# Pymee2019 第1回勉強会サンプルプログラム
+# Pymee2019
+　　
+　　
+## 第1回勉強会サンプルプログラム
 
 ---
 
 # はじめに
 このプログラムは Pymee2019 第 1 回勉強会のサンプルプログラムです。    
   
-2018 年の勉強会で学んだことを使って作っています。  
+2018 年の勉強会で学んだこと+αを使って作っています。  
 一部変なところもあるかもしれないですが、動いてるので今回はよし。
 
 ---
@@ -23,7 +26,7 @@ marp: true
 
 ```sh
 source venv/bin/activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 * venvがなにか知りたい人はGoogle先生に聞いてください。
 
@@ -38,8 +41,6 @@ pip install -r requirements.txt
 ## ライブラリのインポート
 
 ```python
-#!/user/bin/env python3
-
 import csv
 import os
 import string
@@ -47,10 +48,9 @@ import sys
 from datetime import datetime
 
 import paramiko
-
 ```
 
-※1行目はShebangです。詳細はGoogle先生に聞いてください。
+* paramikoモジュールのみpipでインストールした物なので1行開けて書いています。
 
 ---
 
@@ -61,9 +61,12 @@ import paramiko
 if len(sys.argv) <= 1:
     print("Usage: {} <csvfile>".format(sys.argv[0]), file=sys.stderr)
     sys.exit(1)
+
+csv_file_path = sys.argv[1]
 ```
 
 * 今回は引数が1以下のときに`sys.exit(1)`で終了させています。
+* `csv_file_path`変数にCSVファイルのパスを代入しています。
 
 ---
 
@@ -71,16 +74,15 @@ if len(sys.argv) <= 1:
 
 ```python
 # コマンドライン引数で指定したcsvファイルがなければ終了させる
-if not os.path.exists(sys.argv[1]):
+if not os.path.exists(csv_file_path):
     print("ERROR: CSVファイルが見つかりません")
     sys.exit(1)
-elif os.path.getsize(sys.argv[1]) <= 10:
+elif os.path.getsize(csv_file_path) == 0:
     print("ERROR: ファイルが空の可能性があります。")
     sys.exit(1)
 ```
 
-*  `elif os.path.getsize(sys.argv[1]) <= 10:`の部分はファイルが空かどうかの判定で使っています。  
-* 他にもいい方法があると思いますが、IP アドレスだけで 10 文字は行くと思ったのでこの書き方してみました。
+*  `elif os.path.getsize(csv_file_path) == 0:`の部分はファイルが空かどうかの判定で使っています。  
 
 ---
 
@@ -107,7 +109,7 @@ IPアドレス: $ipaddr
 ログインユーザ: $username
 実行時刻: $nowtime
 ====================
-# $command
+$command
 $command_result
 
 """)
@@ -121,15 +123,15 @@ $command_result
 
 ```python
 # CSVファイルを開いてIPアドレス、ユーザ名、パスワード、コマンドを取り出したあとにコマンドを実行して出力テキストを生成
-with open(sys.argv[1], 'r') as csv_file:
+with open(csv_file_path, 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
 
-    for row in csv_reader:
-        if not row[0] == "":
+   for row in csv_reader:
+        if not (row[0] == "" and row[1] == "" or row[0] == "" and row[1] == "" and row[2] == ""):
             hostname = row[0]
             username = row[1]
             password = row[2]
-        command = row[3]
+        command = row[3] 
 ```
 
 * CSVファイルを開いてIPアドレス、ユーザ名等を取り出して変数に代入しています。
@@ -148,6 +150,25 @@ with open(sys.argv[1], 'r') as csv_file:
 ```
 
 * ユーザ名やパスワード違いで認証に失敗した場合には`except`の部分が処理される。
+* `AuthenticationException`でSSH接続の認証系ほとんどキャッチできると思います。
+
+---
+
+## ホストネームの取得とプロンプトの生成
+
+```python
+# ホスト名を取得 Linuxの $HOSTNAME 環境変数でホスト名を取得
+        stdin, stdout, stderr = ssh.exec_command("echo $HOSTNAME")
+        server_hostname = stdout.readline().strip("\n")
+
+        # プロンプトの構築
+        prompt = "[{user}@{hostname}]".format(user=username, hostname=server_hostname) 
+        
+        # 三項演算子を使用して一行でif-elseを書く
+        prompt += "# " if username == "root" else "$ "
+```
+
+* 出力のテキストに使うPROMPTを生成
 
 ---
 
@@ -165,40 +186,24 @@ with open(sys.argv[1], 'r') as csv_file:
 
         contents += templates_text.substitute(ipaddr=hostname, username=username,
                                               nowtime=datetime.now().strftime("%H:%M"),
-                                              command=command, command_result=command_result)
+                                              command=prompt+command, command_result=command_result)
+        # 念の為コネクションをクローズしておく
+        ssh.close()
 ```
 
 * コマンドの実行結果をテンプレートに反映させてからcontents変数に代入しています。
 
 ---
 
-## 保存ファイル名の生成とフォルダのチェック
-
-```python
-# 保存場所の定義（全角にしたのは定数として認識しやすくするためで、Pythonでは特に意味は持たない）
-SAVE_FILE_PATH = "./results/"
-SAVE_FILE_NAME = "out_{}.txt".format(datetime.now().strftime("%Y%m%d%H%M"))
-
-SAVE_PATH = SAVE_FILE_PATH + SAVE_FILE_NAME
-
-# resultsフォルダがあるかチェックしてなければ作成
-if not os.path.exists(SAVE_FILE_PATH):
-    os.mkdir(SAVE_FILE_PATH)
-```
-
-* 大文字の変数は定数的な意味で大文字にしてありますが、Pythonに定数はないので特にプログラム的な意味はありません。
-
----
-
 ## 保存処理
 
 ```python
+# 保存ファイル名の定義（全角にしたのは定数として認識しやすくするためで、Pythonでは特に意味は持たない）
+SAVE_FILE_NAME = "out_{}.txt".format(datetime.now().strftime("%Y%m%d%H%M"))
 
-# 同じファイル名があるかチェックしてから保存処理
+# 保存処理
 try:
-    if os.path.isfile(SAVE_PATH):
-        raise FileExistsError()
-    with open(SAVE_PATH, 'a', encoding='UTF-8') as f:
+    with open(SAVE_FILE_NAME, 'x', encoding='UTF-8') as f:
         f.write(contents)
 
     print("保存完了！")
@@ -207,4 +212,4 @@ except FileExistsError:
     sys.exit(1)
 ```
 
-* `FileExistsError`で保存ファイル名が重複する場合には例外処理をしてます。
+* 大文字の変数は定数的な意味で大文字にしてありますが、Pythonに定数はないので特にプログラム的な意味はありません。
