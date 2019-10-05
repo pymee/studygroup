@@ -1,5 +1,3 @@
-#!/user/bin/env python3
-
 import csv
 import os
 import string
