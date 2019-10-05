@@ -11,12 +11,15 @@ if len(sys.argv) <= 1:
     print("Usage: {} <csvfile>".format(sys.argv[0]), file=sys.stderr)
     sys.exit(1)
 
+# csvファイルのパスを変数に格納
+csv_file_path = sys.argv[1]
+
 # コマンドライン引数で指定したcsvファイルがなければ終了させる
-if not os.path.exists(sys.argv[1]):
-    print("ERROR: CSVファイルが見つかりません")
+if not os.path.exists(csv_file_path):
+    print("ERROR: CSVファイルが見つかりません", file=sys.stderr)
     sys.exit(1)
-elif os.path.getsize(sys.argv[1]) <= 10:
-    print("ERROR: ファイルが空の可能性があります。")
+elif os.path.getsize(csv_file_path) == 0:
+    print("ERROR: ファイルが空の可能性があります。", file=sys.stderr)
     sys.exit(1)
 
 # Paramikoをインスタンス化して初期設定とか済ませておく
@@ -40,11 +43,11 @@ $command_result
 contents = ""
 
 # CSVファイルを開いてIPアドレス、ユーザ名、パスワード、コマンドを取り出したあとにコマンドを実行して出力テキストを生成
-with open(sys.argv[1], 'r') as csv_file:
+with open(csv_file_path, 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
 
     for row in csv_reader:
-        if not row[0] == "":
+        if not (row[0] == "" and row[1] == "" and row[2] == ""):
             hostname = row[0]
             username = row[1]
             password = row[2]
@@ -58,12 +61,16 @@ with open(sys.argv[1], 'r') as csv_file:
             print("ERROR: SSH接続に失敗しました。", file=sys.stderr)
             sys.exit(1)
 
+        # ホスト名を取得
+        stdin, stdout, stderr = ssh.exec_command("echo $HOSTNAME")
+        server_hostname = stdout.readline()
+
         # コマンド発行
         stdin, stdout, stderr = ssh.exec_command(command)
 
         command_result = ""
 
-        # 標準出力のリストをリスト内包表記で作る
+        # stdoutからコマンド実行結果を取り出す
         for i in stdout:
             command_result += i.strip('\n') + '\n'
 
@@ -71,21 +78,15 @@ with open(sys.argv[1], 'r') as csv_file:
                                               nowtime=datetime.now().strftime("%H:%M"),
                                               command=command, command_result=command_result)
 
-# 保存場所の定義（全角にしたのは定数として認識しやすくするためで、Pythonでは特に意味は持たない）
-SAVE_FILE_PATH = "./results/"
+        # 念の為コネクションをクローズしておく
+        ssh.close()
+
+# 保存ファイル名の定義（全角にしたのは定数として認識しやすくするためで、Pythonでは特に意味は持たない）
 SAVE_FILE_NAME = "out_{}.txt".format(datetime.now().strftime("%Y%m%d%H%M"))
 
-SAVE_PATH = SAVE_FILE_PATH + SAVE_FILE_NAME
-
-# resultsフォルダがあるかチェックしてなければ作成
-if not os.path.exists(SAVE_FILE_PATH):
-    os.mkdir(SAVE_FILE_PATH)
-
-# 同じファイル名があるかチェックしてから保存処理
+# 保存処理
 try:
-    if os.path.isfile(SAVE_PATH):
-        raise FileExistsError()
-    with open(SAVE_PATH, 'a', encoding='UTF-8') as f:
+    with open(SAVE_FILE_NAME, 'x', encoding='UTF-8') as f:
         f.write(contents)
 
     print("保存完了！")
