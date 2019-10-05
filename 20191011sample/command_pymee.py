@@ -1,5 +1,6 @@
 import csv
 import os
+import socket
 import string
 import sys
 from datetime import datetime
@@ -56,9 +57,12 @@ with open(csv_file_path, 'r') as csv_file:
         # サーバに接続
         try:
             ssh.connect(hostname=hostname, username=username, password=password,
-                        port=22, timeout=15.0, look_for_keys=False)
+                        port=22, timeout=10.0, look_for_keys=False)
         except paramiko.ssh_exception.AuthenticationException as e:
             print("ERROR: SSH接続に失敗しました。", file=sys.stderr)
+            sys.exit(1)
+        except socket.timeout:
+            print("ERROR: タイムアウトしました。", file=sys.stderr)
             sys.exit(1)
 
         # ホスト名を取得 Linuxの $HOSTNAME 環境変数でホスト名を取得
