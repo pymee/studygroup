@@ -59,7 +59,10 @@ with open(csv_file_path, 'r') as csv_file:
             ssh.connect(hostname=hostname, username=username, password=password,
                         port=22, timeout=10.0, look_for_keys=False)
         except paramiko.ssh_exception.AuthenticationException as e:
-            print("ERROR: SSH接続に失敗しました。", file=sys.stderr)
+            print("ERROR: SSH認証に失敗しました。", file=sys.stderr)
+            sys.exit(1)
+        except paramiko.ssh_exception.NoValidConnectionsError:
+            print("ERROR: 接続エラー。", file=sys.stderr)
             sys.exit(1)
         except socket.timeout:
             print("ERROR: タイムアウトしました。", file=sys.stderr)
