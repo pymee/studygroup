@@ -48,7 +48,7 @@ elif os.path.getsize(csv_file_path) == 0:
 ```
 
 コマンドライン引数の数のチェックと、CSVファイルがあるかをチェックしています。  
-`elif os.path.getsize(csv_file_path) == 0:`の部分はファイルが空かの判定をするために使っています。　　
+`elif os.path.getsize(csv_file_path) == 0:`の部分はファイルが空かの判定をするために使っています。  　
 今回はこの方法を使いましたが、他により良い方法があると思います。
 
  ---
