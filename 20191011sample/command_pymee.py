@@ -19,7 +19,9 @@ csv_file_path = sys.argv[1]
 if not os.path.exists(csv_file_path):
     print("ERROR: CSVファイルが見つかりません", file=sys.stderr)
     sys.exit(1)
-elif os.path.getsize(csv_file_path) == 0:
+
+# CSVファイルが空だったら終了させる
+if os.path.getsize(csv_file_path) == 0:
     print("ERROR: ファイルが空の可能性があります。", file=sys.stderr)
     sys.exit(1)
 
