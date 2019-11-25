@@ -49,6 +49,8 @@ contents = ""
 with open(csv_file_path, 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
 
+		# CSVファイルの行数分繰り返す
+		# SSHに必要な情報を取得し、変数に代入
     for row in csv_reader:
         if not (row[0] == "" and row[1] == "" or row[0] == "" and row[1] == "" and row[2] == ""):
             hostname = row[0]
@@ -85,7 +87,7 @@ with open(csv_file_path, 'r') as csv_file:
 
         command_result = ""
 
-        # stdoutからコマンド実行結果を取り出す
+				# stdoutからコマンド実行結果を取り出し、出力ファイル用に整形
         for i in stdout:
             command_result += i.strip('\n') + '\n'
 
