@@ -7,8 +7,9 @@
   
 実行する際に以下のコマンドを実行すると開発者と同じ環境で実行できます。
 ```sh
-source venv/bin/activate
-pip install -r requirements.txt
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
 ```
 
 ## コードの解説
