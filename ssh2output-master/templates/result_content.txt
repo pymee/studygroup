@@ -1,0 +1,8 @@
+====================
+IPアドレス: $ipaddr
+ログインユーザ: $username
+実行時刻: $nowtime
+====================
+# $command
+$command_result
+
