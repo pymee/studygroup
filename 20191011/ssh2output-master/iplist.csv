@@ -1,3 +1,0 @@
-xx.xx.xx.xx,ec2-user,password,pwd
-xx.xx.xx.xx,ec2-user,password,echo $PATH
-,,,ls
