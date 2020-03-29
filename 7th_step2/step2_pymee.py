@@ -52,7 +52,8 @@ for line in input_data:
     else:
         output_data[tmp_key] = {'ip': ip, 'user': user, 'command':[command]}
     # 以前のデータを更新する
-    old_ip, old_user = ip, user
+    if ip != '':
+        old_ip, old_user = ip, user
 
 tmp_csv_file.close()
 
@@ -74,8 +75,8 @@ for data in output_data.values():
         output_file.write(f'ssh {ip}@{user}\n')
 
         for command in command_list:
-            output_data.write(command + '\n')
+            output_file.write(command + '\n')
 
-        output_data.write('\n')
+        output_file.write('\n')
 
 print('処理が正常に完了しました。')
