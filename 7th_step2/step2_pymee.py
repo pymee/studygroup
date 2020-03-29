@@ -4,7 +4,7 @@ import csv
 import os
 
 # コマンド引数の個数を代入
-num_csv_file = len(sys.argv) 
+num_csv_file = len(sys.argv)
 
 # コマンド引数が指定されてない場合は処理終了
 if num_csv_file == 1:
@@ -12,7 +12,7 @@ if num_csv_file == 1:
     sys.exit(1)
 elif num_csv_file >= 3:
     print('指定可能なcsvファイルは1つだけです。', file=sys.stderr)
-    sys.exit(1) 
+    sys.exit(1)
 
 # 入力ファイルを引数に代入
 csv_file = sys.argv[1]
@@ -20,8 +20,8 @@ csv_file = sys.argv[1]
 # 指定したcsvファイルが存在しない場合は処理終了
 if not os.path.exists(csv_file):
     print('指定されたcsvファイルは存在しません。', file=sys.stderr)
-    sys.exit(1) 
-    
+    sys.exit(1)
+
 # 指定したcsvファイルが空の場合は処理終了
 if os.path.getsize(csv_file) == 0 :
     print('指定されたcsvファイルは空です。', file=sys.stderr)
@@ -56,22 +56,26 @@ for line in input_data:
 
 tmp_csv_file.close()
 
-# 同名の出力ファイルが存在しているか確認する
-for data in output_data.values():
-    output_file = 'command_{}.txt'.format(data['ip'])
-    if os.path.exists(output_file):
-        print('同名の出力ファイル({})が存在しています。'.format(output_file), file = sys.stderr)
-        sys.exit(1)
-
 # output_dataをファイルに書き込む
 for data in output_data.values():
-    output_file = 'command_{}.txt'.format(data['ip'])
-    with open( output_file, 'a') as output_data:
-        output_data.write('ssh {}@{}\n'.format(data['ip'], data['user']))
-        
-        for command in data['command']:
+    # データを変数に格納する
+    ip = data['ip']
+    user = data['user']
+    command_list = data['command']
+
+    # 同名の出力ファイルが存在しているか確認する
+    output_file_name = f'command_{ip}.txt'
+    if os.path.exists(output_file_name):
+        print(f'同名の出力ファイル({output_file_name})が存在しています。', file = sys.stderr)
+        sys.exit(1)
+
+    # output_dataをファイルに書き込む
+    with open( output_file_name, 'a') as output_file:
+        output_file.write(f'ssh {ip}@{user}\n')
+
+        for command in command_list:
             output_data.write(command + '\n')
-        
+
         output_data.write('\n')
 
 print('処理が正常に完了しました。')
