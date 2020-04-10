@@ -1,0 +1,5 @@
+ssh ip2@user2
+command21
+command22
+command23
+
