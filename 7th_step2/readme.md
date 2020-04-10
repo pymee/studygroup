@@ -1,15 +1,23 @@
 # ファイルの説明
+課題のサンプルプログラムは以下の通りになります。
 ディレクトリ | ファイル名　| 用途
 --- | --- | ---
-7th_step2 | step2_pymee.py | プログラム本体
-7th_step2 |Test_step2_pymee.py | テスト用のプログラム
-7th_step2/test/input_file |test.csv | データが入っているテスト用ファイル
-7th_step2/test/input_file |test_none.csv | 中身が空のテスト用ファイル
-7th_step2/test/result |配下のファイル | 期待する出力結果ファイル
+. | readme.md  | 今読んでいるページのファイル
+. | step2_pymee.py | 課題のサンプルプログラム
+
+以下のファイルは試しに作ったテスト用ファイルになります。
+興味がある方はご確認くださいませ:relaxed:
+ディレクトリ | ファイル名　| 用途
+--- | --- | ---
+. |Test_step2_pymee.py | テスト用のプログラム
+./test/input_file |test.csv | 読み込みファイル
+./test/input_file |test_none.csv | 中身が空の読み込みファイル
+./test/result |配下のファイル | 期待する出力結果ファイル
 
 # 単体テストの実行方法
-1. 7th_step2フォルダをコピー
-1. 7th_step2フォルダへ移動
+1. 7th_step2をクローン
+   `git clone <URL>`
+   詳細は[こちら](https://github.com/pymee/githandson/blob/master/textbook/git_markdown_and_handson.md)を参照くださいませ:smile:
 1. 実行場所が7th_step2であることを確認
     ```
     $ pwd
