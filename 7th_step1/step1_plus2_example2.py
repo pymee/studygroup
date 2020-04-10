@@ -15,7 +15,7 @@ try :
     print('{} ＋ {} = {}'.format(num1,num2,wa))
 
     # 引き算
-    if num1 >= num2 :
+    if int(num1) >= int(num2) :
         sa = int(num1) - int(num2)
         print('{} － {} = {}'.format(num1,num2,sa))
     else :
@@ -38,9 +38,9 @@ try :
         try :
             sho = int(num2) // int(num1)
             rem = int(num2) % int(num1)
-            print('{}   {} = 【エラー】0で除算しています'.format(num2,num1))
+            print('{} ÷ {} = {} あまり {}'.format(num2,num1,sho,rem))
         except ZeroDivisionError :
-            print(str(num2) + " ÷ " + str(num1) + " = " + "【エラー】0で除算しています")
+            print('{} ÷ {} = 【エラー】0で除算しています'.format(num2,num1))
 
 except ValueError :
     print("数字がふたつ入力されなかったので、何もせずにプログラムを終了します。")

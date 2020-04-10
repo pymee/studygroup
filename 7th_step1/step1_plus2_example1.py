@@ -15,7 +15,7 @@ try :
     print(str(num1) + " ＋ " + str(num2) + " = " + str(wa))
 
     # 引き算
-    if num1 >= num2 :
+    if int(num1) >= int(num2) :
         sa = int(num1) - int(num2)
         print(str(num1) + " － " + str(num2) + " = " + str(sa))
     else :
