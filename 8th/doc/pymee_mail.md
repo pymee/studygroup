@@ -1,6 +1,9 @@
-pymee勉強会
+
+# pymee勉強会
 
 ---
+
+<!-- page_number: true -->
 
 # 事前準備
 以下の3点が完了していることの確認をお願いします
@@ -125,25 +128,27 @@ csvファイルの画像を貼る
 
 # 1通のメールを作成するプログラムを実行してみる(5分)
 
-* 以下のファイルを実行してみてみましょう！
-実行後、resultフォルダに1通のメールが作成されることを確認してください
-	* ファイル名:mail_create1_example.py
+1. メールが格納されるフォルダ「result」を「mail_create1_example.py」と同じ階層に作成
+2. 以下どちらかの方法でプログラムを実行します
 
-* Windowsの実行方法
-```
-$ py mail_create_1_example.py
-```
-* Mac/Linuxの実行方法
-```
-$ python3 mail_create_1_example.py
-```
-Mac/Linuxでは「python mail_create_1_example.py」でも実行できますが、python2で実行される可能性がるため上記方法での実行をお願いします。
+    * Windowsの実行方法
+      ```
+      $ py mail_create_1_example.py
+      ```
+    * Mac/Linuxの実行方法
+      ```
+      $ python3 mail_create_1_example.py
+      ```
+		Mac/Linuxでは「python mail_create_1_example.py」でも実行できますが、python2で実行される可能性がるため上記方法での実行をお願いします。
 
 ---
 
-# 実行結果
-
-実行結果のメールの画像を貼る
+# 1通のメールを作成するプログラムを実行してみる(5分)
+3. 結果を確認する
+    * コンソールに以下が出力。**※本文は読めない形式で出力**
+      ![50%](../image/1_example_result1.png)
+    * 「result」フォルダにメールが作成されること
+      ![65%](../image/1_example_result2.png)
 
 ---
 
