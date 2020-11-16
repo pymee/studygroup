@@ -45,7 +45,7 @@ csvファイルに記載されている100人のユーザへメール通知を�
 * csvファイル
 宛先メールアドレス、CCのアドレス、ユーザの会社名、宛名でデータが並んでいます
 
-csvファイルの画像を貼る
+[todo]csvファイルの画像を貼る
 
 * メールフォーマット
 メールフォーマットの画像を貼る
@@ -85,12 +85,17 @@ csvファイルの画像を貼る
 * 指示内容について書いたものが「プログラム」！！
 	* プログラムを実行するには「実行環境」が必要
 	* 一般的にプログラムを書くことをプログラミングという
+
+[todo] 画像を貼る
+
 ---
 
 # プログラムも万能ではない・・・
 * プログラムは指示書
 	* 手順、明確な判断基準がないとプログラムは想定通りにはならない
 	* プログラムは繰り返し処理が得意
+
+[todo] 画像を貼る
 
 ---
 
@@ -163,6 +168,8 @@ csvファイルの画像を貼る
 	  * Subject:には件名
     * ボディ部には本文が記載されています
 
+[TODO]画像を貼る
+
 ---
 
 # プログラムの中身をみてみよう
@@ -173,11 +180,15 @@ csvファイルの画像を貼る
 
 # プログラムの中身をみてみよう
 1. メール作成の機能をもつモジュールの呼び出し
+<font style = "font-size:70%">
     ```python
     from email.message import EmailMessage
     from email.generator import Generator
     ```
+</font>
+
 2. ファイルに書き込むためのメールデータの準備
+<font style = "font-size:70%">
     ```python
     # <会社名>と<宛名>の部分を関数で書き換えてみよう
     message = """<会社名>　<宛名>様
@@ -188,21 +199,31 @@ csvファイルの画像を貼る
     # 本文を設定する
     mail_data.set_content(message)
     ```
+</font>
+
 3. ファイルへの書き込み
+<font style = "font-size:65%">
     ```python
     # 設定した内容をファイルに書き込む
-    with open('result/サービスメンテナンスのご連絡_<会社名>_<宛名>.eml'.replace('<会社名>',company).replace('<宛名>',name), 'w') as eml:
+    with open('result/サービスメンテナンスのご連絡_<会社名>_<宛名>.eml'.replace('<会社名>',
+    company).replace('<宛名>',name), 'w') as eml:
         eml_file = Generator(eml)
         eml_file.flatten(mail_data)
     ```
+</font>
+
 ---
 
 # プログラムの中身をみてみよう(モジュールについて)
 
+<font style = "font-size:70%">
+  
 ```python
 from email.message import EmailMessage
 from email.generator import Generator
 ```
+</font>
+
 pythonでメールデータを扱うためのモジュール(プログラム)を呼び出しています。
 
 * email.messageの中のEmailMessageモジュールを呼び出し
@@ -216,6 +237,8 @@ pythonでメールデータを扱うためのモジュール(プログラム)を
 
 # プログラムの中身をみてみよう(変数について)
 
+<font style = "font-size:70%">
+  
 ```python
 # 変数の設定
 # 送信元、宛先、CCのメールアドレス、会社名、宛名を変数で定義してメールを作成してみよう！
@@ -223,6 +246,8 @@ subject = 'サービスメンテナンスのご連絡'
 company = '株式会社A'
 name = '佐藤'
 ```
+</font>
+
 * 変数とは？
 変数は、ラベルがついた箱のようなものです。
 変数にデータを代入することができます。
@@ -231,34 +256,37 @@ name = '佐藤'
 一度変数を宣言すれば、それ以降は変数を指定することでデータを扱うことができます。
 
 * データ型
-文字列は''もしくは""で文字列を囲む必要があります。
+文字列は「'」もしくは「"」で文字列を囲む必要があります。
 
 ---
 
 # プログラムの中身をみてみよう(変数について)
 * 文字列の中に改行があり複数行ある場合は、"""で囲むやり方があります
-```python
-# <会社名>と<宛名>の部分を関数で書き換えてみよう
-message = """<会社名>　<宛名>様
+    <font style = "font-size:70%">
+    ```python
+    # <会社名>と<宛名>の部分を関数で書き換えてみよう
+    message = """<会社名>　<宛名>様
 
-お世話になっております。pymeeです。
+    お世話になっております。pymeeです。
 
-いつも【サービスA】をご利用いただきありがとうございます。
-以下日程にてサービスメンテナンスを実施いたします。
+    いつも【サービスA】をご利用いただきありがとうございます。
+    以下日程にてサービスメンテナンスを実施いたします。
 
-2020年12月30日 23:00 〜 12月31日 6:00
+    2020年12月30日 23:00 〜 12月31日 6:00
 
-ご迷惑をおかけしますが、
-メンテナンス時間は弊社サービスをご利用いただけませんので、
-ご了承くださいませ。
+    ご迷惑をおかけしますが、
+    メンテナンス時間は弊社サービスをご利用いただけませんので、
+    ご了承くださいませ。
 
-以上です。よろしくお願いいたします。
-"""
-```
+    以上です。よろしくお願いいたします。
+    """
+    ```
+    </font>
 
 ---
 
 # プログラムの中身をみてみよう(メールデータの作成)
+<font style = "font-size:70%">
 
 ```python
 # メールを作成する
@@ -279,45 +307,67 @@ mail_data['subject'] = subject
 # 本文を設定する
 mail_data.set_content(message)
 ```
+</font>
+
 先ほど宣言した変数subject、messageを使用しています。
 
 ---
 
 # プログラムの中身をみてみよう(メールデータの表示)
-
+<font style = "font-size:70%">
+  
 ```python
 # mail_dataの中身をみてみる
 print(mail_data)
 ```
+</font>
+
 * 標準出力(コマンドプロンプト/コンソール)にmail_dataの中身を出力させています
+	![80%](../image/1_example_result1.png)
 
 ---
 
 # プログラムの中身をみてみよう(メールデータの書き込み)
 
+<font style = "font-size:70%">
+  
 ```python
-
-with open('result/サービスメンテナンスのご連絡_<会社名>_<宛名>.eml'.replace('<会社名>',company).replace('<宛名>',name), 'w') as eml:
+with open('result/サービスメンテナンスのご連絡_<会社名>_<宛名>.eml'.replace('<会社名>',
+company).replace('<宛名>',name), 'w') as eml:
     eml_file = Generator(eml)
     eml_file.flatten(mail_data)
 ```
+</font>
+
 * openの行で書き込み用のファイルを変数emlとして開いています
 * withの範囲内であれば、変数emlを使用してデータを扱うことが可能です
 * 以下のような書き方もできますが、close()処理を記載する必要があります。withの場合、close処理も自動で行なってくれるので便利です！
+
+<font style = "font-size:70%">
+  
 ```python
-eml = open('result/サービスメンテナンスのご連絡_<会社名>_<宛名>.eml'.replace('<会社名>',company).replace('<宛名>',name), 'w')
+# ファイルオープン
+eml = open('result/サービスメンテナンスのご連絡_<会社名>_<宛名>.eml'.replace('<会社名>',
+company).replace('<宛名>',name), 'w')
 eml_file = Generator(eml)
 eml_file.flatten(mail_data)
+
+# closeを書く必要がある
 eml.close()
 ```
+</font>
 
 ---
 
 # replace関数について
 
+<font style = "font-size:70%">
+
 ```python
 `〜ご連絡_<会社名>_<宛名>.eml`.replace('<会社名>',company).replace('<宛名>',name)
 ```
+</font>
+
 * 関数とは？
 特定の機能をもつプログラムの塊です。
 replace関数とは文字を置き換える機能を持っています。
@@ -348,8 +398,9 @@ replace関数とは文字を置き換える機能を持っています。
 
 # 2. 1通のメールを作成するプログラムを修正する
 * 作成されたメールをみてみると・・・
-  * 作成されたメールをみると本文が<会社名>　<宛名>のまま
-  * 宛先、送信元、CCのメールアドレスもアドレスではない
+  * 宛先、送信元、CCのメールアドレスがアドレスでない
+  * 本文が<会社名>　<宛名>のまま
+    ![95%](../image/1_example_result2.png)
 
 ---
 
@@ -362,14 +413,17 @@ replace関数とは文字を置き換える機能を持っています。
   送信元メールアドレス：pymee-support@example.com
   宛先メールアドレス：satou@exampleA.co.jp
   CCメールアドレス：pymee-support@example.com
+  会社名：株式会社A
+  宛名：佐藤
   ```
 
-変数名ですがfromは予約語なので使えません・・・
+* **変数名ですがfromは予約語なので使えません・・・**
 
 ---
 
-# 回答例
-
+# 回答例 (1/2)
+<font style = "font-size:70%">
+  
 ```python
 from email.message import EmailMessage
 from email.generator import Generator
@@ -382,12 +436,6 @@ name = '佐藤'
 from_mail = 'pymee-support@example.com'
 to_mail = 'satou@exampleA.co.jp'
 cc_mail = 'pymee-support@example.com'
-```
----
-
-# 回答例
-
-```python
 
 # <会社名>と<宛名>の部分を関数で書き換えてみよう
 message = """<会社名>　<宛名>様
@@ -405,12 +453,15 @@ message = """<会社名>　<宛名>様
 
 以上です。よろしくお願いいたします。
 """.replace('<会社名>', company).replace('<宛名>', name)
-
 ```
+
+</font>
+
 ---
 
-# 回答例
-
+# 回答例 (2/2)
+<font style = "font-size:70%">
+  
 ```python
 # メールを作成する
 mail_data = EmailMessage()
@@ -433,17 +484,14 @@ mail_data.set_content(message)
 # mail_dataの中身をみてみる
 print(mail_data)
 
-```
----
-
-# 回答例
-
-```python
 # 設定した内容をファイルに書き込む
-with open('result/サービスメンテナンスのご連絡_<会社名>_<宛名>.eml'.replace('<会社名>',company).replace('<宛名>',name), 'w') as eml:
+with open('result/サービスメンテナンスのご連絡_<会社名>_<宛名>.eml'.replace('<会社名>',
+company).replace('<宛名>',name), 'w') as eml:
     eml_file = Generator(eml)
     eml_file.flatten(mail_data)
 ```
+</font>
+
 ---
 
 # 手順
@@ -475,7 +523,8 @@ with open('result/サービスメンテナンスのご連絡_<会社名>_<宛名
 # どうやったのか？
 csvファイルからデータを取り出し中身を出力するプログラムがあります。
 ファイル名：mail_create_2_example.py
-
+<font style = "font-size:70%">
+  
 ```python
 import csv
 
@@ -492,26 +541,35 @@ with open('../data/address2.csv', 'r') as f:
 #        print('CCメールアドレス：{}'.format(line[1]))
         print('------')
 ```
+</font>
 
 ---
 
 # 出力結果
 
+<font style = "font-size:70%">
+  
 ```python
 % python3 mail_create_2_example.py
-lineの中身：['satou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '佐藤', 'A']
+lineの中身：['satou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社',
+'佐藤', 'A']
 ------
-lineの中身：['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp', '株式会社B社', '坂下', 'B']
+lineの中身：['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp',
+'株式会社B社', '坂下', 'B']
 ------
-lineの中身：['saitou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '斎藤', 'B']
+lineの中身：['saitou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社',
+'斎藤', 'B']
 ------
 
 ```
+</font>
 
 ---
 
 # openにより読み取り専用でcsvファイルを開く
 
+<font style = "font-size:70%">
+  
 ```python
 import csv
 
@@ -519,6 +577,8 @@ with open('data/address2.csv', 'r') as f:
     # csvファイルのデータを読み込む
     csv_data = csv.reader(f)
 ```
+</font>
+
 * csvファイルを扱う機能を持ったモジュールcsvを呼び出し
 * withとopenを使ってcsvファイルを開く
 * csv.reader()でデータをよ見込み、変数csv_dataに格納
@@ -527,11 +587,16 @@ with open('data/address2.csv', 'r') as f:
 
 # forによる繰り返し処理
 
+<font style = "font-size:70%">
+  
 ```python
     for line in csv_data:
         # lineを表示させる
         print('lineの中身：{}'.format(line))
 ```
+</font>
+
+[TODO] 図をいれる
 csvファイルの１行目を取り出し標準出力へ表示
 次の行へ移動
 csvファイルの１行目を取り出し標準出力へ表示
@@ -542,18 +607,25 @@ csvファイルの１行目を取り出し標準出力へ表示
 
 # 標準出力について
 
+<font style = "font-size:70%">
+  
 ```python
  print('lineの中身：{}'.format(line))
 ```
+</font>
 
 * print関数とは？
 	()の中身を標準出力へ表示させる機能を持った関数
 * format関数とは？
 	文字列.format(変数)と記載することで{}の中に変数を格納したものを表示させることが可能
+    
+    <font style = "font-size:70%">
+  
     ```python
     '1つ目：{},2つ目:{}'.format('test1', 'test2')
     // 1つ目：test1,2つ目:test2 と表示される
     ```
+    </font>
 
 ---
 
@@ -561,6 +633,8 @@ csvファイルの１行目を取り出し標準出力へ表示
 
 * リストとして扱うことが可能
 
+<font style = "font-size:70%">
+  
 ```python
 
 import csv
@@ -578,26 +652,34 @@ with open('data/address2.csv', 'r') as f:
         print('CCメールアドレス：{}'.format(line[1]))
         print('------')
 ```
+</font>
+
 ---
 
 # 出力結果
 
+<font style = "font-size:70%">
+  
 ```python
 
  % python3 mail_create_2_example.py
-lineの中身：['satou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '佐藤', 'A']
+lineの中身：['satou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社',
+'佐藤', 'A']
 宛先メールアドレス：satou@exampleA.co.jp
 CCメールアドレス：pymee-support@example.co.jp
 ------
-lineの中身：['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp', '株式会社B社', '坂下', 'B']
+lineの中身：['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp',
+'株式会社B社', '坂下', 'B']
 宛先メールアドレス：sakashita@exampleB.co.jp
 CCメールアドレス：pymee-support@example.co.jp
 ------
-lineの中身：['saitou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '斎藤', 'B']
+lineの中身：['saitou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', 
+'斎藤', 'B']
 宛先メールアドレス：saitou@exampleA.co.jp
 CCメールアドレス：pymee-support@example.co.jp
 ------
 ```
+</font>
 
 ---
 
@@ -607,11 +689,14 @@ CCメールアドレス：pymee-support@example.co.jp
 	* 1番目のデータを取り出すには[0]と指定する
 	* 2番目のデータを取り出すには[1]と指定する・・・ 
 
+[TODO] 図をいれる
 
 ---
 
 # リストの追加方法
 
+<font style = "font-size:70%">
+  
 ```python
 
 test1 = 'test1'
@@ -633,9 +718,13 @@ print(list_data)
 
 ```
 
+</font>
+
 ---
 
 # withの範囲外になるとデータの読み込みができない
+
+<font style = "font-size:70%">
 
 ```python
 
@@ -659,22 +748,28 @@ for line in csv_data:
     print('lineの中身：{}'.format(line))
     print('------')
 ```
+</font>
 
 ---
 
 # 出力結果
 
+<font style = "font-size:70%">
+  
 ```python
 % python3 mail_create_2_example.py
-lineの中身：['satou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '佐藤', 'A']
+lineの中身：['satou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', 
+'佐藤', 'A']
 宛先メールアドレス：satou@exampleA.co.jp
 CCメールアドレス：pymee-support@example.co.jp
 ------
-lineの中身：['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp', '株式会社B社', '坂下', 'B']
+lineの中身：['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp', '株式会社B社', 
+'坂下', 'B']
 宛先メールアドレス：sakashita@exampleB.co.jp
 CCメールアドレス：pymee-support@example.co.jp
 ------
-lineの中身：['saitou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '斎藤', 'B']
+lineの中身：['saitou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社',
+'斎藤', 'B']
 宛先メールアドレス：saitou@exampleA.co.jp
 CCメールアドレス：pymee-support@example.co.jp
 ------
@@ -685,6 +780,7 @@ ValueError: I/O operation on closed file.
 (venv) sanoyui@sanonoMacBook-Air pymee % 
 
 ```
+</font>
 
 ---
 
@@ -700,13 +796,19 @@ ValueError: I/O operation on closed file.
 	1. リスト型のlist_dataにcsvファイルのデータを追加して扱いやすいデータにしてみよう
 
 * 出力結果
+<font style = "font-size:70%">
+  
 ```
 % python3 mail_create_2_before.py
 会社名: 株式会社A社, 宛名: 佐藤
 会社名: 株式会社B社, 宛名: 坂下
 会社名: 株式会社A社, 宛名: 斎藤
-[['satou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '佐藤', 'A'], ['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp', '株式会社B社', '坂下', 'B'], leA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '斎藤', 'B']]
+[['satou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '佐藤', 'A'],
+['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp', '株式会社B社', '坂下', 
+'B'], leA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '斎藤', 'B']]
 ```
+</font>
+
 ---
 
 # 手順
@@ -743,7 +845,8 @@ else:
 	それ以外の処理
 ```
 * 条件について
-条件の一覧を貼る
+
+[TODO]条件の一覧を貼る
 
 ---
 
