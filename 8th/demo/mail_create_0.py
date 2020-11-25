@@ -16,7 +16,7 @@ for line in data:
     mail_data = EmailMessage()
 
     # 送信元アドレスを設定する
-    from_add = 'yui.sano@example.com'
+    from_add = 'pymee.support@example.com'
     mail_data['From'] = from_add
 
     # 宛先アドレスを設定する
