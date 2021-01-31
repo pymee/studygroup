@@ -12,12 +12,13 @@ except ValueError:
     print("【エラー】数字の「1」もしくは「2」を入れてください。")
     sys.exit()
 
-if mail_attach_int == 0 or mail_attach_int >= 3 :
+if mail_attach_int == 0 or mail_attach_int <= 0 or mail_attach_int >= 3 :
+#if mail_attach_int == 0 or mail_attach_int >= 3 :
     print("【エラー】数字の「1」もしくは「2」を入れてください。")
     sys.exit()
 
 # CSVファイルを読み込む
-with open('address2.csv', 'r') as f:
+with open('address2.csv', 'r', encoding='shift_jis') as f:
     # 以下のフォーマットで値をコマンドプロンプトに表示させてみよう
     # 会社名: <会社名>, 宛名: <宛名>
     # リストlist_dataに値を追加して最後にリストをコマンドプロンプトに表示させてみよう
@@ -42,7 +43,7 @@ with open('address2.csv', 'r') as f:
             os.mkdir(mail_path)
 
         # テキストファイルから本文を読み込み、<会社名>と<宛名>の部分を関数で書き換えてみよう
-        with open("mail_honbun.txt","r",encoding = "utf-8")as re:
+        with open("mail_honbun.txt","r", encoding='UTF-8')as re:
             message = re.read().format(company, name, service)
 
         # メールを作成する
@@ -98,7 +99,5 @@ with open('address2.csv', 'r') as f:
                 eml_file.flatten(mail_data)
 
 #添付ファイルなしだった場合はそのまま終了する
-        elif mail_attach_int == 2:
-            pass
 
 print("メールの作成が完了しました。")
