@@ -12,8 +12,7 @@ except ValueError:
     print("【エラー】数字の「1」もしくは「2」を入れてください。")
     sys.exit()
 
-if mail_attach_int == 0 or mail_attach_int <= 0 or mail_attach_int >= 3 :
-#if mail_attach_int == 0 or mail_attach_int >= 3 :
+if mail_attach_int <= 0 or mail_attach_int >= 3 :
     print("【エラー】数字の「1」もしくは「2」を入れてください。")
     sys.exit()
 
