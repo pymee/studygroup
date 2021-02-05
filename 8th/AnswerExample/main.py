@@ -1,5 +1,6 @@
 import csv
 import os
+import sys
 from email.generator import Generator
 from data import read_txt
 from data import create_mail
