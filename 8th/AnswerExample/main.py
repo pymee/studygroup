@@ -1,6 +1,5 @@
 import csv
 import os
-import sys
 from email.message import EmailMessage
 from email.generator import Generator
 from data import read_txt
@@ -19,9 +18,9 @@ if mail_attach_int <= 0 or mail_attach_int >= 3 :
     sys.exit()
 
 with open('address2.csv', 'r', encoding="shift-jis") as f:
-    # 以下のフォーマットで値をコマンドプロンプトに表示させてみよう
+    # 以下のフォーマットで値を取得
     # 会社名: <会社名>, 宛名: <宛名>
-    # リストlist_dataに値を追加して最後にリストをコマンドプロンプトに表示させてみよう
+    # リストlist_dataに値を追加する
     csv_data = csv.reader(f)
 
     list_data = []

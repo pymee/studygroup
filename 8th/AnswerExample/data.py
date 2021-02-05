@@ -1,4 +1,3 @@
-import csv
 from email.message import EmailMessage
 from email.generator import Generator
 
