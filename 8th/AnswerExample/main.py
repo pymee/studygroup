@@ -1,6 +1,5 @@
 import csv
 import os
-from email.message import EmailMessage
 from email.generator import Generator
 from data import read_txt
 from data import create_mail

@@ -1,5 +1,4 @@
 from email.message import EmailMessage
-from email.generator import Generator
 
 #メール本文用テキスト
 def read_txt(path):
