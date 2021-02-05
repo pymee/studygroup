@@ -1,0 +1,58 @@
+/* @theme pymee-theme */
+/* デフォルトテーマのインポート */
+@import 'default';
+
+/* 全体設定 */
+section {
+ width: 960px;
+ height: 720px;
+ font-size: 25px;
+}
+
+/* タイトルスライドの設定*/
+section.title {
+ text-align: center;
+}
+section.title h1 {
+ font-size: 60px;
+ text-align: center;
+ color: #369;
+}
+section.title h2 {
+ text-align: center;
+ color: #369;
+}
+section.title h3 {
+ text-align: center;
+ color: #369;
+}
+
+/* その他スライドの設定 */
+/* スライドのタイトル */
+section.slide h1 {
+ color: #369;
+ font-size: 40px;
+ position: absolute;
+ left: 50px; top: 50px;
+}
+/* 箇条書き1 */
+section.slide ul li ul {
+ font-size: 23px;
+}
+/* 箇条書き2 */
+section.slide ul li ul li ul {
+ font-size: 19px;
+}
+/* 箇条書き3 */
+section.slide ul li ul li ul il ul {
+ font-size: 14px;
+}
+/* コードブロック */
+section.slide pre {
+ font-size: 20px;
+}
+
+/* コードメインの設定 */
+section.code-main pre{
+ font-size: 15px;
+}
