@@ -1,5 +1,5 @@
 ---
-theme : pymee-theme 
+theme : pymee-theme
 paginate : true
 ---
 
@@ -24,7 +24,7 @@ class: slide
 
 - 確認事項
   以下3点が完了しているか確認をお願いします
-  
+
   1. python3のインストール
   2. メーラーのインストール
   3. 勉強会資料のダウンロード
@@ -296,7 +296,7 @@ from email.generator import Generator
 </br>
 
 メール作成に必要な文字列を変数に代入しています
- 
+
 ```python
 # 変数の設定
 # 送信元、宛先、CCのメールアドレス、会社名、宛名を変数で定義してメールを作成してみよう！
@@ -430,7 +430,7 @@ mail_data.set_content(message)
 </br>
 
 - 標準出力(コマンドプロンプト/コンソール)にmail_dataの中身を表示させています(print()はデータを標準出力へ表示させる関数)
- 
+
   ```python
   # mail_dataの中身をみてみる
   print(mail_data)
@@ -617,8 +617,8 @@ mail_create_1_example.pyを以下のように修正してみよう！
 ---
 
 # 処理の流れについて
-</br> 
-</br> 
+</br>
+</br>
 
 - csvファイルを開く
 - csvファイルのデータを読み込む
@@ -626,12 +626,12 @@ mail_create_1_example.pyを以下のように修正してみよう！
 
   ```python
   import csv
-  
+
   # CSVファイルを開く
   with open('../data/address2.csv', 'r') as f:
       # csvファイルのデータを読み込む
       csv_data = csv.reader(f)
-  
+
       # csv_dataの１行分のデータをlineに格納する
       for line in csv_data:
           # lineを表示させる
@@ -686,7 +686,7 @@ with open('data/address2.csv', 'r') as f:
 # csvファイルのデータを読み込む
 
 - csvモジュールの`reader関数`に、読み込んだファイルを渡し、結果を変数csv_dataに格納しています
-  
+
 ```python
 import csv
 
@@ -725,7 +725,7 @@ forの範囲とは、for行以下からインデントされている行にな�
 
 - print関数とは？
   ()の中身を標準出力へ表示させる機能を持った関数のことです
- 
+
   ```python
   print('こんにちわ')
   # こんにちわ と表示される
@@ -733,7 +733,7 @@ forの範囲とは、for行以下からインデントされている行にな�
 - format関数とは？
   文字列のフォーマットを整える関数です
   以下のように変数と文字列を組み合わせることが可能になります
-  
+
   ```python
   name = '田中さん。'
   print('こんにちわ。{}'.format(name))
@@ -802,9 +802,9 @@ lineの中身：['sakagami@companyC.co.jp', 'pymee@example.com', '株式会社C�
 その番号を使用することでデータを取り出すことが可能
 - 変数名がlist_dataのリストの場合
   - 1番目のデータを取り出すにはlist_data[0]と指定する
-  - 2番目のデータを取り出すにはlist_data[1]と指定する・・・ 
+  - 2番目のデータを取り出すにはlist_data[1]と指定する・・・
 
-![w:518 h:322](image/リストとは.png) 
+![w:518 h:322](image/リストとは.png)
 
 ---
 
@@ -817,12 +817,12 @@ lineの中身：['sakagami@companyC.co.jp', 'pymee@example.com', '株式会社C�
 - コード
   ```python
   import csv
-  
+
   # CSVファイルを開く
   with open('data/address2.csv', 'r') as f:
       # csvファイルのデータを読み込む
       csv_data = csv.reader(f)
-  
+
       # csv_dataの１行分のデータをlineに格納する
       for line in csv_data:
           # lineを表示させる
@@ -850,7 +850,7 @@ lineの中身：['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp',
 宛先メールアドレス：sakashita@exampleB.co.jp
 CCメールアドレス：pymee-support@example.co.jp
 ------
-lineの中身：['saitou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', 
+lineの中身：['saitou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社',
 '斎藤', 'B']
 宛先メールアドレス：saitou@exampleA.co.jp
 CCメールアドレス：pymee-support@example.co.jp
@@ -861,7 +861,7 @@ CCメールアドレス：pymee-support@example.co.jp
 
 # リストへ値を追加する方法
 
-  
+
 ```python
 
 test1 = 'test1'
@@ -902,7 +902,7 @@ class: slide
 
 ```python
 import csv
-  
+
 # CSVファイルを開く
 with open('data/address2.csv', 'r') as f:
     # csvファイルのデータを読み込む
@@ -926,7 +926,7 @@ for line in csv_data:
 
 # 出力結果
 
-  
+
 ```python
 % python3 mail_create_2_before.py
 Traceback (most recent call last):
@@ -961,14 +961,14 @@ mail_create_2_before.pyを以下のように修正してみよう！
   1. リスト型の変数csv_listにcsvファイルのデータを追加し、csv_listを標準出力に表示させてみよう
 
 - 出力結果
-  
+
 ```
 % python3 mail_create_2_before.py
 会社名: 株式会社A社, 宛名: 佐藤
 会社名: 株式会社B社, 宛名: 坂下
 会社名: 株式会社A社, 宛名: 斎藤
 [['satou@exampleA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '佐藤', 'A'],
-['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp', '株式会社B社', '坂下', 
+['sakashita@exampleB.co.jp', 'pymee-support@example.co.jp', '株式会社B社', '坂下',
 'B'], leA.co.jp', 'pymee-support@example.co.jp', '株式会社A社', '斎藤', 'B']]
 ```
 
@@ -1091,7 +1091,7 @@ class: slide
 
 </br>
 灰色部分が実際にコードを修正/作成してもらう部分になります
- 
+
 ---
 
 # 課題：プログラムをカスタマイズしてみよう！
@@ -1111,7 +1111,7 @@ class: slide
 
 # 発表について
 - 日時
-  - 2021/2/XX 19:30-21:00@zoom 
+  - 2021/2/XX 19:30-21:00@zoom
 
 - 準備いただくもの
   - 作成したコード
@@ -1133,17 +1133,3 @@ class: title
 # 本日はお疲れ様でした！
 これを機にちょっとでもプログラムに
 興味を持っていただけると嬉しいです:smile:
-
----
-
-<!--
-class: slide
--->
-
-# アンケートのお願い
-以下QRコードを読み取りアンケートへの回答をお願いします:bow:
-
-![h:336 w:336](image/pymeeアンケート.png)
-
-https://questant.jp/q/FHM52ZMH
-
