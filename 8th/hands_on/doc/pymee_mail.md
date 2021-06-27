@@ -634,38 +634,40 @@ mail_create_1_example.pyを以下のように修正してみよう！
 
 </br>
 
--  csvファイルのデータを読み込み、以下のフォーマットで標準出力に表示させるプログラムを実行してみます
+- csvファイルの値を表示するプログラム
+  csvファイルのデータを以下フォーマットで標準出力に表示させるプログラムを実行します
+
   フォーマット：`lineの中身：csvファイルの1行分のデータ`
   ファイル名：mail_create_2_example.py
 
 ---
 
-# 処理の流れについて
+# 実行したプログラムの中身について
 </br>
 </br>
+処理の流れは以下の通りです
 
-- csvファイルを開く
-- csvファイルのデータを読み込む
-- 1行分のデータを読みこみ標準出力へ表示させる
+1. csvファイルを開く
+2. csvファイルのデータを読み込む
+3. 1行分のデータを読みこみ標準出力へ表示させる
 
-  ```python
-  import csv
+```python
+import csv
 
-  # CSVファイルを開く
-  with open('../data/address2.csv', 'r') as f:
-      # csvファイルのデータを読み込む
-      csv_data = csv.reader(f)
+# CSVファイルを開く
+with open('../data/address2.csv', 'r') as f:
+    # csvファイルのデータを読み込む
+    csv_data = csv.reader(f)
 
-      # csv_dataの１行分のデータをlineに格納する
-      for line in csv_data:
-          # lineを表示させる
-          print('lineの中身：{}'.format(line))
-  #        print('宛先メールアドレス：{}'.format(line[0]))
-  #        print('CCメールアドレス：{}'.format(line[1]))
-          print('------')
-  ```
-
-  「#」から始まる行はコメント分のため実行されません
+    # csv_dataの１行分のデータをlineに格納する
+    for line in csv_data:
+        # lineを表示させる
+        print('lineの中身：{}'.format(line))
+#        print('宛先メールアドレス：{}'.format(line[0]))
+#        print('CCメールアドレス：{}'.format(line[1]))
+        print('------')
+```
+「#」から始まる行はコメント分のため実行されません
 
 ---
 
@@ -689,13 +691,12 @@ mail_create_1_example.pyを以下のように修正してみよう！
 
 ---
 
-# csvファイルを開く
+# 1. csvファイルを開く
 
 - `import csv`でモジュールを呼び出しています
-  csvモジュールはcsvファイルを読み書きするためのものです
+  - csvモジュールはcsvファイルを読み書きするためのものです
 
-- open()関数で「data/address2.csv」を読み込みモードで開き
-開いたデータを変数fに代入しています
+- open()関数で「data/address2.csv」を読み込みモードで開き、開いたデータを変数fに代入しています
 
 ```python
 import csv
@@ -707,24 +708,25 @@ with open('data/address2.csv', 'r') as f:
 
 ---
 
-# csvファイルのデータを読み込む
+# 2. csvファイルのデータを読み込む
 
 - csvモジュールの`reader関数`に、読み込んだファイルを渡し、結果を変数csv_dataに格納しています
 
-```python
-import csv
+  ```python
+  import csv
 
-with open('data/address2.csv', 'r') as f:
-    # csvファイルのデータを読み込む
-    csv_data = csv.reader(f)
-```
+  with open('data/address2.csv', 'r') as f:
+      # csvファイルのデータを読み込む
+      csv_data = csv.reader(f)
+  ```
 
 </br>
-reader関数でcsvファイルを読み込むことで、次スライドのforを使用しデータを読み込むことが可能になります
+
+- reader関数でcsvファイルを読み込むことで、次スライドのforを使用しデータを読み込むことが可能になります
 
 ---
 
-# 1行分のデータを読みこみ標準出力へ表示させる
+# 3. 1行分のデータを読みこみ標準出力へ表示させる
 以下のような処理を行なっています
 
 1. forを使用してcsvファイルの1行分のデータを変数lineに格納
@@ -732,11 +734,11 @@ reader関数でcsvファイルを読み込むことで、次スライドのfor�
 3. csvファイルの次の行へ移動
 4. csv_dataの最後の行まで処理1〜3を繰り返し行う
 
-```python
-    for line in csv_data:
-        # lineを表示させる
-        print('lineの中身：{}'.format(line))
-```
+    ```python
+        for line in csv_data:
+            # lineを表示させる
+            print('lineの中身：{}'.format(line))
+    ```
 
 変数lineはforの範囲でのみ有効な変数です
 forの範囲とは、for行以下からインデントされている行になります
@@ -772,7 +774,7 @@ forの範囲とは、for行以下からインデントされている行にな�
 
 ---
 
-# 1行分のデータを読みこみ標準出力へ表示させる
+# 3. 1行分のデータを読みこみ標準出力へ表示させる
 
 文字列`lineの中身:`と、変数`line`のデータを組み合わせた文字列を標準出力に表示させています
 
@@ -798,20 +800,20 @@ forの範囲とは、for行以下からインデントされている行にな�
 # csvファイルの値を1つ取り出すには？
 
 - 先程の結果をよくみてみると・・・
-```python
-% python3 mail_create_2_example.py
-lineの中身：['sato@companyA.co.jp', 'pymee@example.com', '株式会社A社', '佐藤']
-------
-lineの中身：['sakashita@compamyB.co.jp', 'pymee@example.com', '株式会社B社', '坂下']
-------
-lineの中身：['sakagami@companyC.co.jp', 'pymee@example.com', '株式会社C社', '坂上']
-------
-```
+  ```python
+  % python3 mail_create_2_example.py
+  lineの中身：['sato@companyA.co.jp', 'pymee@example.com', '株式会社A社', '佐藤']
+  ------
+  lineの中身：['sakashita@compamyB.co.jp', 'pymee@example.com', '株式会社B社', '坂下']
+  ------
+  lineの中身：['sakagami@companyC.co.jp', 'pymee@example.com', '株式会社C社', '坂上']
+  ------
+  ```
 
 </br>
 
-- **[]で囲まれており、文字列が「,」で区切られている？**
-  - []の部分はリスト(list型)と呼ばれるデータ型です
+- **[ ]で囲まれており、文字列が「,」で区切られている？**
+  - [ ]の部分はリスト(list型)と呼ばれるデータ型です
   - 「,」で区切られたデータ1つ1つを取り出すことが可能です
 
 ---
@@ -828,11 +830,11 @@ lineの中身：['sakagami@companyC.co.jp', 'pymee@example.com', '株式会社C�
   - 1番目のデータを取り出すにはlist_data[0]と指定する
   - 2番目のデータを取り出すにはlist_data[1]と指定する・・・
 
-![w:518 h:322](image/リストとは.png)
+  ![w:518 h:322](image/リストとは.png)
 
 ---
 
-# 1行分のデータを読みこみ標準出力へ表示させる
+# 3. 1行分のデータを読みこみ標準出力へ表示させる
 </br>
 </br>
 
@@ -964,6 +966,7 @@ ValueError: I/O operation on closed file.
 # 解決策
 
 csvファイルのデータをリストに格納し、withの範囲外でも利用できるようにします
+</br>
 
 1. withを使用し読み込みファイルを開き、csvデータを読みこむ
 2. withの中で事前にデータを格納する空のリストを準備
@@ -991,6 +994,17 @@ class: slide
 -->
 
 # アジェンダ
+- プログラムって何？
+- 自動化する前に業務の自動化を考えてみる
+- `1通のメールを作成するプログラムを実行してみる`
+- `1通のメールを作成するプログラムを修正してみる`
+- csvファイルからデータを読み込む
+- 今後の流れについて
+  - 課題について
+  - 発表について
+
+</br>
+灰色部分が実際に手を動かしてもらう部分になります
 
 ---
 
