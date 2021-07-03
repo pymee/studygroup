@@ -610,7 +610,7 @@ mail_create_1_example.pyを以下のように修正してみよう！
 
 # 回答例
 
-[リンクを貼る](https://)
+回答例は[こちら](https://github.com/pymee/studygroup/blob/feature/modify_doc/8th/answer/mail_create_1_after.py)になります！
 
 
 ---
