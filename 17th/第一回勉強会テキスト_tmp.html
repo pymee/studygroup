@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>第一回勉強会テキスト.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E4%BE%8B%E9%A1%8C%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E6%A9%9F%E8%83%BD">例題プログラムの機能</h1>
+<p>設定シートから設定情報を読み込み、
+Linuxで実行可能なサーバ設定用のpythonスクリプトファイルを作成</p>
+<h1 id="%E4%BE%8B%E9%A1%8C%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%AE%E5%85%A5%E5%8A%9B%E3%81%A8%E5%87%BA%E5%8A%9B">例題プログラムの入力と出力</h1>
+<pre><code class="language-mermaid"><div class="mermaid">
+flowchart TB
+    A[設定シートエクセルファイル] -->|入力| B[例題プログラム]
+    B --> |出力| C[サーバ設定pythonスクリプトファイル]
+
+</div></code></pre>
+<h1 id="%E4%BE%8B%E9%A1%8C%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E5%85%A8%E4%BD%93%E3%81%AE%E6%B5%81%E3%82%8C">例題プログラム全体の流れ:</h1>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TB
+ A[1.OpenPyXLライブラリのインポート] --> B[2.エクセルのファイルとシートを指定してファイルを開く]
+ B --> C[3.読み込んだセルを格納する配列の定義]
+ C --> D[4.セルの値を読み込み配列に格納]
+ D --> E[5.配列に格納した値を使いpythonスクリプトファイルの作成]
+</div></code></pre>
+<h1 id="%E3%82%B5%E3%83%BC%E3%83%90%E8%A8%AD%E5%AE%9Apython%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AB%E5%AE%9F%E6%96%BD%E3%81%95%E3%82%8C%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">サーバ設定pythonスクリプトファイル実行時に実施されるコマンド</h1>
+<pre class="hljs"><code><div><span class="hljs-comment">#IPアドレスの設定</span>
+nmcli connection modify ens192 ipv4.address <span class="hljs-number">172.19</span><span class="hljs-number">.6</span><span class="hljs-number">.20</span>/<span class="hljs-number">24</span>
+<span class="hljs-comment">#デフォルトゲートウェイの設定</span>
+nmcli connection modify ens192 ipv4.gateway <span class="hljs-number">172.19</span><span class="hljs-number">.6</span><span class="hljs-number">.254</span>
+<span class="hljs-comment">#IPアドレス設定の手動化(DHCP OFF)</span>
+nmcli connection modify ens192 ipv4.method manual
+<span class="hljs-comment">#インターフェースの自動起動</span>
+nmcli connection modify ens192 connection.autoconnect yes
+
+nmcli connection modify ens224 ipv4.address <span class="hljs-number">192.168</span><span class="hljs-number">.10</span><span class="hljs-number">.22</span>/<span class="hljs-number">24</span>
+nmcli connection modify ens224 ipv4.method manual
+nmcli connection modify ens224 connection.autoconnect yes
+
+nmcli connection modify ens256 ipv4.address <span class="hljs-number">192.168</span><span class="hljs-number">.20</span><span class="hljs-number">.22</span>/<span class="hljs-number">24</span>
+nmcli connection modify ens256 ipv4.method manual
+nmcli connection modify ens256 connection.autoconnect yes
+
+<span class="hljs-comment">#サービスの再起動</span>
+systemctl restart NetworkManager
+
+<span class="hljs-comment">#インターフェースの再起動</span>
+nmcli connection down ens192
+nmcli connection up ens192
+nmcli connection down ens224
+nmcli connection up ens224
+nmcli connection down ens256
+nmcli connection up ens256
+</div></code></pre>
+<h1 id="1openpyxl%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88">1.OpenPyXLライブラリのインポート</h1>
+<pre class="hljs"><code><div><span class="hljs-comment">#import 【ライブラリ名】でライブラリをimport</span>
+<span class="hljs-keyword">import</span> openpyxl
+</div></code></pre>
+<h2 id="openpyxl%E3%81%A8%E3%81%AF">OpenPyXLとは</h2>
+<p>OpenPyXLとは、ExcelファイルをPythonで操作するためのライブラリ
+OpenPyXLを使うことで、Excelファイルのシートやセルからデータを取り出したり、セルにデータ書き出したり様々な操作が可能</p>
+<h2 id="%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%A8%E3%81%AF">プログラミングにおけるライブラリとは</h2>
+<p>事前作成されたコード(モジュール)をまとめたもの、
+利用することで効率的にプログラムを作成できる
+ライブラリごとに特定の問題を対象としている</p>
+<h1 id="2%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E3%81%AE%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%A8%E3%82%B7%E3%83%BC%E3%83%88%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E9%96%8B%E3%81%8F">2.エクセルのファイルとシートを指定してファイルを開く</h1>
+<pre class="hljs"><code><div><span class="hljs-comment"># エクセルファイルのパスとシート名</span>
+file_path = <span class="hljs-string">"linux_config.xlsx"</span>
+sheet_name = <span class="hljs-string">"interface"</span>
+
+<span class="hljs-comment"># エクセルファイルを開く</span>
+workbook = openpyxl.load_workbook(file_path)
+sheet = workbook[sheet_name]
+</div></code></pre>
+<h2 id="%E3%82%BB%E3%83%AB%E3%81%AE%E5%80%A4%E3%81%AE%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E6%96%B9">セルの値の取り出し方</h2>
+<pre class="hljs"><code><div>interface = sheet[<span class="hljs-string">"B3"</span>].value
+
+print(interface)
+ens192
+</div></code></pre>
+<h2 id="%E7%A9%BA%E3%81%AE%E3%82%BB%E3%83%AB%E3%81%AE%E5%80%A4">空のセルの値</h2>
+<pre class="hljs"><code><div>interface = sheet[<span class="hljs-string">"B6"</span>].value
+
+print(interface)
+<span class="hljs-literal">None</span>
+</div></code></pre>
+<h1 id="3%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%82%93%E3%81%A0%E3%82%BB%E3%83%AB%E3%82%92%E6%A0%BC%E7%B4%8D%E3%81%99%E3%82%8B%E9%85%8D%E5%88%97%E3%81%AE%E5%AE%9A%E7%BE%A9">3.読み込んだセルを格納する配列の定義</h1>
+<pre class="hljs"><code><div>interfaces = []
+ipaddresses = []
+dg = []
+bootprots = []
+autoconnects = []
+
+
+</div></code></pre>
+<h2 id="%E9%85%8D%E5%88%97%E3%81%B8%E3%81%AE%E5%80%A4%E3%81%AE%E6%A0%BC%E7%B4%8D%E3%81%A8%E5%8F%96%E3%82%8A%E5%87%BA%E3%81%97%E6%96%B9%E6%B3%95">配列への値の格納と取り出し方法</h2>
+<pre class="hljs"><code><div>interfaces = []
+interfaces.append(<span class="hljs-string">"ens192"</span>)
+interfaces.append(<span class="hljs-string">"ens224"</span>)
+interfaces.append(<span class="hljs-string">"ens256"</span>)
+
+print(interfaces)
+[<span class="hljs-string">'ens192'</span>, <span class="hljs-string">'ens224'</span>, <span class="hljs-string">'ens256'</span>]
+
+print(interfaces[<span class="hljs-number">0</span>])
+ens192
+
+print(interfaces[<span class="hljs-number">1</span>])
+ens224
+
+print(interfaces[<span class="hljs-number">2</span>])
+ens256
+
+</div></code></pre>
+<h1 id="4%E3%82%BB%E3%83%AB%E3%81%AE%E5%80%A4%E3%82%92%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF%E9%85%8D%E5%88%97%E3%81%AB%E6%A0%BC%E7%B4%8D">4.セルの値を読み込み配列に格納</h1>
+<pre class="hljs"><code><div>row = <span class="hljs-number">3</span>
+
+<span class="hljs-keyword">while</span>  <span class="hljs-literal">True</span>:
+	interface = sheet[<span class="hljs-string">"B"</span> + str(row)].value
+	<span class="hljs-keyword">if</span> interface <span class="hljs-keyword">is</span>  <span class="hljs-literal">None</span>:
+		<span class="hljs-keyword">break</span>
+	interfaces.append(interface)
+
+	ipaddress = sheet[<span class="hljs-string">"C"</span> + str(row)].value
+	ipaddresses.append(ipaddress)
+
+	default_gateway = sheet[<span class="hljs-string">"D"</span> + str(row)].value
+	dg.append(default_gateway)
+
+	bootprot = sheet[<span class="hljs-string">"E"</span> + str(row)].value
+	bootprots.append(bootprot)
+
+	autoconnect = sheet[<span class="hljs-string">"F"</span> + str(row)].value
+	autoconnects.append(autoconnect)
+
+	row += <span class="hljs-number">1</span>
+
+<span class="hljs-comment"># エクセルファイルを閉じる</span>
+workbook.close()
+</div></code></pre>
+<h2 id="while%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%A72%E5%9B%9E%E7%9B%AE%E3%81%AEinterfacesappendinterface%E3%81%A7%E9%85%8D%E5%88%97interfaces%E3%81%AB%E5%85%A5%E3%82%8B%E5%80%A4%E3%81%AF">whileループ内で2回目の「interfaces.append(interface)」で配列「interfaces」に入る値は？</h2>
+<h2 id="while%E6%96%87%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BE%8B">while文の使用例</h2>
+<pre class="hljs"><code><div>a = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span>  <span class="hljs-literal">True</span>:
+	print(a)
+	a = a + <span class="hljs-number">1</span>
+	<span class="hljs-keyword">if</span> a == <span class="hljs-number">10</span>:
+		<span class="hljs-keyword">break</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">9</span>
+</div></code></pre>
+<h2 id="%E4%BE%8B%E9%A1%8C%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%A7%E9%85%8D%E5%88%97%E3%81%AB%E6%A0%BC%E7%B4%8D%E3%81%95%E3%82%8C%E3%81%9F%E5%80%A4">例題プログラムで配列に格納された値</h2>
+<pre class="hljs"><code><div>print(interfaces)
+[<span class="hljs-string">'ens192'</span>, <span class="hljs-string">'ens224'</span>, <span class="hljs-string">'ens256'</span>]
+
+print(ipaddresses)
+[<span class="hljs-string">'172.19.6.20/24'</span>, <span class="hljs-string">'192.168.10.22/24'</span>, <span class="hljs-string">'192.168.20.22/24'</span>]
+
+print(dg)
+[<span class="hljs-string">'172.19.6.254'</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>]
+
+print(bootprots)
+[<span class="hljs-string">'manual'</span>, <span class="hljs-string">'manual'</span>, <span class="hljs-string">'manual'</span>]
+
+print(autoconnects)
+[<span class="hljs-string">'yes'</span>, <span class="hljs-string">'yes'</span>, <span class="hljs-string">'yes'</span>]
+</div></code></pre>
+<h1 id="5%E9%85%8D%E5%88%97%E3%81%AB%E6%A0%BC%E7%B4%8D%E3%81%97%E3%81%9F%E5%80%A4%E3%82%92%E4%BD%BF%E3%81%84python%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90">5.配列に格納した値を使いpythonスクリプトファイルの作成</h1>
+<pre class="hljs"><code><div><span class="hljs-comment"># Pythonスクリプトファイルを作成してコマンドを出力</span>
+<span class="hljs-keyword">with</span>  open(<span class="hljs-string">"configure_interfaces.py"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> f:
+	f.write(<span class="hljs-string">"#!/usr/bin/python3\n\n"</span>)
+	f.write(<span class="hljs-string">"import subprocess\n\n"</span>)
+	f.write(<span class="hljs-string">"# インターフェースとIPアドレスの設定\n"</span>)
+
+	<span class="hljs-keyword">for</span> interface, ipaddress, default_gateway, bootprot, autoconnect <span class="hljs-keyword">in</span> zip(interfaces, ipaddresses, dg, bootprots, autoconnects):
+
+		f.write(<span class="hljs-string">f"subprocess.run(['nmcli', 'connection', 'modify', '<span class="hljs-subst">{interface}</span>', 'ipv4.address', '<span class="hljs-subst">{ipaddress}</span>'])\n"</span>)
+
+		<span class="hljs-keyword">if</span> default_gateway:
+			f.write(<span class="hljs-string">f"subprocess.run(['nmcli', 'connection', 'modify', '<span class="hljs-subst">{interface}</span>', 'ipv4.gateway', '<span class="hljs-subst">{default_gateway}</span>'])\n"</span>)
+
+		f.write(<span class="hljs-string">f"subprocess.run(['nmcli', 'connection', 'modify', '<span class="hljs-subst">{interface}</span>', 'ipv4.method', '<span class="hljs-subst">{bootprot}</span>'])\n"</span>)
+
+		f.write(<span class="hljs-string">f"subprocess.run(['nmcli', 'connection', 'modify', '<span class="hljs-subst">{interface}</span>', 'connection.autoconnect', '<span class="hljs-subst">{autoconnect}</span>'])\n"</span>)
+
+	f.write(<span class="hljs-string">"# NetworkManagerのサービス再起動\n"</span>)
+	f.write(<span class="hljs-string">"subprocess.run(['systemctl', 'restart', 'NetworkManager'])\n\n"</span>)
+
+
+
+	f.write(<span class="hljs-string">"# インターフェースの再起動\n"</span>)
+	<span class="hljs-keyword">for</span> interface <span class="hljs-keyword">in</span> interfaces:
+		f.write(<span class="hljs-string">f"subprocess.run(['nmcli', 'connection', 'down', '<span class="hljs-subst">{interface}</span>'])\n"</span>)
+		f.write(<span class="hljs-string">f"subprocess.run(['nmcli', 'connection', 'up', '<span class="hljs-subst">{interface}</span>'])\n"</span>)
+f.close()
+</div></code></pre>
+<h2 id="for%E3%83%AB%E3%83%BC%E3%83%97%E5%86%85%E3%81%A7%E5%88%9D%E5%9B%9E%E3%81%AEfwritef%22subprocessrunnmcli-connection-modify-interface-ipv4address-ipaddressn%22%E3%81%A7interfaceipaddress%E3%81%AE%E5%B1%95%E9%96%8B%E5%BE%8C%E3%81%AE%E5%80%A4%E3%81%AF">forループ内で初回の「f.write(f&quot;subprocess.run(['nmcli', 'connection', 'modify', '{interface}', 'ipv4.address', '{ipaddress}'])\n&quot;)」で{interface}、{ipaddress}の展開後の値は？</h2>
+<h2 id="%E4%BE%8B%E9%A1%8C%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%E3%81%A7%E5%87%BA%E5%8A%9B%E3%81%95%E3%81%9B%E3%82%8Bpython%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">例題プログラムで出力させるpythonスクリプトファイル</h2>
+<pre class="hljs"><code><div><span class="hljs-comment">#!/usr/bin/python3</span>
+
+<span class="hljs-keyword">import</span> subprocess
+
+<span class="hljs-comment"># インターフェースとIPアドレスの設定</span>
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens192'</span>, <span class="hljs-string">'ipv4.address'</span>, <span class="hljs-string">'172.19.6.20/24'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens192'</span>, <span class="hljs-string">'ipv4.gateway'</span>, <span class="hljs-string">'172.19.6.254'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens192'</span>, <span class="hljs-string">'ipv4.method'</span>, <span class="hljs-string">'manual'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens192'</span>, <span class="hljs-string">'connection.autoconnect'</span>, <span class="hljs-string">'yes'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens224'</span>, <span class="hljs-string">'ipv4.address'</span>, <span class="hljs-string">'192.168.10.22/24'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens224'</span>, <span class="hljs-string">'ipv4.method'</span>, <span class="hljs-string">'manual'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens224'</span>, <span class="hljs-string">'connection.autoconnect'</span>, <span class="hljs-string">'yes'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens256'</span>, <span class="hljs-string">'ipv4.address'</span>, <span class="hljs-string">'192.168.20.22/24'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens256'</span>, <span class="hljs-string">'ipv4.method'</span>, <span class="hljs-string">'manual'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens256'</span>, <span class="hljs-string">'connection.autoconnect'</span>, <span class="hljs-string">'yes'</span>])
+
+<span class="hljs-comment"># NetworkManagerのサービス再起動</span>
+subprocess.run([<span class="hljs-string">'systemctl'</span>, <span class="hljs-string">'restart'</span>, <span class="hljs-string">'NetworkManager'</span>])
+
+<span class="hljs-comment"># インターフェースの再起動</span>
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'down'</span>, <span class="hljs-string">'ens192'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'up'</span>, <span class="hljs-string">'ens192'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'down'</span>, <span class="hljs-string">'ens224'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'up'</span>, <span class="hljs-string">'ens224'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'down'</span>, <span class="hljs-string">'ens256'</span>])
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'up'</span>, <span class="hljs-string">'ens256'</span>])
+</div></code></pre>
+<h2 id="%E3%82%B5%E3%83%BC%E3%83%90%E3%81%8C%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89">サーバが実行するコマンド</h2>
+<pre class="hljs"><code><div><span class="hljs-comment">#IPアドレスの設定</span>
+nmcli connection modify ens192 ipv4.address <span class="hljs-number">172.19</span><span class="hljs-number">.6</span><span class="hljs-number">.20</span>/<span class="hljs-number">24</span>
+<span class="hljs-comment">#デフォルトゲートウェイの設定</span>
+nmcli connection modify ens192 ipv4.gateway <span class="hljs-number">172.19</span><span class="hljs-number">.6</span><span class="hljs-number">.254</span>
+<span class="hljs-comment">#IPアドレス設定の手動化(DHCP OFF)</span>
+nmcli connection modify ens192 ipv4.method manual
+<span class="hljs-comment">#インターフェースの自動起動</span>
+nmcli connection modify ens192 connection.autoconnect yes
+
+nmcli connection modify ens224 ipv4.address <span class="hljs-number">192.168</span><span class="hljs-number">.10</span><span class="hljs-number">.22</span>/<span class="hljs-number">24</span>
+nmcli connection modify ens224 ipv4.method manual
+nmcli connection modify ens224 connection.autoconnect yes
+
+nmcli connection modify ens256 ipv4.address <span class="hljs-number">192.168</span><span class="hljs-number">.20</span><span class="hljs-number">.22</span>/<span class="hljs-number">24</span>
+nmcli connection modify ens256 ipv4.method manual
+nmcli connection modify ens256 connection.autoconnect yes
+
+<span class="hljs-comment">#サービスの再起動</span>
+systemctl restart NetworkManager
+
+<span class="hljs-comment">#インターフェースの再起動</span>
+nmcli connection down ens192
+nmcli connection up ens192
+nmcli connection down ens224
+nmcli connection up ens224
+nmcli connection down ens256
+nmcli connection up ens256
+</div></code></pre>
+<h2 id="subprocess%E3%81%A8%E3%81%AF">subprocessとは</h2>
+<p>利用することでpythonからOSコマンドが実行可能</p>
+<h3 id="%E5%88%A9%E7%94%A8%E4%BE%8B">利用例</h3>
+<ol>
+<li>pythonファイル「nmcli.py」を作成<pre class="hljs"><code><div><span class="hljs-keyword">import</span> subprocess
+
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens192'</span>, <span class="hljs-string">'ipv4.address'</span>, <span class="hljs-string">'172.19.6.20/24'</span>])
+</div></code></pre>
+</li>
+<li>サーバに「nmcli.py」を配置し、実行<pre class="hljs"><code><div>$ python3 nmcli.py
+</div></code></pre>
+</li>
+<li>サーバで以下コマンドが実行される<pre class="hljs"><code><div>nmcli connection modify ens192 ipv4.address 172.19.6.20/24
+</div></code></pre>
+</li>
+</ol>
+<h2 id="zip%E3%81%A7%E8%A4%87%E6%95%B0%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E3%81%BE%E3%81%A8%E3%82%81%E3%81%A6%E5%8F%96%E5%BE%97%E3%81%95%E3%81%9B%E3%82%8B%E6%96%B9%E6%B3%95">zipで複数の要素をまとめて取得させる方法</h2>
+<pre class="hljs"><code><div>interfaces = [<span class="hljs-string">'ens192'</span>, <span class="hljs-string">'ens224'</span>, <span class="hljs-string">'ens256'</span>]
+ipaddresses = [<span class="hljs-string">'172.19.6.20/24'</span>, <span class="hljs-string">'192.168.10.22/24'</span>, <span class="hljs-string">'192.168.20.22/24'</span>]
+dg = [<span class="hljs-string">'172.19.6.254'</span>, <span class="hljs-literal">None</span>, <span class="hljs-literal">None</span>]
+bootprots = [<span class="hljs-string">'manual'</span>, <span class="hljs-string">'manual'</span>, <span class="hljs-string">'manual'</span>]
+autoconnects = [<span class="hljs-string">'yes'</span>, <span class="hljs-string">'yes'</span>, <span class="hljs-string">'yes'</span>]
+
+<span class="hljs-keyword">for</span> interface, ipaddress, default_gateway, bootprot, autoconnect <span class="hljs-keyword">in</span>  zip(interfaces, ipaddresses, dg, bootprots, autoconnects):
+
+	print(interface)
+	print(ipaddress)
+	print(default_gateway)
+	print(bootprot)
+	print(autoconnect)
+	print(<span class="hljs-string">"\n"</span>)
+
+ens192
+<span class="hljs-number">172.19</span><span class="hljs-number">.6</span><span class="hljs-number">.20</span>/<span class="hljs-number">24</span>
+<span class="hljs-number">172.19</span><span class="hljs-number">.6</span><span class="hljs-number">.254</span>
+manual
+yes
+
+ens224
+<span class="hljs-number">192.168</span><span class="hljs-number">.10</span><span class="hljs-number">.22</span>/<span class="hljs-number">24</span>
+<span class="hljs-literal">None</span>
+manual
+yes
+
+ens256
+<span class="hljs-number">192.168</span><span class="hljs-number">.20</span><span class="hljs-number">.22</span>/<span class="hljs-number">24</span>
+<span class="hljs-literal">None</span>
+manual
+yes
+</div></code></pre>
+<h2 id="with-open%E3%81%AB%E3%82%88%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E4%BD%9C%E6%88%90">with openによるファイル作成</h2>
+<pre class="hljs"><code><div><span class="hljs-comment"># Pythonスクリプトファイルを作成してコマンドを出力</span>
+<span class="hljs-keyword">with</span>  open(<span class="hljs-string">"configure_interfaces.py"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> f:
+	f.write(<span class="hljs-string">"#!/usr/bin/python3\n\n"</span>)
+	f.write(<span class="hljs-string">"import subprocess\n\n"</span>)
+	f.write(<span class="hljs-string">"# インターフェースとIPアドレスの設定\n"</span>)
+
+	interface = <span class="hljs-string">"ens192"</span>
+	ipaddress = <span class="hljs-string">"172.19.6.20/24"</span>
+	<span class="hljs-comment">#f文字列にて{}で囲まれた箇所を変数展開</span>
+	f.write(<span class="hljs-string">f"subprocess.run(['nmcli', 'connection', 'modify', '<span class="hljs-subst">{interface}</span>', 'ipv4.address', '<span class="hljs-subst">{ipaddress}</span>'])\n"</span>)
+
+	f.close()
+</div></code></pre>
+<h2 id="%E4%BD%9C%E6%88%90%E3%81%95%E3%82%8C%E3%81%9F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%86%85%E5%AE%B9">作成されたファイルの内容</h2>
+<pre class="hljs"><code><div><span class="hljs-comment">#!/usr/bin/python3</span>
+
+<span class="hljs-keyword">import</span> subprocess
+
+<span class="hljs-comment"># インターフェースとIPアドレスの設定</span>
+subprocess.run([<span class="hljs-string">'nmcli'</span>, <span class="hljs-string">'connection'</span>, <span class="hljs-string">'modify'</span>, <span class="hljs-string">'ens192'</span>, <span class="hljs-string">'ipv4.address'</span>, <span class="hljs-string">'172.19.6.20/24'</span>])
+</div></code></pre>
+<h2 id="python%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E5%87%BA%E5%8A%9B%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%82%92%E5%87%BA%E5%8A%9B%E3%81%99%E3%82%8B%E5%A0%B4%E5%90%88">pythonスクリプトファイルの出力ではなくテキストを出力する場合</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">for</span> interface, ipaddress, default_gateway, bootprot, autoconnect <span class="hljs-keyword">in</span> zip(interfaces, ipaddresses, dg, bootprots, autoconnects):
+  print(<span class="hljs-string">f"nmcli connection modify <span class="hljs-subst">{interface}</span> ipv4.address <span class="hljs-subst">{ipaddress}</span>"</span>)
+  <span class="hljs-keyword">if</span> default_gateway:
+    print(<span class="hljs-string">f"nmcli connection modify <span class="hljs-subst">{interface}</span> ipv4.gateway <span class="hljs-subst">{default_gateway}</span>"</span>)
+  print(<span class="hljs-string">f"nmcli connection modify <span class="hljs-subst">{interface}</span> ipv4.method <span class="hljs-subst">{bootprot}</span>"</span>)
+  print(<span class="hljs-string">f"nmcli connection modify <span class="hljs-subst">{interface}</span> connection.autoconnec <span class="hljs-subst">{autoconnect}</span>"</span>)
+  print(<span class="hljs-string">"\n"</span>)
+
+print(<span class="hljs-string">"systemctl restart NetworkManagre"</span>)
+print(<span class="hljs-string">"\n"</span>)
+
+<span class="hljs-keyword">for</span> interface <span class="hljs-keyword">in</span> interfaces:
+  print(<span class="hljs-string">f"nmcli connection down <span class="hljs-subst">{interface}</span>"</span>)
+  print(<span class="hljs-string">f"nmcli connection up <span class="hljs-subst">{interface}</span>"</span>)
+  print(<span class="hljs-string">"\n"</span>)
+</div></code></pre>
+<h1 id="%E5%8F%82%E8%80%83%E6%83%85%E5%A0%B1">参考情報</h1>
+<h2 id="%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AB%E3%82%88%E3%82%8B%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E7%B7%A8%E9%9B%86">コマンドによるファイル編集</h2>
+<p><code>/etc/selinux/config</code>
+変更前</p>
+<pre class="hljs"><code><div># This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#       enforcing - SELinux security policy is enforced.
+#       permissive - SELinux prints warnings instead of enforcing.
+#       disabled - No SELinux policy is loaded.
+SELINUX=enforcing
+# SELINUXTYPE= can take one of these two values:
+#       targeted - Targeted processes are protected,
+#       mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+</div></code></pre>
+<p>コマンド実行(&quot;SELINUX=&quot;で始まる文字列を置換)</p>
+<pre class="hljs"><code><div>sed -i &quot;s/^SELINUX=.*/SELINUX=disabled/&quot; '/etc/sysconfig/selinux'
+</div></code></pre>
+<pre class="hljs"><code><div># This file controls the state of SELinux on the system.
+# SELINUX= can take one of these three values:
+#       enforcing - SELinux security policy is enforced.
+#       permissive - SELinux prints warnings instead of enforcing.
+#       disabled - No SELinux policy is loaded.
+SELINUX=disabled
+# SELINUXTYPE= can take one of these two values:
+#       targeted - Targeted processes are protected,
+#       mls - Multi Level Security protection.
+SELINUXTYPE=targeted
+</div></code></pre>
+<h2 id="%E8%A8%AD%E5%AE%9A%E9%A0%85%E7%9B%AE%E5%90%8D%E3%82%92%E6%A4%9C%E7%B4%A2%E3%81%97%E3%81%A6%E5%80%A4%E3%82%92%E5%8F%96%E5%BE%97">設定項目名を検索して値を取得</h2>
+<p>以下の例ではB列(row[1])から項目&quot;selinux&quot;を検索し値&quot;disabled&quot;を代入</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> openpyxl
+
+<span class="hljs-comment"># エクセルファイルの読み込み</span>
+workbook = openpyxl.load_workbook(<span class="hljs-string">'linux_config.xlsx'</span>)
+sheet = workbook[<span class="hljs-string">'others'</span>]
+
+<span class="hljs-comment"># "selinux"を検索してC列の値を取得</span>
+selinux = <span class="hljs-literal">None</span>
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> sheet.iter_rows():
+	cell_value = row[<span class="hljs-number">1</span>].value <span class="hljs-comment"># B列の値を取得</span>
+	<span class="hljs-keyword">if</span> cell_value == <span class="hljs-string">"selinux"</span>:
+		<span class="hljs-keyword">if</span>  len(row) &gt; <span class="hljs-number">2</span>: <span class="hljs-comment"># 右隣のセルが存在するか確認</span>
+			selinux = row[<span class="hljs-number">2</span>].value
+		<span class="hljs-keyword">break</span>
+
+print(selinux)
+disabled
+</div></code></pre>
+
+</body>
+</html>
